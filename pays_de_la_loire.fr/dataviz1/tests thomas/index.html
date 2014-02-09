@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">
+
+<!-- http://api.highcharts.com/highcharts#chart -->
+<html>
+<head>
+	<title>Test</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./csvUtil.js"></script>
+	<script type="text/javascript">
+	
+	
+	/* ----------------- (chargement des données du csv) */
+	var moduleCSV = moduleCSV();
+	var regions = new Array();
+	var football = new Array();
+    
+	moduleCSV.readTextFile('regions_sans_dom_licencies_par_sport10000_2012.csv', function (csvString) {
+        var csvObject = moduleCSV.csvToObject(csvString), prop, s = '',
+            premiereLigne = csvObject.firstLine;
+			for (var i=0; i<premiereLigne.split(';').length; i++) {
+				regions.push(premiereLigne.split(';')[i]);
+			}
+        var compteur=0;
+		for (prop in csvObject) {
+            if (csvObject.hasOwnProperty(prop)) {
+                compteur++;
+				if (compteur==6) {
+					var ligne = (csvObject[prop]+',').split(',');
+					for (var i=0; i<ligne.length; i++) {
+						football.push(parseInt(ligne[i]));
+					}
+				}
+			}
+        }
+
+		// tri des données
+		var changement = true;
+		while (changement) {
+			changement = false;
+			for (var i=0; i<regions.length-1; i++) {
+				if (football[i] < football[i+1]) {
+					var tmp1 = regions[i];
+					var tmp2 = football[i];
+					regions[i] = regions[i+1];
+					football[i] = football[i+1];
+					regions[i+1] = tmp1;
+					football[i+1] = tmp2;
+					changement = true;
+				}
+			}
+		}
+	});
+	/* ---------------- (fin de chargement des données) */
+	
+	
+		
+		(function($){ // encapsulate jQuery
+		$(function () {
+				$('#container').highcharts({
+					chart: {
+						type: 'bar',
+						borderWidth: 1,
+					},
+					title: {
+						text: 'Football'
+					},
+					xAxis: {
+						categories: regions,
+						tickmarkPlacement: 'on',
+						labels: { step: 1 }
+					},
+					yAxis: {			
+						title: {
+							text: 'Nombre de licenciers (pour 10 000 habitants)',
+							align: 'high'
+						},
+						labels: {
+							overflow: 'justify'
+						},
+						gridLineWidth: 0
+					},
+					exporting: {
+						enabled : false
+					},
+					plotOptions: {
+						bar: {
+							dataLabels: { 
+								enabled: true 
+							}
+						}
+					},
+					legend: { 
+						enabled: false 
+					},
+					credits: {
+						enabled: false
+					},
+					tooltip: { 
+						enabled: false 
+					},
+					series: [{
+						name: '2012',
+						data: football,
+					}]
+				});
+			});
+		})(jQuery);
+	</script>
+</head>
+
+<body>
+<div id="graph">
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		
+</div>
+</body>
+
+</html>
