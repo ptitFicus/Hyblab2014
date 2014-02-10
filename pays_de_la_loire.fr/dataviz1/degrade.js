@@ -187,51 +187,6 @@ var moduleDegrade = function () {
                 }
             }
             
-/*            for (prop in listeRatios) {
-                if (listeRatios.hasOwnProperty(prop)) {
-                    res = '#';
-                    
-                    // Building new Color
-                    nouvelleValeurBleue = 255 - (Math.floor((listeRatios[prop] * valeurBleueV) / max) + valeurBleueMax);
-                    
-                    nouvelleValeurVerte = 255 - (Math.floor((listeRatios[prop] * valeurVerteV) / max) + valeurVerteMax);
-                    
-                    nouvelleValeurRouge = 255 - (Math.floor((listeRatios[prop] * valeurRougeV) / max) + valeurRougeMax);
-                    
-                    nouvelleValeurBleue = intToHexString(nouvelleValeurBleue);
-                    if (nouvelleValeurBleue.length < 2) {
-                        nouvelleValeurBleue = "0" + nouvelleValeurBleue;
-                    }
-                    
-                    nouvelleValeurVerte = intToHexString(nouvelleValeurVerte);
-                    if (nouvelleValeurVerte.length < 2) {
-                        nouvelleValeurVerte = "0" + nouvelleValeurVerte;
-                    }
-                    
-                    nouvelleValeurRouge = intToHexString(nouvelleValeurRouge);
-                    if (nouvelleValeurRouge.length < 2) {
-                        nouvelleValeurRouge = "0" + nouvelleValeurRouge;
-                    }
-                    
-                    res += nouvelleValeurRouge;
-                    res += nouvelleValeurVerte;
-                    res += nouvelleValeurBleue;
-                    
-                    //alert(prop + "\n"+"VR : "+valeurRouge+" VB : "+valeurBleue+" VR : "+valeurVerte +"\nNVR : "+nouvelleValeurRouge+ " NVB : "+ nouvelleValeurBleue + " NVR : " + nouvelleValeurVerte)
-                    
-                    palette[prop] = res;
-                }
-            }
-                var s = '';
-            
-            for (prop in palette) {
-                if (palette.hasOwnProperty(prop)) {
-                    s += prop + ' : ' + palette[prop] + '\n';
-                }
-            }
-            
-            alert(s);*/
-            
             return palette;
         }
     };
