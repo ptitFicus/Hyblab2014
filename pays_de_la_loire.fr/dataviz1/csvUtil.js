@@ -20,17 +20,19 @@ var moduleCSV = function () {
                 memberData,
                 lineExploded;
             
-            csvObject.firstLine = lines[0].substring(1);
-        
+            csvObject.firstLine = lines[0].substring(1).split(separator);
+            
             for (i = 1; i < lines.length; i += 1) {
                 currentLine = lines[i];
                 lineExploded = currentLine.split(separator);
                 memberId = lineExploded[0];
-                memberData = [];
-                for (j = 1; j < lineExploded.length; j += 1) {
-                    memberData.push(lineExploded[j]);
+                if (memberId !== "") {
+                    memberData = [];
+                    for (j = 1; j < lineExploded.length; j += 1) {
+                        memberData.push(lineExploded[j]);
+                    }
+                    csvObject[memberId] = memberData;
                 }
-                csvObject[memberId] = memberData;
             }
             return csvObject;
         },

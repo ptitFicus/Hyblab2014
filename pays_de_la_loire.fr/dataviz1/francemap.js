@@ -26,18 +26,44 @@ $(document).ready(function () {
         }
     }
     
-    palette = moduleD.obtenirPalette('#FF4477', ratios);
+    //palette = moduleD.obtenirPalette('#1d06ff', '#07b8fe', ratios);
+    //palette = moduleD.obtenirPalette('#efefef', '#000000', ratios);
     
-    moduleC.readTextFile('regions_sans_dom_licencies_par_sport_2012.csv', function (csvString) {
+    moduleC.readTextFile('regions_sans_dom_licencies_par_sport10000_2012.csv', function (csvString) {
         var csvObject = moduleC.csvToObject(csvString), prop, s = '',
-            premiereLigne = csvObject.firstLine;
+            premiereLigne = csvObject.firstLine,
+            regions = premiereLigne,
+            chiffres,
+            i,
+            ratiosTotalSport = [],
+            ratiosTotauxSpotsRegions = {};
+        
+        for (i = 0; i < regions.length; i += 1) {
+            ratiosTotalSport[i] = 0;
+        }
+        
         for (prop in csvObject) {
-            if (csvObject.hasOwnProperty(prop)) {
-                s += prop + " : " + csvObject[prop] + "\n";
+            if (csvObject.hasOwnProperty(prop) && prop.toString() !== "firstLine") {
+                chiffres = csvObject[prop];
+                for (i = 0; i < chiffres.length; i += 1) {
+                    ratiosTotalSport[i] += parseFloat(chiffres[i], 10);
+                }
             }
         }
-        alert(s);
+        
+        for (i = 0; i < regions.length; i += 1) {
+            ratiosTotauxSpotsRegions[regions[i]] = ratiosTotalSport[i];
+        }
+        
+        for (prop in ratiosTotauxSpotsRegions) {
+            if (ratiosTotauxSpotsRegions.hasOwnProperty(prop)) {
+                s += prop + " : " + ratiosTotauxSpotsRegions[prop] + "\n";
+            }
+        }
+        palette = moduleD.obtenirPalette('#000000', '#efefef', ratiosTotauxSpotsRegions);
+        map.series.regions[0].setValues(palette);
+        //alert(s);
     });
     
-    map.series.regions[0].setValues(palette);
+    
 });

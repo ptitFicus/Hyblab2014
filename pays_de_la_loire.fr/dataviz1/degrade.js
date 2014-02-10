@@ -139,50 +139,90 @@ var moduleDegrade = function () {
     }
     
     return {
-        obtenirPalette : function (couleurBase, listeRatios) {
-            var valeurRouge = 255 - hexaStringToInt(couleurBase.substring(1, 3)),
-                valeurVerte = 255 - hexaStringToInt(couleurBase.substring(3, 5)),
-                valeurBleue = 255 - hexaStringToInt(couleurBase.substring(5, 7)),
+        obtenirPalette : function (sombre, clair, listeRatios) {
+            var couleurMax = [hexaStringToInt(clair.substring(1, 3)), hexaStringToInt(clair.substring(3, 5)), hexaStringToInt(clair.substring(5, 7))],
+                couleurMin = [hexaStringToInt(sombre.substring(1, 3)), hexaStringToInt(sombre.substring(3, 5)), hexaStringToInt(sombre.substring(5, 7))],
+                coefficientsDirecteurs = [],
+                abcisseOrigine = [],
+                i,
+                palette = {},
                 prop,
                 max = 0,
-                palette = {},
+                min = 10000,
                 nouvelleValeurRouge,
                 nouvelleValeurBleue,
                 nouvelleValeurVerte,
-                res,
-                diff;
+                nouvelleCouleur,
+                res;
             
-            // Looking for the maximum ratio
+            // Looking for the maximum and minimum ratio
             for (prop in listeRatios) {
                 if (listeRatios.hasOwnProperty(prop)) {
                     if (listeRatios[prop] > max) {
                         max = listeRatios[prop];
                     }
+                    if (listeRatios[prop] < min) {
+                        min = listeRatios[prop];
+                    }
                 }
+            }
+            
+            for (i = 0; i < couleurMin.length; i += 1) {
+                coefficientsDirecteurs[i] = (couleurMin[i] - couleurMax[i]) / (max - min);
+                //alert(i + " : " + coefficientsDirecteurs[i]);
+                abcisseOrigine[i] = couleurMin[i] - (coefficientsDirecteurs[i] * max);
             }
             
             for (prop in listeRatios) {
                 if (listeRatios.hasOwnProperty(prop)) {
+                    palette[prop] = "#";
+                    for (i = 0; i < couleurMin.length; i += 1) {
+                        nouvelleCouleur = listeRatios[prop] * coefficientsDirecteurs[i] + abcisseOrigine[i];
+                        res = intToHexString(Math.floor(nouvelleCouleur));
+                        while (res.length < 2) {
+                            res = "0" + res;
+                        }
+                        palette[prop] += res;
+                    }
+                }
+            }
+            
+/*            for (prop in listeRatios) {
+                if (listeRatios.hasOwnProperty(prop)) {
                     res = '#';
                     
                     // Building new Color
-                    nouvelleValeurBleue = 255 - Math.floor((listeRatios[prop] * valeurBleue) / max);
+                    nouvelleValeurBleue = 255 - (Math.floor((listeRatios[prop] * valeurBleueV) / max) + valeurBleueMax);
                     
-                    nouvelleValeurVerte = 255 - Math.floor((listeRatios[prop] * valeurVerte) / max);
+                    nouvelleValeurVerte = 255 - (Math.floor((listeRatios[prop] * valeurVerteV) / max) + valeurVerteMax);
                     
-                    nouvelleValeurRouge = 255 - Math.floor((listeRatios[prop] * valeurRouge) / max);
+                    nouvelleValeurRouge = 255 - (Math.floor((listeRatios[prop] * valeurRougeV) / max) + valeurRougeMax);
                     
-                    res += intToHexString(nouvelleValeurRouge);
-                    res += intToHexString(nouvelleValeurVerte);
-                    res += intToHexString(nouvelleValeurBleue);
+                    nouvelleValeurBleue = intToHexString(nouvelleValeurBleue);
+                    if (nouvelleValeurBleue.length < 2) {
+                        nouvelleValeurBleue = "0" + nouvelleValeurBleue;
+                    }
+                    
+                    nouvelleValeurVerte = intToHexString(nouvelleValeurVerte);
+                    if (nouvelleValeurVerte.length < 2) {
+                        nouvelleValeurVerte = "0" + nouvelleValeurVerte;
+                    }
+                    
+                    nouvelleValeurRouge = intToHexString(nouvelleValeurRouge);
+                    if (nouvelleValeurRouge.length < 2) {
+                        nouvelleValeurRouge = "0" + nouvelleValeurRouge;
+                    }
+                    
+                    res += nouvelleValeurRouge;
+                    res += nouvelleValeurVerte;
+                    res += nouvelleValeurBleue;
                     
                     //alert(prop + "\n"+"VR : "+valeurRouge+" VB : "+valeurBleue+" VR : "+valeurVerte +"\nNVR : "+nouvelleValeurRouge+ " NVB : "+ nouvelleValeurBleue + " NVR : " + nouvelleValeurVerte)
                     
                     palette[prop] = res;
                 }
             }
-            
-        /*    var s = '';
+                var s = '';
             
             for (prop in palette) {
                 if (palette.hasOwnProperty(prop)) {
