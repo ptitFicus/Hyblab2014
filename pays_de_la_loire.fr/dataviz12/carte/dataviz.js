@@ -85,6 +85,7 @@ $(document).ready(function () {
 			dataDiagramme.push({y:donneesC[i], color:paletteDiagramme[regionsC[i]] });
 		}
 	
+		chart.yAxis[0].setExtremes(minDataValue(), null);
 		chart.series[0].update({
 			data: dataDiagramme
 		});
@@ -118,6 +119,7 @@ function cliqueSurRegion() { // TODO récupérer, au clique, le nom de la régio
 			dataDiagramme.push({y:donneesC[i], color:paletteDiagramme[regionsC[i]] });
 		}
 	
+		chart.yAxis[0].setExtremes(minDataValue(), null);
 		chart.series[0].update({
 			data: dataDiagramme
 		});
@@ -245,6 +247,8 @@ function afficherSport(sport) {
 	for (var i=0; i<regionsC.length; i++) {
 		dataDiagramme.push({y:donneesC[i], color:paletteDiagramme[regionsC[i]] });
 	}
+	
+	chart.yAxis[0].setExtremes(minDataValue(), null);
 	chart.series[0].update({
 		data: dataDiagramme
 	});
@@ -275,13 +279,15 @@ function creerDiagramme(){
 					},
 					yAxis: {			
 						title: {
-							text: 'Nombre de licenciers (pour 10 000 habitants)',
+							text: 'Nombre de licenciés (pour 10 000 habitants)',
 							align: 'high'
 						},
 						labels: {
 							overflow: 'justify'
 						},
-						gridLineWidth: 0
+						gridLineWidth: 0,
+						startOnTick: false,
+						endOnTick:false
 					},
 					series: [{
 						name: '2012',
@@ -296,7 +302,7 @@ function creerDiagramme(){
 									chart.setTitle(null, {text:this.category +', '+ this.y+' licenciés pour 10 000 habitants'});
 								}
 							}
-						}
+						},
 					}],
 					exporting: {
 						enabled : false
@@ -323,3 +329,16 @@ function creerDiagramme(){
 	(jQuery);
 }
 creerDiagramme();
+
+
+
+function minDataValue() {
+	var min = 1000000;
+	for (var i=0; i<donneesC.length; i++) {
+		if (donneesC[i] < min) {
+			min = donneesC[i];
+		}
+	}
+	
+	return min-min/10;
+}
