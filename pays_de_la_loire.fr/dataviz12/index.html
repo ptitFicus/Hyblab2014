@@ -2,8 +2,10 @@
 <html>
     <head>
 		<meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1,width=device-width"></meta>
         <title>Hyblab</title>
         <link rel="stylesheet" href="carte/jqvmap.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="carte/datavizStyle.css" type="text/css" media="screen"/>
         <script src="lib/jquery-2.1.0.min.js"></script>
         <script src="carte/jquery.vmap.js"></script>
         <script src="carte/jquery.vmap.france.js"></script>
@@ -14,7 +16,9 @@
         <script src="lib/csvUtil.js"></script>
     </head>
     <body>
-
+    <div class="preloaded-images">
+        <img src=".img/trophy.png" width="1" height="1" alt="Image 01" />
+    </div>
 	<input type="button" onClick="cliqueSurRegion()" value="simuler clique sur région">
 	
         <div style="padding-top:5px;">
