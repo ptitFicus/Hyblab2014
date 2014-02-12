@@ -169,7 +169,7 @@ function afficherTousSports() {
         max = 0,
         gagnant,
         obj = {},
-        img = "<img src='../img/trophy.png' style='width:20px' />";
+        img = "<img src='./img/trophy.png' style='width:20px' />";
     
     for (i = 0; i < regions.length; i += 1) {
         ratiosTotalSport[i] = 0;
@@ -218,7 +218,7 @@ function afficherSport(sport) {
         max = 0,
         gagnant,
         obj = {},
-        img = "<img src='../img/trophy.png' style='width:20px' />";
+        img = "<img src='./img/trophy.png' style='width:20px' />";
 
     sport = sport.toString();
     sport = sport.replace(/ /g, "_");
