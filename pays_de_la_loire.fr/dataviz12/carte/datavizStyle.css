@@ -6,3 +6,23 @@
    height: 1px;
    width: 1px;
 }
+
+@media screen and (min-width:500px){
+	#francemap {
+        float:left;
+        width:50%;
+	}
+    #container {
+        float:right;
+        width:50%;
+    }
+}
+
+@media screen and (max-width:500px){
+	#francemap {
+        width:100%;
+	}
+    #container {
+        width:100%;
+    }
+}

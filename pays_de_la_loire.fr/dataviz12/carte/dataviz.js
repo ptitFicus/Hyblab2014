@@ -104,9 +104,13 @@ function resizeMap() {
     "use strict";
     var viewportWidth     = window.innerWidth,
         viewportHeight    = window.innerHeight;
-    
-    document.getElementById('francemap').style.width  = Math.floor((viewportWidth/2)) + "px";
-    document.getElementById('francemap').style.height = Math.floor((viewportHeight/2)) + "px";
+    if (viewportWidth > 500) {
+        document.getElementById('francemap').style.width  = Math.floor((viewportWidth/2)- 100) + "px";
+        document.getElementById('francemap').style.height = Math.floor((viewportHeight/2)) + "px";
+    } else {
+        document.getElementById('francemap').style.width  = Math.floor((viewportWidth)- 100) + "px";
+        document.getElementById('francemap').style.height = Math.floor((viewportHeight)) + "px";
+    }
 }
 
 window.onresize = function () {
