@@ -14,6 +14,7 @@ var regionsC = [];					// pour le diagramme
 var donneesC = [];					// pour le diagramme
 var paletteDiagramme;						// pour le diagramme
 var sportSelectionne = 'Tous les sports';	// pour le diagramme
+var regionGagnante = ''; // Région ayant la coupe du nombre de licenciés pour le sport sélectionné
 
 	
 $(document).ready(function () {
@@ -99,7 +100,26 @@ $(document).ready(function () {
 });
 
 
+function resizeMap() {
+    "use strict";
+    var viewportWidth     = window.innerWidth,
+        viewportHeight    = window.innerHeight;
+    
+    document.getElementById('francemap').style.width  = Math.floor((viewportWidth/2)) + "px";
+    document.getElementById('francemap').style.height = Math.floor((viewportHeight/2)) + "px";
+}
 
+window.onresize = function () {
+    "use strict";
+	resizeMap();
+    setTimeout(function () {
+        var obj = {},
+            img = "<img src='./img/trophy.png' style='width:20px' />";
+        obj[regionGagnante] = img;
+        $('.jqvmap_pin').remove();
+        $('#francemap').vectorMap("placePins", obj, "content");
+    }, 0);
+};
 
 // fonction à appliquer quand l'utilisateur clique sur une région (switcher de l'histogramme vers les infos sur la région)
 var diagramme = true, premiereFois=true;
@@ -167,7 +187,6 @@ function afficherTousSports() {
         ratiosTotauxSpotsRegions = {},
         palette,
         max = 0,
-        gagnant,
         obj = {},
         img = "<img src='./img/trophy.png' style='width:20px' />";
     
@@ -188,7 +207,7 @@ function afficherTousSports() {
         ratiosTotauxSpotsRegions[regions[i]] = ratiosTotalSport[i];
         if (ratiosTotalSport[i] > max) {
             max = ratiosTotalSport[i];
-            gagnant = regions[i];
+            regionGagnante = regions[i];
         }
     }
 
@@ -198,7 +217,7 @@ function afficherTousSports() {
     palette = moduleD.obtenirPalette('#000000', '#ffffff', ratiosTotauxSpotsRegions);
     //$('#francemap').vectorMap("setValues", ratiosTotauxSpotsRegions);
     $('#francemap').vectorMap("setColors", palette);
-    obj[gagnant] = img;
+    obj[regionGagnante] = img;
     $('.jqvmap_pin').remove();
     $('#francemap').vectorMap("placePins", obj, "content");
     
@@ -244,7 +263,7 @@ function afficherSport(sport) {
             ratios[regions[i]] = parseInt(chiffres[i], 10);
             if (ratios[regions[i]] > max) {
                 max = ratios[regions[i]];
-                gagnant = regions[i];
+                regionGagnante = regions[i];
             }
         }
         palette = moduleD.obtenirPalette('#000000', '#dfdfdf', ratios);
@@ -252,7 +271,7 @@ function afficherSport(sport) {
         
         //$('#francemap').vectorMap("setValues", ratios);
         $('#francemap').vectorMap("setColors", palette);
-        obj[gagnant] = img;
+        obj[regionGagnante] = img;
         $('.jqvmap_pin').remove();
         $('#francemap').vectorMap("placePins", obj, "content");
 		
