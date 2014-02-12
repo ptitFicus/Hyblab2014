@@ -10,6 +10,7 @@ var regionsDeBaseC = new Array();			// régions dans l'ordre alphabétique, pour
 var regionsC = new Array();					// pour le diagramme
 var donneesC = new Array();					// pour le diagramme
 var paletteDiagramme;						// pour le diagramme
+var sportSelectionne = 'Tous les sports';	// pour le diagramme
 
 	
 $(document).ready(function () {
@@ -231,6 +232,7 @@ function afficherSport(sport) {
 		}
     }
 	
+	sportSelectionne = sport;
 	chart.setTitle( { text: sport }, {text: ''} );		
 					
 	for (var i=0; i<regionsC.length; i++) {
@@ -262,7 +264,7 @@ function creerDiagramme(){
 						borderWidth: 1,
 					},
 					title: {
-						text: 'Tous les sports'
+						text: sportSelectionne
 					},
 					xAxis: {
 						categories: regionsC,
