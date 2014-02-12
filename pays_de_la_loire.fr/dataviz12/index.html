@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+        <title>Hyblab</title>
+        <link rel="stylesheet" href="carte/jquery-jvectormap-1.2.2.css" type="text/css" media="screen"/>
+        <script src="lib/jquery-2.1.0.min.js"></script>
+        <script src="carte/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="carte/carte_france.js"></script>
+        <script src="carte/dataviz.js"></script>
+        <script src="carte/degrade.js"></script>
+		<script src="carte/highcharts.js"></script>
+		<script src="carte/exporting.js"></script>
+        <script src="lib/csvUtil.js"></script>
+    </head>
+    <body>
+	
+	<input type="button" onClick="cliqueSurRegion()" value="simuler clique sur région">
+	
+        <div style="padding-top:5px;">
+          <div style="float:left;width:50%;">
+			<div id="francemap" style="width: 600px; height: 400px"></div>
+		  </div>
+          <div style="float:left;width:50%;text-align:center;">
+			<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		  </div>
+		</div>
+				
+		
+        <select onchange="afficherSport(this.value)" name="choixSport">
+            <option>Tous les sports</option>
+            <option>Athlétisme</option>
+            <option>Basketball</option>
+            <option>Équitation</option>
+            <option>Sports sous marins</option>
+            <option>Football</option>
+            <option>Golf</option>
+            <option>Gymnastique</option>
+            <option>Handball</option>
+            <option>Judo jujitsu et disciplines associées</option>
+            <option>Karaté et arts martiaux affinitaires</option>
+            <option>Pétanque et jeu provençal</option>
+            <option>Randonnée pédestre</option>
+            <option>Rugby</option>
+            <option>Ski</option>
+            <option>Tennis</option>
+            <option>Tennis de table</option>
+            <option>Tir</option>
+            <option>Voile</option>
+            <option>Autres fédérations</option>
+        </select>
+    </body>
+</html>
