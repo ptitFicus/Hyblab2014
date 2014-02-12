@@ -1,7 +1,6 @@
 /*jslint browser: true*/
 /*global $, jQuery, jvm, alert, moduleDegrade, moduleCSV*/
 
-// Evite une erreur js au clique sur une région
 var regionClickEvent = function () {"use strict"; };
 regionClickEvent.isDefaultPrevented = function () {"use strict"; };
 
@@ -16,6 +15,7 @@ var donneesC = [];					// pour le diagramme
 var paletteDiagramme;						// pour le diagramme
 var sportSelectionne = 'Tous les sports';	// pour le diagramme
 
+	
 $(document).ready(function () {
     'use strict';
     var colors = {},
@@ -50,9 +50,7 @@ $(document).ready(function () {
             chiffres,
             i,
             ratiosTotalSport = [],
-            ratiosTotauxSpotsRegions = {},
-            compteur,
-            ligne;
+            ratiosTotauxSpotsRegions = {};
         donnees = csvObject;
         afficherTousSports();
 		
@@ -73,15 +71,16 @@ $(document).ready(function () {
 		}
 		
 		// Récupération des données (globales, cad somme pour tous les sports)
+		var compteur = 0;
 		for (prop in csvObject) {
-			if ((compteur > 0) && (csvObject.hasOwnProperty(prop))) {
-                ligne = csvObject[prop];
-				for (i = 0; i < regionsC.length; i += 1) {
-					donneesC[i] += parseInt(ligne[i], 10);
-					donneesTousLesSportsC[i] += parseInt(ligne[i], 10);
-                }
+			if ( (compteur>0) && (csvObject.hasOwnProperty(prop))) {
+				var ligne = csvObject[prop];
+				for (var i=0; i<regionsC.length; i++) {
+					donneesC[i] += parseInt(ligne[i]);
+					donneesTousLesSportsC[i] += parseInt(ligne[i]);
+				}				
 			}
-			compteur += 1;
+			compteur++;
 		}
 		
 		trierDonnees();
@@ -157,7 +156,6 @@ var changement = true;
 }
 
 
-
 // afficher tous les sports sur la carte
 function afficherTousSports() {
     'use strict';
@@ -198,12 +196,14 @@ function afficherTousSports() {
 	paletteDiagramme = palette;
     
     palette = moduleD.obtenirPalette('#000000', '#ffffff', ratiosTotauxSpotsRegions);
+    //$('#francemap').vectorMap("setValues", ratiosTotauxSpotsRegions);
     $('#francemap').vectorMap("setColors", palette);
     obj[gagnant] = img;
     $('.jqvmap_pin').remove();
     $('#francemap').vectorMap("placePins", obj, "content");
     
 }
+
 
 
 // après sélection d'un nouveau sport (carte + diagramme)
@@ -250,8 +250,8 @@ function afficherSport(sport) {
         palette = moduleD.obtenirPalette('#000000', '#dfdfdf', ratios);
         paletteDiagramme = palette;
         
+        //$('#francemap').vectorMap("setValues", ratios);
         $('#francemap').vectorMap("setColors", palette);
-        
         obj[gagnant] = img;
         $('.jqvmap_pin').remove();
         $('#francemap').vectorMap("placePins", obj, "content");
