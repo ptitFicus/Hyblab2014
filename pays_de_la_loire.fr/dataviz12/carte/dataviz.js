@@ -6,26 +6,28 @@ regionClickEvent.isDefaultPrevented = function () {"use strict"; };
 
 // Variables globales
 var map, donnees, moduleD;			// pour la carte
-var chart;							// pour le diagramme
-var donneesGeneralesC;				// toutes les données du csv, pour le diagramme
-var donneesTousLesSportsC = [];		// données pour tous les sports, pour le diagramme
-var regionsDeBaseC = [];			// régions dans l'ordre alphabétique, pour le diagramme
-var regionsC = [];					// pour le diagramme
-var donneesC = [];					// pour le diagramme
-var paletteDiagramme;						// pour le diagramme
+var chart;							// référence le diagramme
+var donneesGeneralesC;				// toutes les données du csv (10 000 hab), pour le diagramme
+var donneesTousLesSportsC = [];		// données pour tous les sports (10 000 hab), pour le diagramme
+var regionsDeBaseC = [];			// régions dans l'ordre alphabétique (10 000 hab), pour le diagramme
+var regionsC = [];					// régions, pour le diagramme (10 000 hab)
+var donneesC = [];					// données, pour le diagramme (10 000 hab)
+var paletteDiagramme;						// couleurs, pour le diagramme
 var sportSelectionne = 'Tous les sports';	// pour le diagramme
-var regionGagnante = '';                    // Région ayant la coupe du nombre de licenciés pour le sport sélectionné
-var modeGlobal = true;						// pour le diagramme
+var regionGagnante = '';                    // région ayant la coupe du nombre de licenciés pour le sport sélectionné
+var modeGlobal = true;						// tous les sports ou non
 var regionCliquee = 'Tous les sports';		// pour le diagramme
+var donneesGeneralesBrutes;         // toutes les données du csv (total)
+var donneesParSportsBrutes;         // chiffres de licenciés (total) par sport
+var sports;                         // liste des sports
+var totalLicenciesTousLesSports;    // pour le compteur
 
 
-// .......
-setTimeout(function(){
-    odometer.innerHTML = 456;
-}, 1000);
-	
-	
+
+// ------------------------------------------------------------------------------
+// initiation cartes/lecture fichiers csv
 $(document).ready(function () {
+    // MAP -------------------------------------
     'use strict';
     var colors = {},
         key,
@@ -47,14 +49,13 @@ $(document).ready(function () {
 		onRegionClick: function (element, code, region) {
 			cliqueSurRegion(code);
 		}
-    });
-    
+    });    
     moduleD = moduleDegrade();
     
     
-	// Lecture du fichier csv ------------------------------------------------
-    moduleC.readTextFile('donnees/regions_sans_dom_licencies_par_sport10000_2012.csv', function (csvString) {
-        
+    // ------------------------------------------------------------------------------------------------
+	// Lecture du fichier csv (10 000 hab)-------------------------------------------------------------
+    moduleC.readTextFile('donnees/regions_sans_dom_licencies_par_sport10000_2012.csv',function (csvString){        
 		// MAP -----------------------------------------
 	    var csvObject = moduleC.csvToObject(csvString), prop, s = '',
             premiereLigne = csvObject.firstLine,
@@ -65,7 +66,8 @@ $(document).ready(function () {
             ratiosTotauxSpotsRegions = {};
         donnees = csvObject;
         afficherTousSports();
-		
+		        
+        
 		// DIAGRAMME ----------------------------------
 		donneesGeneralesC = csvObject;
 
@@ -89,7 +91,7 @@ $(document).ready(function () {
 				for (var i=0; i<regionsC.length; i++) {
 					donneesC[i] += parseInt(ligne[i]);
 					donneesTousLesSportsC[i] += parseInt(ligne[i]);
-				}				
+                }
 			}
 			compteur++;
 		}
@@ -107,12 +109,41 @@ $(document).ready(function () {
 		});
 		chart.xAxis[0].setCategories(regionsC);
     });   	
+    
+    
+    
+    // ------------------------------------------------------------------------------------------------
+    // Lecture du fichier csv (nb de licencies total)--------------------------------------------------
+    moduleC.readTextFile('donnees/regions_sans_dom_licencies_par_sport_2012.csv', function (csvString) {        
+        var csvObject = moduleC.csvToObject(csvString), prop;
+        donneesGeneralesBrutes = csvObject;
+
+        var compteur=0, i=0;
+        totalLicenciesTousLesSports = 0;
+        sports = new Array();
+        donneesParSportsBrutes = new Array();
+		for (prop in csvObject) {
+            if (compteur > 0) {
+                sports.push(prop);      // récupération des sports
+                donneesParSportsBrutes.push(0);
+                var ligne = csvObject[prop];
+                for (var j=0; j<regionsC.length; j++) {
+                    donneesParSportsBrutes[i] += parseInt(ligne[j]);
+                    totalLicenciesTousLesSports += parseInt(ligne[j]);
+                }
+                i++;
+            }
+            compteur++;
+        }        
+        majCompteur(totalLicenciesTousLesSports);
+    });
 });
 
 
 
 
 
+// ------------------------------------------------------------------------------
 /*function resizeMap() {
     "use strict";
     var viewportWidth     = window.innerWidth,
@@ -132,7 +163,8 @@ $(document).ready(function () {
 
 
 
-
+// ------------------------------------------------------------------------------
+// pour le responsive
 window.onresize = function () {
     "use strict";
     setTimeout(function () {
@@ -148,6 +180,7 @@ window.onresize = function () {
 
 
 
+// ------------------------------------------------------------------------------
 /*function handleResize() {
     "use strict";
 	resizeMap();
@@ -165,31 +198,30 @@ window.onresize = function () {
 
 
 
-
-// fonction à appliquer quand l'utilisateur clique sur une région (switcher de l'histogramme vers les infos sur la région)
-var diagramme = true, premiereFois=true;
+// ------------------------------------------------------------------------------
+// Après clique sur une région (switch diagramme <--> infosRegions)
+var diagramme = true;
 function cliqueSurRegion(region) {
 	
-	if (premiereFois) { 
-		htmlDiagramme = document.getElementById("container").innerHTML;
-		premiereFois = false;
-	}
-
+    // si le diagramme est affiché, ou si on clique sur une nouvelle région
 	if (diagramme || (region != regionCliquee) ) {	
+			
 			var htmlInfosRegions = "<b>"+region+"</b><p><p><hr>";
-					
+        
 			if (modeGlobal) {
 				// TODO
-				htmlInfosRegions = htmlInfosRegions+"Mode global... TODO";
+				htmlInfosRegions = htmlInfosRegions+"Mode global... TODO !!";
 			}
 			else {
 				// TODO
-				htmlInfosRegions = htmlInfosRegions+"Mode sport :"+sportSelectionne+"... TODO";
+				htmlInfosRegions = htmlInfosRegions+"Mode sport :"+sportSelectionne+"... TODO !!";
 			}
 			
 		document.getElementById("container").innerHTML = htmlInfosRegions;
 		diagramme = false;
 	}
+    
+    // si on reclique sur la même région
 	else {
 		chart.destroy;		
 		creerDiagramme();
@@ -213,6 +245,7 @@ function cliqueSurRegion(region) {
 
 
 
+// ------------------------------------------------------------------------------
 // fonction de tri (à bulles) des données/régions pour le diagramme
 function trierDonnees() {
 var changement = true;
@@ -236,7 +269,8 @@ var changement = true;
 
 
 
-// afficher tous les sports sur la carte
+// ------------------------------------------------------------------------------
+// Pour afficher tous les sports sur la carte
 function afficherTousSports() {
     'use strict';
     var ratiosTotalSport = [],
@@ -272,10 +306,8 @@ function afficherTousSports() {
     }
 
     palette = moduleD.obtenirPalette('#000000', '#efefef', ratiosTotauxSpotsRegions);
-	paletteDiagramme = palette;
-    
+	paletteDiagramme = palette;        // pour le diagramme    
     palette = moduleD.obtenirPalette('#000000', '#ffffff', ratiosTotauxSpotsRegions);
-    //$('#francemap').vectorMap("setValues", ratiosTotauxSpotsRegions);
     $('#francemap').vectorMap("setColors", palette);
     obj[regionGagnante] = img;
     $('.jqvmap_pin').remove();
@@ -285,8 +317,11 @@ function afficherTousSports() {
 
 
 
-// après sélection d'un nouveau sport (carte + diagramme)
-function afficherSport(sport) {
+
+// ------------------------------------------------------------------------------
+// Après sélection d'un nouveau sport (maj carte + diagramme + compteur)
+function afficherSport(sportSelect) {
+    // MAP -----------------------
     'use strict';
     var prop,
         regions = donnees.firstLine,
@@ -299,17 +334,19 @@ function afficherSport(sport) {
         obj = {},
         img = "<img src='img/trophy.png' style='width:20px' />";
 
-    sport = sport.toString();
-    sport = sport.replace(/ /g, "_");
+    sportSelect = sportSelect.toString();
+    sportSelect = sportSelect.replace(/ /g, "_");
     for (prop in donnees) {
         if (donnees.hasOwnProperty(prop)) {
-            if (prop.toString() === sport) {
+            if (prop.toString() === sportSelect) {
                 chiffres = donnees[prop];
             }
         }
     }
+    
 	
     
+    // Choix tous les sports -------------------------------------
     if (chiffres === undefined) {
         // carte
 		afficherTousSports();	
@@ -319,7 +356,11 @@ function afficherSport(sport) {
 		for (var i=0; i<donneesTousLesSportsC.length; i++) {
 				donneesC[i] = donneesTousLesSportsC[i];	
 		}
-    } else {		
+    } 
+    
+    
+    // Choix d'un sport ------------------------------------------
+    else {		
 		modeGlobal = false;
 	
 		// carte
@@ -331,9 +372,7 @@ function afficherSport(sport) {
             }
         }
         palette = moduleD.obtenirPalette('#000000', '#dfdfdf', ratios);
-        paletteDiagramme = palette;
-        
-        //$('#francemap').vectorMap("setValues", ratios);
+        paletteDiagramme = palette;        
         $('#francemap').vectorMap("setColors", palette);
         obj[regionGagnante] = img;
         $('.jqvmap_pin').remove();
@@ -342,7 +381,7 @@ function afficherSport(sport) {
 		// diagramme
 		for (prop in donneesGeneralesC) {
 			if (donneesGeneralesC.hasOwnProperty(prop)) {
-				if (prop.toString() === sport) {
+				if (prop.toString() === sportSelect) {
 					for (var i=0; i<donneesGeneralesC[prop].length; i++) {
 						donneesC[i] = parseInt(donneesGeneralesC[prop][i]);
 					}
@@ -352,7 +391,9 @@ function afficherSport(sport) {
     }
 	
 	
-	sportSelectionne = sport;
+    
+    // Diagramme ------------------------------------------------
+	sportSelectionne = sportSelect;
 	
 	if (diagramme == false) {		
 		chart.destroy;		
@@ -360,7 +401,7 @@ function afficherSport(sport) {
 		diagramme = true;
 	}
 	
-	chart.setTitle( { text: sport }, {text: ''} );		
+	chart.setTitle( { text: sportSelect }, {text: ''} );		
 					
 	for (var i=0; i<regionsC.length; i++) {
 		regionsC[i] = regionsDeBaseC[i];
@@ -378,12 +419,22 @@ function afficherSport(sport) {
 		data: dataDiagramme
 	});
 	chart.xAxis[0].setCategories(regionsC);
+    
+    
+    
+    // compteur ------------------------------------------------
+    if (chiffres == undefined) {
+        majCompteur(totalLicenciesTousLesSports);
+    }
+    else {
+        majCompteur(donneesParSportsBrutes[sports.indexOf(sportSelect)]);
+    }
 }
 
 
 
 
-/* Diagramme ------------------------------------------------------------------------- */
+// Création/configuration du diagramme ---------------------------------------------------------------------
 function creerDiagramme(){
 	(function($){ // encapsulate jQuery
 		$(function () {
@@ -505,4 +556,14 @@ function maxDataValue() {
 	}
 	
 	return max;
+}
+
+
+
+
+// compteur ------------------------------------------------------
+function majCompteur(value) {
+    setTimeout(function(){
+        odometer.innerHTML = value;
+    }, 1);
 }
