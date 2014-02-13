@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1,width=device-width"></meta>
+        <title>Hyblab</title>
+        <link rel="stylesheet" href="carte/jqvmap.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="carte/datavizStyle.css" type="text/css" media="screen"/>
+        <script src="lib/jquery-2.1.0.min.js"></script>
+        <script src="carte/jquery.vmap.js"></script>
+        <script src="carte/jquery.vmap.france.js"></script>
+        <script src="carte/dataviz.js"></script>
+        <script src="carte/degrade.js"></script>
+		<!-- <script src="carte/highcharts.js"></script> -->
+		<script src="http://code.highcharts.com/stock/highstock.js"></script>
+		<script src="carte/exporting.js"></script>
+        <script src="lib/csvUtil.js"></script>
+    </head>
+    <body>
+    <div class="preloaded-images">
+        <img src=".img/trophy.png" width="1" height="1" alt="Image 01" />
+    </div>
+	<select onchange="afficherSport(this.value)" name="choixSport">
+        <option>Tous les sports</option>
+        <option>Athlétisme</option>
+        <option>Basketball</option>
+        <option>Équitation</option>
+        <option>Sports sous marins</option>
+        <option>Football</option>
+        <option>Golf</option>
+        <option>Gymnastique</option>
+        <option>Handball</option>
+        <option>Judo jujitsu et disciplines associées</option>
+        <option>Karaté et arts martiaux affinitaires</option>
+        <option>Pétanque et jeu provençal</option>
+        <option>Randonnée pédestre</option>
+        <option>Rugby</option>
+        <option>Ski</option>
+        <option>Tennis</option>
+        <option>Tennis de table</option>
+        <option>Tir</option>
+        <option>Voile</option>
+        <option>Autres fédérations</option>
+    </select>
+	
+    <div style="padding-top:5px;">
+      <div style="">
+        <div id="francemap"></div>
+      </div>
+      <div style="text-align:center;">
+        <div id="container" style="min-width: 310px; height: 400px;"></div>
+      </div>
+    </div>
+			     
+    </body>
+</html>
