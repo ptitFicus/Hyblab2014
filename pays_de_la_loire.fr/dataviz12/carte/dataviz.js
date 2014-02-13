@@ -21,7 +21,8 @@ var donneesGeneralesBrutes;         // toutes les données du csv (total)
 var donneesParSportsBrutes;         // chiffres de licenciés (total) par sport
 var sports;                         // liste des sports
 var totalLicenciesTousLesSports;    // pour le compteur
-
+var couleurMin = "#ffffff";         // pour le dégardé de couleur
+var couleurMax = "#000000";         // pour le dégradé de couleur
 
 
 // ------------------------------------------------------------------------------
@@ -45,7 +46,7 @@ $(document).ready(function () {
         selectedColor: null,
         enableZoom: true,
         showTooltip: true,
-        scaleColors: ["#ffffff", "#000000"],
+        //scaleColors: ["#ffffff", "#000000"],
 		onRegionClick: function (element, code, region) {
 			cliqueSurRegion(code);
 		}
@@ -305,9 +306,9 @@ function afficherTousSports() {
         }
     }
 
-    palette = moduleD.obtenirPalette('#000000', '#efefef', ratiosTotauxSpotsRegions);
+    //palette = moduleD.obtenirPalette('#000000', '#efefef', ratiosTotauxSpotsRegions);
+    palette = moduleD.obtenirPalette(couleurMax, couleurMin, ratiosTotauxSpotsRegions);
 	paletteDiagramme = palette;        // pour le diagramme    
-    palette = moduleD.obtenirPalette('#000000', '#ffffff', ratiosTotauxSpotsRegions);
     $('#francemap').vectorMap("setColors", palette);
     obj[regionGagnante] = img;
     $('.jqvmap_pin').remove();
@@ -371,7 +372,8 @@ function afficherSport(sportSelect) {
                 regionGagnante = regions[i];
             }
         }
-        palette = moduleD.obtenirPalette('#000000', '#dfdfdf', ratios);
+        //palette = moduleD.obtenirPalette('#000000', '#dfdfdf', ratios);
+        palette = moduleD.obtenirPalette(couleurMax, couleurMin, ratios);
         paletteDiagramme = palette;        
         $('#francemap').vectorMap("setColors", palette);
         obj[regionGagnante] = img;
@@ -442,7 +444,9 @@ function creerDiagramme(){
 					chart: {
 						renderTo: 'container',
 						type: 'bar',
-//						borderWidth: 1,
+                        //borderWidth: 1,
+                        backgroundColor: null,      // transparent, permet de mettre une image derrière, par exemple
+                        borderColor: "#ffffff"
 					},
 					title: {
 						text: sportSelectionne
@@ -454,7 +458,12 @@ function creerDiagramme(){
 							align: 'left',
 							useHTML: true,
 							formatter: function() {
-								return '&nbsp;&nbsp;&nbsp;'+this.value;
+                                //var nomRegion = (""+(this.value)).substring(0,16);
+                                var nomRegion = this.value;
+                                if (this.value == "Provences-Alpes-Cote-d-Azur") { nomRegion = "PACA"; }
+                                else if (this.value == "Languedoc-Roussillon") { nomRegion = "Lang. Roussillon"; }
+                                else if (this.value == "Champagne-Ardenne") { nomRegion = "Champ. Ardenne"; }
+								return '&nbsp;&nbsp;&nbsp;'+nomRegion;
 							},
 							style: {
 								color: 'red',

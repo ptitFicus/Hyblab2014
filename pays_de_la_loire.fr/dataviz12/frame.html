@@ -29,6 +29,16 @@
             });
           });
         </script>    
+
+        <!-- popup menu -->
+        <script src="popmenu/jquery.popmenu.js"></script>
+        <link rel="stylesheet" href="popmenu/font-awesome.min.css"/>
+        <link rel="stylesheet" href="popmenu/stylepopmenu.css"/>
+        <script>
+            $(function(){
+                $('#demo_box').popmenu({'background':'#BDBDBD','focusColor':'#2E2E2E','iconSize': '90px'});
+            })
+        </script>
     </head>
 
     <body>
@@ -49,6 +59,8 @@
             
             <!-- Deuxième page : dataviz carte de France + podiums -->    
             <section class="page2">
+                
+                <!-- liste déroulante -->
                 <select onchange="afficherSport(this.value)" name="choixSport">
                     <option>Tous les sports</option>
                     <option>Athlétisme</option>
@@ -71,7 +83,60 @@
                     <option>Voile</option>
                     <option>Autres fédérations</option>
                 </select> 
+            
+                <!-- popupmenu -->
+                <div id="popupmenu">                
+                        <div id="demo_box">
+                            <div class="pop_ctrl"><img src="http://help.theworxhub.com/media/41049/AndroidMenuButton.png" width="40" height="40"></div>
+                            <ul id="demo_ul">
+                            <li class="demo_li">
+                                <a href="#" onclick="afficherSport('Tous les sports')"><div><img src="img/trophy.png" width="40" height="40" alt="Tous les sports"><br></div><div style="color:black;">Tous les sports</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Athlétisme')"><div><img src="img/Athl%C3%A9tisme.png" width="40" height="40" alt="Athlétisme"><br></div><div style="color:black;">Athlétisme</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Basketball')"><div><img src="img/Basket.png" width="40" height="40" alt="Basketball"><br></div><div style="color:black;">Basketball</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Équitation')"><div><img src="img/Equitation.png" width="40" height="40" alt="Équitation"><br></div><div style="color:black;">Équitation</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Sports sous marins')"><div><img src="img/NAUTIQUE.png" width="40" height="40" alt="Sports sous marins"><br></div><div style="color:black;">Sports sous marins</div></a></li>                                
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Football')"><div><img src="img/footbaleur.png" width="40" height="40" alt="Football"><br></div><div style="color:black;">Football</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Golf')"><div><img src="img/golfeuse.png" width="40" height="40" alt="Golf"><br></div><div style="color:black;">Golf</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Gymnastique')"><div><img src="img/Gym.png" width="40" height="40" alt="Gymnastique"><br></div><div style="color:black;">Gymnastique</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Handball')"><div><img src="img/Handball.png" width="40" height="40" alt="Handball"><br></div><div style="color:black;">Handball</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Judo jujitsu et disciplines associées')"><div><img src="img/Judo.png" width="40" height="40" alt="Judo"><br></div><div style="color:black;">Judo</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport(Karaté_et_arts_martiaux_affinitaires'')"><div><img src="img/Karat%C3%A9.png" width="40" height="40" alt="Karaté"><br></div><div style="color:black;">Karaté</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Natation')"><div><img src="img/nageur.png" width="40" height="40" alt="Natation"><br></div><div style="color:black;">Natation</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Pétanque_et_jeu_provençal')"><div><img src="img/PETANQUE.png" width="40" height="40" alt="Pétanque"><br></div><div style="color:black;">Pétanque</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Randonnée_pédestre')"><div><img src="img/RANDONEE.png" width="40" height="40" alt="Randonnée pédestre"><br></div><div style="color:black;">Randonnée pédestre</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Rugby')"><div><img src="img/RUGBY.png" width="40" height="40" alt="Rugby"><br></div><div style="color:black;">Rugby</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Ski')"><div><img src="img/SKI.png" width="40" height="40" alt="Ski"><br></div><div style="color:black;">Ski</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Tennis')"><div><img src="img/Tennis.png" width="40" height="40" alt="Tennis"><br></div><div style="color:black;">Tennis</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Tennis de table')"><div><img src="img/PING%20PONG.png" width="40" height="40" alt="Tennis de table"><br></div><div style="color:black;">Tennis de table</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Tir')"><div><img src="img/p1.png" width="40" height="40" alt="Tir"><br></div><div style="color:black;">Tir</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('Voile')"><div><img src="img/p1.png" width="40" height="40" alt="Tennis"><br></div><div style="color:black;">Voile</div></a></li>
+                                <li class="demo_li">
+                                    <a href="#" onclick="afficherSport('')"><div><img src="img/p1.png" width="40" height="40" alt="Autres fédérations"><br></div><div style="color:black;">Autres fédérations</div></a></li>
+                            </ul>
+                        </div>
+                </div>
 
+
+                <!-- dataviz -->
                 <div style="padding-top:50px;padding-right:50px;"> 
                   <div style="">
                     <div id="francemap"></div>
@@ -82,14 +147,15 @@
                   </div>
                 </div>
                 
-                <div style="padding-top:80px;">
+                <div style="padding-top:40px;">
                     <b>TODO :</b><br>
                     - infos régions (mode global et mode sport)<br>
                     - enlever zoom carte<br>
                     - choix couleurs + légende/échelle<br>
                     - podiums défilables<br>
                     - gestion du scroll (pour le mettre à droite du diagramme)<br>
-                    - ...
+                    - liste pour choix du sport<br>
+                    - couleurs, polices, etc
                 </div>
             </section>
             
