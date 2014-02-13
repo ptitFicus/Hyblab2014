@@ -6,6 +6,8 @@
         <title>Hyblab</title>
         <link rel="stylesheet" href="carte/jqvmap.css" type="text/css" media="screen"/>
         <link rel="stylesheet" href="carte/datavizStyle.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-car.css" />
+        <script src="http://github.hubspot.com/odometer/odometer.js"></script>
         <script src="lib/jquery-2.1.0.min.js"></script>
         <script src="carte/jquery.vmap.js"></script>
         <script src="carte/jquery.vmap.france.js"></script>
@@ -20,6 +22,7 @@
     <div class="preloaded-images">
         <img src=".img/trophy.png" width="1" height="1" alt="Image 01" />
     </div>
+        
 	<select onchange="afficherSport(this.value)" name="choixSport">
         <option>Tous les sports</option>
         <option>Athlétisme</option>
@@ -49,6 +52,7 @@
       </div>
       <div style="text-align:center;">
         <div id="container" style="min-width: 310px; height: 400px;"></div>
+        <div id="odometer" class="odometer">0</div>
       </div>
     </div>
 			     

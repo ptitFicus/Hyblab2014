@@ -14,11 +14,15 @@ var regionsC = [];					// pour le diagramme
 var donneesC = [];					// pour le diagramme
 var paletteDiagramme;						// pour le diagramme
 var sportSelectionne = 'Tous les sports';	// pour le diagramme
-var regionGagnante = ''; 					// Région ayant la coupe du nombre de licenciés pour le sport sélectionné
+var regionGagnante = '';                    // Région ayant la coupe du nombre de licenciés pour le sport sélectionné
 var modeGlobal = true;						// pour le diagramme
-var regionCliquee= 'Tous les sports';		// pour le diagramme
-	
-	
+var regionCliquee = 'Tous les sports';		// pour le diagramme
+
+
+// .......
+setTimeout(function(){
+    odometer.innerHTML = 456;
+}, 1000);
 	
 	
 $(document).ready(function () {
@@ -40,7 +44,7 @@ $(document).ready(function () {
         enableZoom: true,
         showTooltip: true,
         scaleColors: ["#ffffff", "#000000"],
-		onRegionClick: function(element, code, region) {
+		onRegionClick: function (element, code, region) {
 			cliqueSurRegion(code);
 		}
     });
@@ -80,7 +84,7 @@ $(document).ready(function () {
 		// Récupération des données (globales, cad somme pour tous les sports)
 		var compteur = 0;
 		for (prop in csvObject) {
-			if ( (compteur>0) && (csvObject.hasOwnProperty(prop))) {
+			if ((compteur > 0) && (csvObject.hasOwnProperty(prop))) {
 				var ligne = csvObject[prop];
 				for (var i=0; i<regionsC.length; i++) {
 					donneesC[i] += parseInt(ligne[i]);
