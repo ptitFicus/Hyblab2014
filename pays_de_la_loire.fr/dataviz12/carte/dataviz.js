@@ -31,7 +31,7 @@ $(document).ready(function () {
         hoverColor: null,
         backgroundColor: "#ffffff",
         color: "#ffffff",
-        borderColor: "#ffffff",
+        borderColor: "#000000",
         selectedColor: null,
         enableZoom: true,
         showTooltip: true,
@@ -54,7 +54,6 @@ $(document).ready(function () {
             ratiosTotauxSpotsRegions = {};
         donnees = csvObject;
         afficherTousSports();
-		
 		
 		// DIAGRAMME ----------------------------------
 		donneesGeneralesC = csvObject;
@@ -100,20 +99,32 @@ $(document).ready(function () {
 });
 
 
-function resizeMap() {
+/*function resizeMap() {
     "use strict";
     var viewportWidth     = window.innerWidth,
         viewportHeight    = window.innerHeight;
     if (viewportWidth > 500) {
+        
         document.getElementById('francemap').style.width  = Math.floor((viewportWidth/2)- 100) + "px";
-        document.getElementById('francemap').style.height = Math.floor((viewportHeight/2)) + "px";
+        document.getElementById('francemap').style.height = Math.floor((viewportHeight)) + "px";
     } else {
         document.getElementById('francemap').style.width  = Math.floor((viewportWidth)- 100) + "px";
         document.getElementById('francemap').style.height = Math.floor((viewportHeight)) + "px";
     }
-}
+}*/
 
 window.onresize = function () {
+    "use strict";
+    setTimeout(function () {
+        var obj = {},
+            img = "<img src='img/trophy.png' style='width:20px' />";
+        obj[regionGagnante] = img;
+        $('.jqvmap_pin').remove();
+        $('#francemap').vectorMap("placePins", obj, "content");
+    }, 0);
+};
+
+/*function handleResize() {
     "use strict";
 	resizeMap();
     setTimeout(function () {
@@ -123,7 +134,7 @@ window.onresize = function () {
         $('.jqvmap_pin').remove();
         $('#francemap').vectorMap("placePins", obj, "content");
     }, 0);
-};
+}*/
 
 // fonction à appliquer quand l'utilisateur clique sur une région (switcher de l'histogramme vers les infos sur la région)
 var diagramme = true, premiereFois=true;
@@ -192,7 +203,7 @@ function afficherTousSports() {
         palette,
         max = 0,
         obj = {},
-        img = "<img src='./img/trophy.png' style='width:20px' />";
+        img = "<img src='img/trophy.png' style='width:20px' />";
     
     for (i = 0; i < regions.length; i += 1) {
         ratiosTotalSport[i] = 0;
@@ -241,7 +252,7 @@ function afficherSport(sport) {
         max = 0,
         gagnant,
         obj = {},
-        img = "<img src='./img/trophy.png' style='width:20px' />";
+        img = "<img src='img/trophy.png' style='width:20px' />";
 
     sport = sport.toString();
     sport = sport.replace(/ /g, "_");

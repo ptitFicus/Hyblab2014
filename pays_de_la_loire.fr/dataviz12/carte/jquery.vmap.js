@@ -847,7 +847,8 @@
     
     placePins: function(pins, pinMode){
       var map = this;
-
+        
+        
       if(!pinMode || (pinMode != "content" && pinMode != "id")) {
         pinMode = "content";
       }
@@ -892,6 +893,13 @@
 
     positionPins: function(){
       var map = this;
+        var topDiff = 0;
+        var horDiff = 0;
+        if ($("#jqvmap1_Nord-Pas-de-Calais").position().top != 0 && $("#jqvmap1_Bretagne").position().left != 0) {
+            topDiff = 55;
+            horDiff = 10;
+        }
+        //alert(map.diff);
       var pins = this.container.find('.jqvmap_pin');
       jQuery.each(pins, function(index, pinObj){
         pinObj = jQuery(pinObj);
@@ -902,10 +910,10 @@
         var position = countryObj.position();
 
         var scale = map.scale;
-
-        var left = position.left + (bbox.width / 2) * scale - pinObj.width()/2 ,
-        top = position.top + (bbox.height / 2) * scale - pinObj.height() / 2;
-
+        
+        var left = position.left - horDiff + (bbox.width / 2) * scale - pinObj.width()/2 ,
+        top = position.top - topDiff + (bbox.height / 2) * scale - pinObj.height() / 2;
+          
         pinObj.css('left',left).css('top',top);
       });
      },

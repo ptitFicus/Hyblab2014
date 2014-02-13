@@ -7,10 +7,11 @@
    width: 1px;
 }
 
-@media screen and (min-width:500px){
+@media screen and (min-width:700px){
 	#francemap {
         float:left;
         width:50%;
+        height: 350px;
 	}
     #container {
         float:right;
@@ -18,9 +19,10 @@
     }
 }
 
-@media screen and (max-width:500px){
+@media screen and (max-width:699px){
 	#francemap {
         width:100%;
+        height: 350px;
 	}
     #container {
         width:100%;
