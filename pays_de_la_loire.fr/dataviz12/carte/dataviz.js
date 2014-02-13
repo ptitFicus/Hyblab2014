@@ -5,17 +5,19 @@ var regionClickEvent = function () {"use strict"; };
 regionClickEvent.isDefaultPrevented = function () {"use strict"; };
 
 // Variables globales
-var map, donnees, moduleD;					// pour la carte
-var chart;									// pour le diagramme
-var donneesGeneralesC;						// toutes les données du csv, pour le diagramme
-var donneesTousLesSportsC = [];	// données pour tous les sports, pour le diagramme
+var map, donnees, moduleD;			// pour la carte
+var chart;							// pour le diagramme
+var donneesGeneralesC;				// toutes les données du csv, pour le diagramme
+var donneesTousLesSportsC = [];		// données pour tous les sports, pour le diagramme
 var regionsDeBaseC = [];			// régions dans l'ordre alphabétique, pour le diagramme
 var regionsC = [];					// pour le diagramme
 var donneesC = [];					// pour le diagramme
 var paletteDiagramme;						// pour le diagramme
 var sportSelectionne = 'Tous les sports';	// pour le diagramme
-var regionGagnante = ''; // Région ayant la coupe du nombre de licenciés pour le sport sélectionné
-var modeGlobal = true;
+var regionGagnante = ''; 					// Région ayant la coupe du nombre de licenciés pour le sport sélectionné
+var modeGlobal = true;						// pour le diagramme
+var regionCliquee= 'Tous les sports';		// pour le diagramme
+	
 	
 	
 	
@@ -104,6 +106,9 @@ $(document).ready(function () {
 });
 
 
+
+
+
 /*function resizeMap() {
     "use strict";
     var viewportWidth     = window.innerWidth,
@@ -120,6 +125,10 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 window.onresize = function () {
     "use strict";
     setTimeout(function () {
@@ -130,6 +139,7 @@ window.onresize = function () {
         $('#francemap').vectorMap("placePins", obj, "content");
     }, 0);
 };
+
 
 
 
@@ -154,16 +164,14 @@ window.onresize = function () {
 
 // fonction à appliquer quand l'utilisateur clique sur une région (switcher de l'histogramme vers les infos sur la région)
 var diagramme = true, premiereFois=true;
-function cliqueSurRegion(region) { // TODO récupérer, au clique, le nom de la région
-	
-	//alert(region);
+function cliqueSurRegion(region) {
 	
 	if (premiereFois) { 
 		htmlDiagramme = document.getElementById("container").innerHTML;
 		premiereFois = false;
 	}
 
-	if (diagramme) {			
+	if (diagramme || (region != regionCliquee) ) {	
 			var htmlInfosRegions = "<b>"+region+"</b><p><p><hr>";
 					
 			if (modeGlobal) {
@@ -194,8 +202,11 @@ function cliqueSurRegion(region) { // TODO récupérer, au clique, le nom de la 
 
 		diagramme = true;
 	}
-
+	
+	regionCliquee = region;
 }
+
+
 
 
 // fonction de tri (à bulles) des données/régions pour le diagramme
@@ -216,6 +227,9 @@ var changement = true;
 		}
 	}
 }
+
+
+
 
 
 // afficher tous les sports sur la carte
@@ -261,9 +275,9 @@ function afficherTousSports() {
     $('#francemap').vectorMap("setColors", palette);
     obj[regionGagnante] = img;
     $('.jqvmap_pin').remove();
-    $('#francemap').vectorMap("placePins", obj, "content");
-    
+    $('#francemap').vectorMap("placePins", obj, "content");    
 }
+
 
 
 
@@ -290,6 +304,7 @@ function afficherSport(sport) {
             }
         }
     }
+	
     
     if (chiffres === undefined) {
         // carte
@@ -300,8 +315,7 @@ function afficherSport(sport) {
 		for (var i=0; i<donneesTousLesSportsC.length; i++) {
 				donneesC[i] = donneesTousLesSportsC[i];	
 		}
-    } else {
-		
+    } else {		
 		modeGlobal = false;
 	
 		// carte
@@ -333,7 +347,15 @@ function afficherSport(sport) {
 		}
     }
 	
+	
 	sportSelectionne = sport;
+	
+	if (diagramme == false) {		
+		chart.destroy;		
+		creerDiagramme();
+		diagramme = true;
+	}
+	
 	chart.setTitle( { text: sport }, {text: ''} );		
 					
 	for (var i=0; i<regionsC.length; i++) {
@@ -353,6 +375,7 @@ function afficherSport(sport) {
 	});
 	chart.xAxis[0].setCategories(regionsC);
 }
+
 
 
 
