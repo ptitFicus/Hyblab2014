@@ -15,7 +15,9 @@ var donneesC = [];					// pour le diagramme
 var paletteDiagramme;						// pour le diagramme
 var sportSelectionne = 'Tous les sports';	// pour le diagramme
 var regionGagnante = ''; // Région ayant la coupe du nombre de licenciés pour le sport sélectionné
-
+var modeGlobal = true;
+	
+	
 	
 $(document).ready(function () {
     'use strict';
@@ -35,7 +37,10 @@ $(document).ready(function () {
         selectedColor: null,
         enableZoom: true,
         showTooltip: true,
-        scaleColors: ["#ffffff", "#000000"]
+        scaleColors: ["#ffffff", "#000000"],
+		onRegionClick: function(element, code, region) {
+			cliqueSurRegion(code);
+		}
     });
     
     moduleD = moduleDegrade();
@@ -90,7 +95,7 @@ $(document).ready(function () {
 			dataDiagramme.push({y:donneesC[i], color:paletteDiagramme[regionsC[i]] });
 		}
 	
-		chart.yAxis[0].setExtremes(minDataValue(), null);
+		chart.yAxis[0].setExtremes(minDataValue(), maxDataValue());
 		chart.series[0].update({
 			data: dataDiagramme
 		});
@@ -113,6 +118,8 @@ $(document).ready(function () {
     }
 }*/
 
+
+
 window.onresize = function () {
     "use strict";
     setTimeout(function () {
@@ -123,6 +130,9 @@ window.onresize = function () {
         $('#francemap').vectorMap("placePins", obj, "content");
     }, 0);
 };
+
+
+
 
 /*function handleResize() {
     "use strict";
@@ -136,18 +146,35 @@ window.onresize = function () {
     }, 0);
 }*/
 
+
+
+
+
+
+
 // fonction à appliquer quand l'utilisateur clique sur une région (switcher de l'histogramme vers les infos sur la région)
 var diagramme = true, premiereFois=true;
-function cliqueSurRegion() { // TODO récupérer, au clique, le nom de la région
+function cliqueSurRegion(region) { // TODO récupérer, au clique, le nom de la région
+	
+	//alert(region);
 	
 	if (premiereFois) { 
 		htmlDiagramme = document.getElementById("container").innerHTML;
 		premiereFois = false;
 	}
 
-	var htmlInfosRegions = "<b>TODO</b><p><p><hr>..."; // TODO en fonction de la région et du mode (global ou sport)
-	
 	if (diagramme) {			
+			var htmlInfosRegions = "<b>"+region+"</b><p><p><hr>";
+					
+			if (modeGlobal) {
+				// TODO
+				htmlInfosRegions = htmlInfosRegions+"Mode global... TODO";
+			}
+			else {
+				// TODO
+				htmlInfosRegions = htmlInfosRegions+"Mode sport :"+sportSelectionne+"... TODO";
+			}
+			
 		document.getElementById("container").innerHTML = htmlInfosRegions;
 		diagramme = false;
 	}
@@ -159,7 +186,7 @@ function cliqueSurRegion() { // TODO récupérer, au clique, le nom de la régio
 			dataDiagramme.push({y:donneesC[i], color:paletteDiagramme[regionsC[i]] });
 		}
 	
-		chart.yAxis[0].setExtremes(minDataValue(), null);
+		chart.yAxis[0].setExtremes(minDataValue(), maxDataValue());
 		chart.series[0].update({
 			data: dataDiagramme
 		});
@@ -266,13 +293,17 @@ function afficherSport(sport) {
     
     if (chiffres === undefined) {
         // carte
-		afficherTousSports();		
+		afficherTousSports();	
+		modeGlobal = true;
 		
 		// diagramme
 		for (var i=0; i<donneesTousLesSportsC.length; i++) {
 				donneesC[i] = donneesTousLesSportsC[i];	
 		}
     } else {
+		
+		modeGlobal = false;
+	
 		// carte
         for (i = 0; i < regions.length; i += 1) {
             ratios[regions[i]] = parseInt(chiffres[i], 10);
@@ -316,7 +347,7 @@ function afficherSport(sport) {
 		dataDiagramme.push({y:donneesC[i], color:paletteDiagramme[regionsC[i]] });
 	}
 	
-	chart.yAxis[0].setExtremes(minDataValue(), null);
+	chart.yAxis[0].setExtremes(minDataValue(), maxDataValue());
 	chart.series[0].update({
 		data: dataDiagramme
 	});
@@ -333,7 +364,7 @@ function creerDiagramme(){
 					chart: {
 						renderTo: 'container',
 						type: 'bar',
-						borderWidth: 1,
+//						borderWidth: 1,
 					},
 					title: {
 						text: sportSelectionne
@@ -342,8 +373,34 @@ function creerDiagramme(){
 						categories: regionsC,
 						tickmarkPlacement: 'on',
 						labels: { 
-							step: 1 
-						}
+							align: 'left',
+							useHTML: true,
+							formatter: function() {
+								return '&nbsp;&nbsp;&nbsp;'+this.value;
+							},
+							style: {
+								color: 'red',
+							}
+							//enabled: false
+							//step: 1 
+						},
+						min: 0,
+						max: 7
+					},
+					scrollbar: {
+						enabled: true,
+						barBackgroundColor: 'gray',
+						barBorderRadius: 7,
+						barBorderWidth: 0,
+						buttonBackgroundColor: 'gray',
+						buttonBorderWidth: 0,
+						buttonArrowColor: 'white',
+						buttonBorderRadius: 7,
+						rifleColor: 'white',
+						trackBackgroundColor: 'white',
+						trackBorderWidth: 1,
+						trackBorderColor: 'silver',
+						trackBorderRadius: 7,
 					},
 					yAxis: {			
 						title: {
@@ -354,8 +411,8 @@ function creerDiagramme(){
 							overflow: 'justify'
 						},
 						gridLineWidth: 0,
-						startOnTick: false,
-						endOnTick:false
+						/*startOnTick: 1,
+						endOnTick:5,*/
 					},
 					series: [{
 						name: '2012',
@@ -389,7 +446,7 @@ function creerDiagramme(){
 						enabled: false
 					},
 					tooltip: { 
-						enabled: false 
+						enabled: false
 					}
 				});
 			});
@@ -409,4 +466,16 @@ function minDataValue() {
 	}
 	
 	return min-min/10;
+}
+
+
+function maxDataValue() {
+	var max = 0;
+	for (var i=0; i<donneesC.length; i++) {
+		if (donneesC[i] > max) {
+			max = donneesC[i];
+		}
+	}
+	
+	return max;
 }
