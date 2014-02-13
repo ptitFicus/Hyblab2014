@@ -2,7 +2,7 @@
 <html>
     <head>
 		<meta charset="UTF-8">
-        <meta name="viewport" content="initial-scale=1,width=device-width"></meta>
+        <meta name="viewport" content="initial-scale=1,width=device-width"></meta> 
         <title>Hyblab</title>
         <link rel="stylesheet" href="carte/jqvmap.css" type="text/css" media="screen"/>
         <link rel="stylesheet" href="carte/datavizStyle.css" type="text/css" media="screen"/>
@@ -15,45 +15,101 @@
         <script src="carte/degrade.js"></script>
 		<script src="http://code.highcharts.com/stock/highstock.js"></script>
 		<script src="carte/exporting.js"></script>
-        <script src="lib/csvUtil.js"></script>
+        <script src="lib/csvUtil.js"></script> 
+    
+        <!-- onepage scroll -->
+        <script type="text/javascript" src="onepage/jquery.onepage-scroll.js"></script>
+	    <link href='onepage/onepage-scroll.css' rel='stylesheet' type='text/css'>
+        <link href='onepage/style.css' rel='stylesheet' type='text/css'>
+        <script>
+          $(document).ready(function(){
+          $(".main").onepage_scroll({
+            sectionContainer: "section",
+            responsiveFallback: 600
+            });
+          });
+        </script>    
     </head>
+
     <body>
-    <div class="preloaded-images">
-        <img src=".img/trophy.png" width="1" height="1" alt="Image 01" />
-    </div>
+        <!-- image trophée -->
+        <div class="preloaded-images">
+            <img src=".img/trophy.png" width="1" height="1" alt="Image 01" />
+        </div>
+
         
-	<select onchange="afficherSport(this.value)" name="choixSport">
-        <option>Tous les sports</option>
-        <option>Athlétisme</option>
-        <option>Basketball</option>
-        <option>Équitation</option>
-        <option>Sports sous marins</option>
-        <option>Football</option>
-        <option>Golf</option>
-        <option>Gymnastique</option>
-        <option>Handball</option>
-        <option>Judo jujitsu et disciplines associées</option>
-        <option>Karaté et arts martiaux affinitaires</option>
-        <option>Pétanque et jeu provençal</option>
-        <option>Randonnée pédestre</option>
-        <option>Rugby</option>
-        <option>Ski</option>
-        <option>Tennis</option>
-        <option>Tennis de table</option>
-        <option>Tir</option>
-        <option>Voile</option>
-        <option>Autres fédérations</option>
-    </select>
-	
-    <div style="padding-top:5px;">
-      <div style="">
-        <div id="francemap"></div>
-      </div>
-      <div style="text-align:center;">
-        <div id="container" style="min-width: 310px; height: 400px;"></div>
-        <div id="odometer" class="odometer">0</div>
-      </div>
-    </div>
-			     
+        
+        <div class="main">        
+            
+            <!-- Première page -->    
+            <section class="page1">
+                <img src="img/p1.png">
+            </section>
+            
+            
+            <!-- Deuxième page : dataviz carte de France + podiums -->    
+            <section class="page2">
+                <select onchange="afficherSport(this.value)" name="choixSport">
+                    <option>Tous les sports</option>
+                    <option>Athlétisme</option>
+                    <option>Basketball</option>
+                    <option>Équitation</option>
+                    <option>Sports sous marins</option>
+                    <option>Football</option>
+                    <option>Golf</option>
+                    <option>Gymnastique</option>
+                    <option>Handball</option>
+                    <option>Judo jujitsu et disciplines associées</option>
+                    <option>Karaté et arts martiaux affinitaires</option>
+                    <option>Pétanque et jeu provençal</option>
+                    <option>Randonnée pédestre</option>
+                    <option>Rugby</option>
+                    <option>Ski</option>
+                    <option>Tennis</option>
+                    <option>Tennis de table</option>
+                    <option>Tir</option>
+                    <option>Voile</option>
+                    <option>Autres fédérations</option>
+                </select> 
+
+                <div style="padding-top:50px;padding-right:50px;"> 
+                  <div style="">
+                    <div id="francemap"></div>
+                  </div>
+                  <div style="text-align:center;">
+                    <div id="container" style="min-width: 310px; height: 400px;"></div>
+                    <div id="odometer" class="odometer">0</div> licenciés
+                  </div>
+                </div>
+                
+                <div style="padding-top:80px;">
+                    podiums défilables
+                </div>
+            </section>
+            
+            
+            <!-- Troisième page : article -->    
+            <section class="page3">
+                <img src="img/p3.png">
+            </section>      
+            
+            
+            <!-- Quatrième page : dataviz région PDL -->    
+            <section class="page4">
+                évolution des licenciés dans la région
+            </section>
+            
+            
+            <!-- Cinquième page : dataviz jo 2012 en PDL -->    
+            <section class="page5">
+                jo 2012
+            </section>
+            
+            
+            <!-- Sixième page et suite : vidéo, article, etc... -->    
+            <section class="page6">
+                <iframe width="560" height="315" src="//www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
+            </section>
+        </div>			     
     </body>
 </html>
