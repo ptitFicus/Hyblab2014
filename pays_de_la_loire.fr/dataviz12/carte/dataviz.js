@@ -21,8 +21,8 @@ var donneesGeneralesBrutes;         // toutes les données du csv (total)
 var donneesParSportsBrutes;         // chiffres de licenciés (total) par sport
 var sports;                         // liste des sports
 var totalLicenciesTousLesSports;    // pour le compteur
-var couleurMin = "#ffffff";         // pour le dégardé de couleur
-var couleurMax = "#000000";         // pour le dégradé de couleur
+var couleurMin = "#218FB2";         // pour le dégardé de couleur
+var couleurMax = "#0D3D48";         // pour le dégradé de couleur
 
 
 // ------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ $(document).ready(function () {
         hoverColor: null,
         backgroundColor: "#ffffff",
         color: "#ffffff",
-        borderColor: "#000000",
+        borderColor: null,
         selectedColor: null,
         enableZoom: true,
         showTooltip: true,
