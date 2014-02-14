@@ -894,10 +894,11 @@
     positionPins: function(){
       var map = this;
         var topDiff = 0;
-        var horDiff = 0;
-        if ($("#jqvmap1_Nord-Pas-de-Calais").position().top != 0 && $("#jqvmap1_Bretagne").position().left != 0) {
-            topDiff = 55;
-            horDiff = 10;
+        var horDiff = -5;
+        if ($("#jqvmap1_Nord-Pas-de-Calais").position().top > 10 && $("#jqvmap1_Bretagne").position().left != 0) {
+            //alert($("#jqvmap1_Nord-Pas-de-Calais").position().top + ";" + $("#jqvmap1_Bretagne").position().left);
+            topDiff = 65;
+            horDiff = 0;
         }
         //alert(map.diff);
       var pins = this.container.find('.jqvmap_pin');

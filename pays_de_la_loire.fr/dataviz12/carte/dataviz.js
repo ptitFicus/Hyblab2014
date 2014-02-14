@@ -56,7 +56,7 @@ $(document).ready(function () {
     
     // ------------------------------------------------------------------------------------------------
 	// Lecture du fichier csv (10 000 hab)-------------------------------------------------------------
-    moduleC.readTextFile('donnees/regions_sans_dom_licencies_par_sport10000_2012.csv',function (csvString){        
+    moduleC.readTextFile('donnees/regions_sans_dom_licencies_par_sports10000_2012.csv',function (csvString){        
 		// MAP -----------------------------------------
 	    var csvObject = moduleC.csvToObject(csvString), prop, s = '',
             premiereLigne = csvObject.firstLine,
@@ -67,7 +67,6 @@ $(document).ready(function () {
             ratiosTotauxSpotsRegions = {};
         donnees = csvObject;
         afficherTousSports();
-		        
         
 		// DIAGRAMME ----------------------------------
 		donneesGeneralesC = csvObject;
@@ -141,30 +140,6 @@ $(document).ready(function () {
 });
 
 
-
-
-
-// ------------------------------------------------------------------------------
-/*function resizeMap() {
-    "use strict";
-    var viewportWidth     = window.innerWidth,
-        viewportHeight    = window.innerHeight;
-    if (viewportWidth > 500) {
-        
-        document.getElementById('francemap').style.width  = Math.floor((viewportWidth/2)- 100) + "px";
-        document.getElementById('francemap').style.height = Math.floor((viewportHeight)) + "px";
-    } else {
-        document.getElementById('francemap').style.width  = Math.floor((viewportWidth)- 100) + "px";
-        document.getElementById('francemap').style.height = Math.floor((viewportHeight)) + "px";
-    }
-}*/
-
-
-
-
-
-
-// ------------------------------------------------------------------------------
 // pour le responsive
 window.onresize = function () {
     "use strict";
@@ -178,28 +153,6 @@ window.onresize = function () {
 };
 
 
-
-
-
-// ------------------------------------------------------------------------------
-/*function handleResize() {
-    "use strict";
-	resizeMap();
-    setTimeout(function () {
-        var obj = {},
-            img = "<img src='./img/trophy.png' style='width:20px' />";
-        obj[regionGagnante] = img;
-        $('.jqvmap_pin').remove();
-        $('#francemap').vectorMap("placePins", obj, "content");
-    }, 0);
-}*/
-
-
-
-
-
-
-// ------------------------------------------------------------------------------
 // Après clique sur une région (switch diagramme <--> infosRegions)
 var diagramme = true;
 function cliqueSurRegion(region) {
