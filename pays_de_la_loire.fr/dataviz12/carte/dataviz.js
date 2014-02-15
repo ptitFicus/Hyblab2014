@@ -44,9 +44,8 @@ $(document).ready(function () {
         color: "#ffffff",
         borderColor: null,
         selectedColor: null,
-        enableZoom: true,
+        enableZoom: false,
         showTooltip: true,
-        //scaleColors: ["#ffffff", "#000000"],
 		onRegionClick: function (element, code, region) {
 			cliqueSurRegion(code);
 		}
