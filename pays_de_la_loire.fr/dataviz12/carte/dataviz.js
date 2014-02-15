@@ -259,7 +259,6 @@ function afficherTousSports() {
         }
     }
 
-    //palette = moduleD.obtenirPalette('#000000', '#efefef', ratiosTotauxSpotsRegions);
     palette = moduleD.obtenirPalette(couleurMax, couleurMin, ratiosTotauxSpotsRegions);
 	paletteDiagramme = palette;        // pour le diagramme    
     $('#francemap').vectorMap("setColors", palette);
