@@ -19,3 +19,7 @@
 .pictoChoix:hover {
     opacity: 0.5;
 }
+
+.pop_ctrl img {
+    width: 40px;
+}

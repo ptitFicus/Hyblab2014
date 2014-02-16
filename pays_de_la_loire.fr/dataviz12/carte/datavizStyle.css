@@ -34,3 +34,8 @@
     background-color: #ff0000;
     border: 2px solid black;
 }
+
+.video {
+    width: 560px;
+    height: 315px;
+}

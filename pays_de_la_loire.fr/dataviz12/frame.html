@@ -19,32 +19,21 @@
     
         <!-- onepage scroll -->
         <script type="text/javascript" src="onepage/jquery.onepage-scroll.js"></script>
+        <script type="text/javascript" src="onepage/onePageInit.js"></script>
 	    <link href='onepage/onepage-scroll.css' rel='stylesheet' type='text/css'>
         <link href='onepage/style.css' rel='stylesheet' type='text/css'>
-        <script>
-          $(document).ready(function(){
-          $(".main").onepage_scroll({
-            sectionContainer: "section",
-            responsiveFallback: 600
-            });
-          });
-        </script>    
 
         <!-- popup menu -->
         <script src="popmenu/jquery.popmenu.js"></script>
+        <script src="popmenu/popMenuInit.js"></script>
         <link rel="stylesheet" href="popmenu/font-awesome.min.css"/>
         <link rel="stylesheet" href="popmenu/stylepopmenu.css"/>
-        <script>
-            $(function(){
-                $('#demo_box').popmenu({'background':'#BDBDBD','focusColor':'#2E2E2E','iconSize': '145px', 'width': '870px', });
-            })
-        </script>
     </head>
 
     <body>
         <!-- image trophée -->
         <div class="preloaded-images">
-            <img src=".img/trophy.png" width="1" height="1" alt="Image 01" />
+            <img id="imageCoupeCachee" src="img/coupe.svg" width="1" height="1" alt="Image 01" />
         </div>
 
         
@@ -63,7 +52,9 @@
                 <!-- popupmenu -->
                 <div id="popupmenu">
                         <div id="demo_box">
-                            <div class="pop_ctrl"><img src="img/AndroidMenuButton.png" width="40" height="40"></div>
+                            <div class="pop_ctrl">
+                                <img src="img/AndroidMenuButton.png">
+                            </div>
                             <ul id="demo_ul">
                                 <li class="demo_li">
                                     <img onclick="afficherSport('Tous les sports')" class="pictoChoix" src="img/popmenu/coupe.svg" alt="Tous les sports">
@@ -183,12 +174,12 @@
                 <div style="padding-top:40px;">
                     <b>TODO :</b><br>
                     - infos régions (mode global et mode sport)<br>
-                    - enlever zoom carte<br>
-                    - choix couleurs + légende/échelle<br>
+                    - légende (à valider)
                     - podiums défilables<br>
                     - gestion du scroll (pour le mettre à droite du diagramme)<br>
-                    - liste pour choix du sport<br>
+                    - liste pour choix du sport (en attente des pictos)<br>
                     - couleurs, polices, etc
+                    - Affichage initial du trophé sous firefox
                 </div>
             </section>
             
@@ -214,12 +205,12 @@
             <!-- Sixième page et suite : vidéo, article, etc... -->    
             <section class="page6">
                 <div align="center" style="padding-top:50px;">
-                    <iframe width="560" height="315" src="//www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="video" src="//www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div style="padding-top:20px;">
                     articles, vidéos, etc.. sur les prochaines pages
                 </div>
             </section>
-        </div>			     
+        </div>
     </body>
 </html>
