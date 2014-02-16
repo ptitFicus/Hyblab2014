@@ -23,6 +23,7 @@ var sports;                         // liste des sports
 var totalLicenciesTousLesSports;    // pour le compteur
 var couleurMin = "#218FB2";         // pour le dégardé de couleur
 var couleurMax = "#0D3D48";         // pour le dégradé de couleur
+var img = "<img src='img/coupe.svg' style='width:30px' />";
 
 
 // ------------------------------------------------------------------------------
@@ -65,7 +66,7 @@ $(document).ready(function () {
             ratiosTotalSport = [],
             ratiosTotauxSpotsRegions = {};
         donnees = csvObject;
-        afficherTousSports();
+        afficherSport('Tous les sports')
         
 		// DIAGRAMME ----------------------------------
 		donneesGeneralesC = csvObject;
@@ -143,8 +144,7 @@ $(document).ready(function () {
 window.onresize = function () {
     "use strict";
     setTimeout(function () {
-        var obj = {},
-            img = "<img src='img/trophy.png' style='width:20px' />";
+        var obj = {};
         obj[regionGagnante] = img;
         $('.jqvmap_pin').remove();
         $('#francemap').vectorMap("placePins", obj, "content");
@@ -234,13 +234,13 @@ function afficherTousSports() {
         ratiosTotauxSpotsRegions = {},
         palette,
         max = 0,
-        obj = {},
-        img = "<img src='img/trophy.png' style='width:20px' />";
+        obj = {};
     
     for (i = 0; i < regions.length; i += 1) {
         ratiosTotalSport[i] = 0;
     }
-        
+
+    
     for (prop in donnees) {
         if (donnees.hasOwnProperty(prop) && prop.toString() !== "firstLine") {
             chiffres = donnees[prop];
@@ -257,8 +257,31 @@ function afficherTousSports() {
             regionGagnante = regions[i];
         }
     }
-
+    ratiosTotauxSpotsRegions.l1 = 2800;
+    ratiosTotauxSpotsRegions.l2 = 2500;
+    ratiosTotauxSpotsRegions.l3 = 2200;
+    ratiosTotauxSpotsRegions.l4 = 1900;
     palette = moduleD.obtenirPalette(couleurMax, couleurMin, ratiosTotauxSpotsRegions);
+    
+    var l1 = palette.l1,
+        l2 = palette.l2,
+        l3 = palette.l3,
+        l4 = palette.l4;
+    delete palette.l1;
+    delete palette.l2;
+    delete palette.l3;
+    delete palette.l4;
+
+    document.getElementById('cadreLegende1').style.backgroundColor = l1;
+    document.getElementById('cadreLegende2').style.backgroundColor = l2;
+    document.getElementById('cadreLegende3').style.backgroundColor = l3;
+    document.getElementById('cadreLegende4').style.backgroundColor = l4;
+
+    document.getElementById('legende1').innerHTML = ratiosTotauxSpotsRegions.l1;
+    document.getElementById('legende2').innerHTML = ratiosTotauxSpotsRegions.l2;
+    document.getElementById('legende3').innerHTML = ratiosTotauxSpotsRegions.l3;
+    document.getElementById('legende4').innerHTML = ratiosTotauxSpotsRegions.l4;
+    
 	paletteDiagramme = palette;        // pour le diagramme    
     $('#francemap').vectorMap("setColors", palette);
     obj[regionGagnante] = img;
@@ -283,8 +306,7 @@ function afficherSport(sportSelect) {
         palette,
         max = 0,
         gagnant,
-        obj = {},
-        img = "<img src='img/trophy.png' style='width:20px' />";
+        obj = {};
 
     sportSelect = sportSelect.toString();
     sportSelect = sportSelect.replace(/ /g, "_");
@@ -301,7 +323,7 @@ function afficherSport(sportSelect) {
     // Choix tous les sports -------------------------------------
     if (chiffres === undefined) {
         // carte
-		afficherTousSports();	
+		afficherTousSports();
 		modeGlobal = true;
 		
 		// diagramme
@@ -312,7 +334,7 @@ function afficherSport(sportSelect) {
     
     
     // Choix d'un sport ------------------------------------------
-    else {		
+    else {
 		modeGlobal = false;
 	
 		// carte
@@ -323,8 +345,129 @@ function afficherSport(sportSelect) {
                 regionGagnante = regions[i];
             }
         }
-        //palette = moduleD.obtenirPalette('#000000', '#dfdfdf', ratios);
+        if (sportSelect === "Golf") {
+            ratios.l1 = 90;
+            ratios.l2 = 70;
+            ratios.l3 = 50;
+            ratios.l4 = 30;
+        } else if (sportSelect === "Athlétisme") {
+            ratios.l1 = 55;
+            ratios.l2 = 45;
+            ratios.l3 = 35;
+            ratios.l4 = 25;
+        } else if (sportSelect === "Basketball") {
+            ratios.l1 = 150;
+            ratios.l2 = 90;
+            ratios.l3 = 60;
+            ratios.l4 = 30;
+        } else if (sportSelect === "Équitation") {
+            ratios.l1 = 140;
+            ratios.l2 = 125;
+            ratios.l3 = 110;
+            ratios.l4 = 95;
+        } else if (sportSelect === "Sports_sous_marins") {
+            ratios.l1 = 35;
+            ratios.l2 = 30;
+            ratios.l3 = 25;
+            ratios.l4 = 20;
+        } else if (sportSelect === "Football") {
+            ratios.l1 = 425;
+            ratios.l2 = 345;
+            ratios.l3 = 265;
+            ratios.l4 = 185;
+        } else if (sportSelect === "Gymnastique") {
+            ratios.l1 = 95;
+            ratios.l2 = 70;
+            ratios.l3 = 45;
+            ratios.l4 = 20;
+        } else if (sportSelect === "Handball") {
+            ratios.l1 = 110;
+            ratios.l2 = 85;
+            ratios.l3 = 60;
+            ratios.l4 = 35;
+        } else if (sportSelect === "Judo_jujitsu_et_disciplines_associées") {
+            ratios.l1 = 105;
+            ratios.l2 = 95;
+            ratios.l3 = 85;
+            ratios.l4 = 75;
+        } else if (sportSelect === "Karaté_et_arts_martiaux_affinitaires") {
+            ratios.l1 = 45;
+            ratios.l2 = 39;
+            ratios.l3 = 32;
+            ratios.l4 = 25;
+        } else if (sportSelect === "Natation") {
+            ratios.l1 = 55;
+            ratios.l2 = 45;
+            ratios.l3 = 35;
+            ratios.l4 = 25;
+        } else if (sportSelect === "Pétanque_et_jeu_provençal") {
+            ratios.l1 = 120;
+            ratios.l2 = 85;
+            ratios.l3 = 50;
+            ratios.l4 = 15;
+        } else if (sportSelect === "Randonnée_pédestre") {
+            ratios.l1 = 50;
+            ratios.l2 = 35;
+            ratios.l3 = 20;
+            ratios.l4 = 5;
+        } else if (sportSelect === "Rugby") {
+            ratios.l1 = 165;
+            ratios.l2 = 115;
+            ratios.l3 = 65;
+            ratios.l4 = 15;
+        } else if (sportSelect === "Ski") {
+            ratios.l1 = 105;
+            ratios.l2 = 70;
+            ratios.l3 = 35;
+            ratios.l4 = 0;
+        } else if (sportSelect === "Tennis") {
+            ratios.l1 = 210;
+            ratios.l2 = 180;
+            ratios.l3 = 150;
+            ratios.l4 = 120;
+        } else if (sportSelect === "Tennis_de_table") {
+            ratios.l1 = 55;
+            ratios.l2 = 35;
+            ratios.l3 = 20;
+            ratios.l4 = 15;
+        } else if (sportSelect === "Tir") {
+            ratios.l1 = 105;
+            ratios.l2 = 75;
+            ratios.l3 = 45;
+            ratios.l4 = 15;
+        } else if (sportSelect === "Voile") {
+            ratios.l1 = 100;
+            ratios.l2 = 70;
+            ratios.l3 = 40;
+            ratios.l4 = 10;
+        } else if (sportSelect === "Autres_fédérations") {
+            ratios.l1 = 370;
+            ratios.l2 = 320;
+            ratios.l3 = 270;
+            ratios.l4 = 220;
+        }
+        
         palette = moduleD.obtenirPalette(couleurMax, couleurMin, ratios);
+        
+        var l1 = palette.l1,
+            l2 = palette.l2,
+            l3 = palette.l3,
+            l4 = palette.l4;
+        delete palette.l1;
+        delete palette.l2;
+        delete palette.l3;
+        delete palette.l4;
+
+        document.getElementById('cadreLegende1').style.backgroundColor = l1;
+        document.getElementById('cadreLegende2').style.backgroundColor = l2;
+        document.getElementById('cadreLegende3').style.backgroundColor = l3;
+        document.getElementById('cadreLegende4').style.backgroundColor = l4;
+
+        document.getElementById('legende1').innerHTML = ratios.l1;
+        document.getElementById('legende2').innerHTML = ratios.l2;
+        document.getElementById('legende3').innerHTML = ratios.l3;
+        document.getElementById('legende4').innerHTML = ratios.l4;
+        
         paletteDiagramme = palette;        
         $('#francemap').vectorMap("setColors", palette);
         obj[regionGagnante] = img;
@@ -383,8 +526,6 @@ function afficherSport(sportSelect) {
         majCompteur(donneesParSportsBrutes[sports.indexOf(sportSelect)]);
     }
 }
-
-
 
 
 // Création/configuration du diagramme ---------------------------------------------------------------------

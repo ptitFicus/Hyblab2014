@@ -28,3 +28,9 @@
         width:100%;
     }
 }
+
+.cadreLegende {
+    width: 40px;
+    background-color: #ff0000;
+    border: 2px solid black;
+}
