@@ -235,7 +235,7 @@ function cliqueSurRegion(region) {
         if (modeGlobal) {
             // TODO
             htmlInfosRegions = htmlInfosRegions + "Mode global... TODO !!";
-            obtenirSportsDominants(region);
+            //obtenirSportsDominants(region);
         } else {
             // TODO
             htmlInfosRegions = htmlInfosRegions + "Mode sport :" + sportSelectionne + "... TODO !!";
