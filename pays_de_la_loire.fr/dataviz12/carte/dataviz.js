@@ -25,6 +25,7 @@ var totalLicenciesTousLesSports;    // pour le compteur
 var couleurMin = "#218FB2";         // pour le dégardé de couleur
 var couleurMax = "#0D3D48";         // pour le dégradé de couleur
 var img = "<img src='img/coupe.svg' style='width:30px' />";
+var diagramme = true;
 
 
 
@@ -34,110 +35,106 @@ var img = "<img src='img/coupe.svg' style='width:30px' />";
 // Création/configuration du diagramme ---------------------------------------------------------------------
 function creerDiagramme() {
     'use strict';
-	(function ($) {
-		$(function () {
-            chart = new Highcharts.Chart({
-                chart: {
-                    renderTo: 'container',
-                    type: 'bar',
-                    //borderWidth: 1,
-                    backgroundColor: null, // transparent, permet de mettre une image derrière, par exemple
-                    borderColor: "#ffffff"
-                },
-                title: {
-                    text: sportSelectionne
-                },
-                xAxis: {
-                    categories: regionsC,
-                    tickmarkPlacement: 'on',
-                    labels: {
-                        align: 'left',
-                        useHTML: true,
-                        formatter: function () {
-                            //var nomRegion = (""+(this.value)).substring(0,16);
-                            var nomRegion = this.value;
-                            if (this.value === "Provences-Alpes-Cote-d-Azur") {
-                                nomRegion = "PACA";
-                            } else if (this.value === "Languedoc-Roussillon") {
-                                nomRegion = "Lang. Roussillon";
-                            } else if (this.value === "Champagne-Ardenne") {
-                                nomRegion = "Champ. Ardenne";
-                            }
-                            return '&nbsp;&nbsp;&nbsp;' + nomRegion;
-                        },
-                        style: {
-                            color: 'red'
-                        }
-                        //enabled: false
-                        //step: 1 
-                    },
-                    min: 0,
-                    max: 7
-                },
-                scrollbar: {
-                    enabled: true,
-                    barBackgroundColor: 'gray',
-                    barBorderRadius: 7,
-                    barBorderWidth: 0,
-                    buttonBackgroundColor: 'gray',
-                    buttonBorderWidth: 0,
-                    buttonArrowColor: 'white',
-                    buttonBorderRadius: 7,
-                    rifleColor: 'white',
-                    trackBackgroundColor: 'white',
-                    trackBorderWidth: 1,
-                    trackBorderColor: 'silver',
-                    trackBorderRadius: 7
-                },
-                yAxis: {
-                    title: {
-                        text: 'Nombre de licenciés (pour 10 000 habitants)',
-                        align: 'high'
-                    },
-                    labels: {
-                        overflow: 'justify'
-                    },
-                    gridLineWidth: 0
-                    /*startOnTick: 1,
-                    endOnTick:5,*/
-                },
-                series: [{
-                    name: '2012',
-                    data: donneesC,
-                    dataLabels: {
-                        enabled: false
-                    },
-                    cursor: 'pointer',
-                    point: {
-                        events: {
-                            click: function () {
-                                chart.setTitle(null, {text: this.category + ', ' + this.y + ' licenciés pour 10 000 habitants'});
-                            }
-                        }
+    chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            type: 'bar',
+            //borderWidth: 1,
+            backgroundColor: null, // transparent, permet de mettre une image derrière, par exemple
+            borderColor: "#ffffff"
+        },
+        title: {
+            text: sportSelectionne
+        },
+        xAxis: {
+            categories: regionsC,
+            tickmarkPlacement: 'on',
+            labels: {
+                align: 'left',
+                useHTML: true,
+                formatter: function () {
+                    //var nomRegion = (""+(this.value)).substring(0,16);
+                    var nomRegion = this.value;
+                    if (this.value === "Provences-Alpes-Cote-d-Azur") {
+                        nomRegion = "PACA";
+                    } else if (this.value === "Languedoc-Roussillon") {
+                        nomRegion = "Lang. Roussillon";
+                    } else if (this.value === "Champagne-Ardenne") {
+                        nomRegion = "Champ. Ardenne";
                     }
-                }],
-                exporting: {
-                    enabled : false
+                    return '&nbsp;&nbsp;&nbsp;' + nomRegion;
                 },
-                plotOptions: {
-                    bar: {
-                        dataLabels: {
-                            enabled: true
-                        }
-                    }
-                },
-                legend: {
-                    enabled: false
-                },
-                credits: {
-                    enabled: false
-                },
-                tooltip: {
-                    enabled: false
+                style: {
+                    color: 'red'
                 }
-            });
-        });
-    }(jQuery));
+                //enabled: false
+                //step: 1 
+            },
+            min: 0,
+            max: 7
+        },
+        scrollbar: {
+            enabled: true,
+            barBackgroundColor: 'gray',
+            barBorderRadius: 7,
+            barBorderWidth: 0,
+            buttonBackgroundColor: 'gray',
+            buttonBorderWidth: 0,
+            buttonArrowColor: 'white',
+            buttonBorderRadius: 7,
+            rifleColor: 'white',
+            trackBackgroundColor: 'white',
+            trackBorderWidth: 1,
+            trackBorderColor: 'silver',
+            trackBorderRadius: 7
+        },
+        yAxis: {
+            title: {
+                text: 'Nombre de licenciés (pour 10 000 habitants)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            },
+            gridLineWidth: 0
+            /*startOnTick: 1,
+            endOnTick:5,*/
+        },
+        series: [{
+            name: '2012',
+            data: donneesC,
+            dataLabels: {
+                enabled: false
+            },
+            cursor: 'pointer',
+            point: {
+                events: {
+                    click: function () {
+                        chart.setTitle(null, {text: this.category + ', ' + this.y + ' licenciés pour 10 000 habitants'});
+                    }
+                }
+            }
+        }],
+        exporting: {
+            enabled : false
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+            enabled: false
+        }
+    });
 }
 
 
@@ -164,6 +161,10 @@ function minDataValue() {
 
 
 
+
+
+
+
 function maxDataValue() {
     'use strict';
 	var max = 0,
@@ -178,6 +179,41 @@ function maxDataValue() {
 }
 
 
+function obtenirSportsDominants(region) {
+    'use strict';
+    var i,
+        indexRegion,
+        listeChiffresSport = [],
+        listeNomsSports = [],
+        tailleListe = 0,
+        sportMinimum = 0,
+        nomSportMinimum,
+        j,
+        valeurSport;
+    
+    for (i = 0; i < regionsDeBaseC.length; i += 1) {
+        if (regionsDeBaseC[i] === region) {
+            indexRegion = i;
+            break;
+        }
+    }
+    
+    
+    for (i in donnees) {
+        if (donnees.hasOwnProperty(i) && i.toString() !== "Fédérations_multisports_affinitaires" && i.toString() !== "firstLine") {
+            valeurSport = parseInt(donnees[i][indexRegion], 10);
+            if (listeChiffresSport.length < 5) {
+                listeChiffresSport.push(valeurSport);
+                listeNomsSports.push(i);
+            } else {
+                
+            }
+        }
+    }
+    
+    return listeSports;
+}
+
 
 
 
@@ -185,7 +221,6 @@ function maxDataValue() {
 
 
 // Après clique sur une région (switch diagramme <--> infosRegions)
-var diagramme = true;
 function cliqueSurRegion(region) {
 	'use strict';
     var htmlInfosRegions,
@@ -200,6 +235,7 @@ function cliqueSurRegion(region) {
         if (modeGlobal) {
             // TODO
             htmlInfosRegions = htmlInfosRegions + "Mode global... TODO !!";
+            obtenirSportsDominants(region);
         } else {
             // TODO
             htmlInfosRegions = htmlInfosRegions + "Mode sport :" + sportSelectionne + "... TODO !!";
@@ -225,6 +261,12 @@ function cliqueSurRegion(region) {
 	}
 	
 	regionCliquee = region;
+}
+
+
+function afficherRegionModeGlobal(region) {
+    'use strict';
+    
 }
 
 
@@ -421,11 +463,6 @@ function afficherSport(sportSelect) {
             ratios.l2 = 90;
             ratios.l3 = 60;
             ratios.l4 = 30;
-        } else if (sportSelect === "\u00C9quitation") {
-            ratios.l1 = 140;
-            ratios.l2 = 125;
-            ratios.l3 = 110;
-            ratios.l4 = 95;
         } else if (sportSelect === "Sports_sous_marins") {
             ratios.l1 = 35;
             ratios.l2 = 30;
@@ -506,6 +543,11 @@ function afficherSport(sportSelect) {
             ratios.l2 = 320;
             ratios.l3 = 270;
             ratios.l4 = 220;
+        } else {
+            ratios.l1 = 140;
+            ratios.l2 = 125;
+            ratios.l3 = 110;
+            ratios.l4 = 95;
         }
         
         palette = moduleD.obtenirPalette(couleurMax, couleurMin, ratios);
