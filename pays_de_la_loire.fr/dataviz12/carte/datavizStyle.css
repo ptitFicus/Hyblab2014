@@ -39,3 +39,20 @@
     width: 560px;
     height: 315px;
 }
+
+#carte2 {
+    width:50%;
+    height: 500px;
+    float:left;
+}
+
+#courbeDpt {
+    width: 50%;
+    float: right;
+    height: 500px;
+}
+
+#courbeDpt {
+    background: url(/img/Basket.png) no-repeat center;
+    
+}

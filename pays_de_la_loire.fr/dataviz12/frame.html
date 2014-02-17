@@ -11,7 +11,8 @@
         <script src="lib/jquery-2.1.0.min.js"></script>
         <script src="carte/jquery.vmap.js"></script>
         <script src="carte/jquery.vmap.france2.js"></script>
-        <script src="carte/dataviz.js"></script>
+        <script src="dataviz2/carte_region.js"></script>
+        
         <script src="carte/degrade.js"></script>
 		<script src="lib/highstock.js"></script>
 		<script src="carte/exporting.js"></script>
@@ -69,7 +70,7 @@
                                    <img onclick="afficherSport('Équitation')" class="pictoChoix" src="img/popmenu/equitation.svg" alt="Équitation">
                                 </li>
                                 <li class="demo_li">
-                                   <img onclick="afficherSport('Sports sous marins')" class="pictoChoix" src="img/popmenu/voile.svg" alt="Sports sous marins">
+                                   <img onclick="afficherSport('Sports sous marins')" class="pictoChoix" src="img/popmenu/plongee.svg" alt="Sports sous marins">
                                 </li>                                
                                 <li class="demo_li">
                                     <img onclick="afficherSport('Football')" class="pictoChoix" src="img/popmenu/football.svg" alt="Football">
@@ -102,7 +103,7 @@
                                    <img onclick="afficherSport('Rugby')" class="pictoChoix" src="img/popmenu/rugby.svg" alt="Rugby">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Ski')" class="pictoChoix" src="img/SKI.png" alt="Ski">
+                                    <img onclick="afficherSport('Ski')" class="pictoChoix" src="img/popmenu/ski.svg" alt="Ski">
                                 </li>
                                 <li class="demo_li">
                                     <img onclick="afficherSport('Tennis')" class="pictoChoix" src="img/popmenu/tennis.svg" alt="Tennis">
@@ -117,7 +118,7 @@
                                     <img onclick="afficherSport('Voile')" class="pictoChoix" src="img/popmenu/voile.svg" alt="Tennis">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Autres_fédérations')" class="pictoChoix" src="img/p1.png" alt="Autres fédérations">
+                                    <img onclick="afficherSport('Autres_fédérations')" class="pictoChoix" src="img/popmenu/autres.svg" alt="Autres fédérations">
                                 </li>
                             </ul>
                         </div>
@@ -192,6 +193,11 @@
             
             <!-- Quatrième page : dataviz région PDL -->    
             <section class="page4">
+                <div id="carte2">
+                    
+                </div>
+                <div id="courbeDpt">
+                </div>
                 <b>TODO :</b> évolution des licenciés dans la région
             </section>
             
@@ -212,5 +218,7 @@
                 </div>
             </section>
         </div>
+        <script src="dataviz2/dataviz2.js"></script>
+        <script src="carte/dataviz.js"></script>
     </body>
 </html>
