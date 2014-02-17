@@ -185,11 +185,11 @@ function obtenirSportsDominants(region) {
         indexRegion,
         listeChiffresSport = [],
         listeNomsSports = [],
-        tailleListe = 0,
-        sportMinimum = 0,
+        sportMinimum = 1001,
         nomSportMinimum,
         j,
-        valeurSport;
+        valeurSport,
+        retour = {};
     
     for (i = 0; i < regionsDeBaseC.length; i += 1) {
         if (regionsDeBaseC[i] === region) {
@@ -205,13 +205,37 @@ function obtenirSportsDominants(region) {
             if (listeChiffresSport.length < 5) {
                 listeChiffresSport.push(valeurSport);
                 listeNomsSports.push(i);
-            } else {
+                if (valeurSport < sportMinimum) {
+                    sportMinimum  = valeurSport;
+                    nomSportMinimum = i;
+                }
+            } else if (valeurSport > sportMinimum) {
+                // On ajoute le sport à la liste
+                listeChiffresSport.push(valeurSport);
+                listeNomsSports.push(i);
                 
+                // On supprime le minimum actuel
+                listeChiffresSport.splice(listeChiffresSport.indexOf(sportMinimum), 1);
+                listeNomsSports.splice(listeNomsSports.indexOf(nomSportMinimum), 1);
+                
+                // On définie temporairement ce sport comme le minimum
+                sportMinimum = valeurSport;
+                nomSportMinimum = i;
+                
+                // Recherche du nouveau minimum
+                for (j = 0; j < listeChiffresSport.length; j += 1) {
+                    if (listeChiffresSport[j] < sportMinimum) {
+                        sportMinimum = listeChiffresSport[j];
+                        nomSportMinimum = listeNomsSports[j];
+                    }
+                }
             }
         }
     }
     
-    return listeSports;
+    retour.listeNomsSports = listeNomsSports;
+    retour.listeChiffresSports = listeChiffresSport;
+    return retour;
 }
 
 
