@@ -1,8 +1,70 @@
 /*jslint browser: true*/
-/*global $, alert, Highcharts */
+/*global $, alert, Highcharts, moduleCSV */
 
-function receptionnerCliqueDepartement() {
+var donneesDpt;
+var selectedSportDtp = "tous";
+var selectedDpt;
+
+function handleDptSportChange(sport) {
     'use strict';
+    selectedSportDtp = sport;
+    if(selectedDpt !== undefined) {
+        receptionnerCliqueDepartement(selectedDpt, selectedSportDtp);
+    }
+}
+
+/**
+ * Lit les fichiers de données des départements pour initialiser la variable donneesDpt
+ */
+function lireFichiersDpt() {
+    'use strict';
+    donneesDpt = {};
+    var moduleC = moduleCSV(),
+        annee = 2009,
+        fInit = function (csvString) {
+            donneesDpt[annee] = {};
+            var csvObject = moduleC.csvToObject(csvString),
+                prop,
+                i;
+            
+            for (i = 0; i < csvObject.firstLine.length; i += 1) {
+                donneesDpt[annee][csvObject.firstLine[i]] = {};
+            }
+            
+            for (prop in csvObject) {
+                if (csvObject.hasOwnProperty(prop) && prop.toString() !== "firstLine") {
+                    for (i = 0; i < csvObject[prop].length; i += 1) {
+                        if (donneesDpt[annee][csvObject.firstLine[i]].tous === undefined) {
+                            donneesDpt[annee][csvObject.firstLine[i]].tous = 0;
+                        }
+                        donneesDpt[annee][csvObject.firstLine[i]][prop] = parseInt(csvObject[prop][i], 10);
+                        donneesDpt[annee][csvObject.firstLine[i]].tous += parseInt(csvObject[prop][i], 10);
+                    }
+                }
+            }
+            annee += 1;
+            if (annee <= 2012) {
+                moduleC.readTextFile('dataviz2/departements_PDL_licencies_par_sport_' + annee + '.csv', fInit);
+            }
+        };
+    moduleC.readTextFile('dataviz2/departements_PDL_licencies_par_sport_' + annee + '.csv', fInit);
+}
+
+
+function obtenirHistorique(departement, sport) {
+    'use strict';
+    var ret = [],
+        annee;
+    for (annee = 2009; annee <= 2012; annee += 1) {
+        ret[annee - 2009] = donneesDpt[annee][departement][sport];
+    }
+    return ret;
+}
+
+function receptionnerCliqueDepartement(departement, sport) {
+    'use strict';
+    selectedDpt = departement;
+    var donnees = obtenirHistorique(departement, sport);
     $('#courbeDpt').highcharts({
         chart: {
             type: 'areaspline',
@@ -39,7 +101,7 @@ function receptionnerCliqueDepartement() {
         series: [{
             type: 'line',
             name: 'Nombre de licenciés',
-            data: [100, 1900, 1000, 2100]
+            data: donnees
         }]
     });
 }
@@ -51,6 +113,8 @@ function receptionnerCliqueDepartement() {
 
 $(document).ready(function () {
     'use strict';
+    
+    lireFichiersDpt();
     $('#carte2').vectorMap({
         map: 'pays_de_la_loire',
         hoverOpacity: 0.5,
@@ -62,7 +126,7 @@ $(document).ready(function () {
         enableZoom: false,
         showTooltip: true,
 		onRegionClick: function (element, code, region) {
-			receptionnerCliqueDepartement();
+			receptionnerCliqueDepartement(code, selectedSportDtp);
 		}
     });
     
