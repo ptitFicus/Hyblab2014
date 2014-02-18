@@ -265,7 +265,7 @@ function obtenirPictoSport(sportSelect) {
     } else if (sportSelect === "Basketball") {
         return 'basket.svg';
     } else if (sportSelect === "Sports_sous_marins") {
-        return 'plongée.svg';
+        return 'plongee.svg';
     } else if (sportSelect === "Football") {
         return 'football.svg';
     } else if (sportSelect === "Gymnastique") {
@@ -318,9 +318,9 @@ function cliqueSurRegion(region) {
 	if (diagramme || (region !== regionCliquee)) {
 			
        htmlInfosRegions = "<center><div style='display: table; background-image: url(img/bandeauRegions.png); width: 336px;height: 46px;'><div style='margin-top: 6px; color: "+couleurDeFond+";'><b>"+region+"</b></div></div></center>";
-        htmlInfosRegions += "<center><img src='img/legendes/nbLicences10000.png' width=150></center>";
 
         if (modeGlobal) {
+            htmlInfosRegions += "<center><img src='img/legendes/nbLicences10000.png' width=150></center>";
             sports = obtenirSportsDominants(region).listeNomsSports;
             chiffres = obtenirSportsDominants(region).listeChiffresSports;
                         
@@ -353,7 +353,11 @@ function cliqueSurRegion(region) {
         
         else {
             // TODO
-            htmlInfosRegions = htmlInfosRegions + "Mode sport :" + sportSelectionne + "... TODO !!";
+            htmlInfosRegions += "<center><img src='img/popmenu/"  + obtenirPictoSport(sportSelectionne) +"' width=130></center>";
+            var nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];
+            var nb10000 = donneesGeneralesC[sportSelectionne][regionsDeBaseC.indexOf(region)];
+            
+            htmlInfosRegions+= "<div style='padding-top:50px;'>- "+nbBrut+" licenciés au total<br>- "+nb10000+" licenciés pour 10 000 habitants</div>";
         }
 			
 		document.getElementById("container").innerHTML = htmlInfosRegions;
@@ -381,10 +385,9 @@ function cliqueSurRegion(region) {
 }
 
 
-function afficherRegionModeGlobal(region) {
+/*function afficherRegionModeGlobal(region) {
     'use strict';
-    // TODO
-}
+}*/
 
 
 
