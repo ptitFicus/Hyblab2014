@@ -56,3 +56,15 @@
     background: url(../img/Basket.png) no-repeat center;
     
 }
+
+#compteur {
+    /*border: 1px solid #D33C3D; */
+    text-align: center;
+}
+
+#texteCompteur {
+    /*border: 1px solid #D33C3D;*/
+    text-align: center;
+    color: #D33C3D;
+    font-weight: bold;        
+}

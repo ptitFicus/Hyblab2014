@@ -105,13 +105,20 @@
   -ms-border-radius: 0.1em;
   -khtml-border-radius: 0.1em;
   border-radius: 0.1em;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #111111), color-stop(35%, #111111), color-stop(55%, #333333), color-stop(55%, #111111), color-stop(100%, #111111));
+  /*background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #111111), color-stop(35%, #111111), color-stop(55%, #333333), color-stop(55%, #111111), color-stop(100%, #111111));
   background-image: -webkit-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
   background-image: -moz-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
   background-image: -o-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
   background-image: -ms-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
   background-image: linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
-  background-color: #222222;
+  background-color: #222222;*/
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #D33C3D), color-stop(35%, #D33C3D), color-stop(55%, #D33C3D), color-stop(55%, #D33C3D), color-stop(100%, #D33C3D));
+  background-image: -webkit-linear-gradient(top, #D33C3D 0%, #D33C3D 35%, #D33C3D 55%, #D33C3D 55%, #D33C3D  100%);
+  background-image: -moz-linear-gradient(top, #D33C3D 0%, #D33C3D 35%, #D33C3D 55%, #D33C3D 55%, #D33C3D  100%);
+  background-image: -o-linear-gradient(top, #D33C3D 0%, #D33C3D 35%, #D33C3D 55%, #D33C3D 55%, #D33C3D 100%);
+  background-image: -ms-linear-gradient(top, #D33C3D 0%, #D33C3D 35%, #D33C3D 55%, #D33C3D 55%, #D33C3D  100%);
+  background-image: linear-gradient(top, #D33C3D 0%, #D33C3D 35%, #D33C3D 55%, #D33C3D 55%, #D33C3D 100%);
+  background-color: #D33C3D;
   padding: 0 0.15em;
   color: white;
 }
@@ -123,4 +130,9 @@
 }
 .odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-train-station .odometer-digit .odometer-digit-inner {
   left: 0.15em;
+}
+
+.texteCompteur {
+        border: 2px solid black;
+
 }

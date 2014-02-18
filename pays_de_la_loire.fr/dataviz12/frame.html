@@ -4,21 +4,22 @@
 		<meta charset="UTF-8">
         <meta name="viewport" content="initial-scale=1,width=device-width"></meta> 
         <title>Hyblab</title>
+        
+        <!-- libraires diverses et fichiers js -->
         <link rel="stylesheet" href="dataviz1/jqvmap.css" type="text/css" media="screen"/>
         <link rel="stylesheet" href="dataviz1/datavizStyle.css" type="text/css" media="screen"/>
         <link rel="stylesheet" href="dataviz1/odometer-theme-train-station.css" />
-        <script src="dataviz1/odometer.min.js"></script>
         <script src="lib/jquery-2.1.0.min.js"></script>
+		<script src="lib/highstock.js"></script>
+        <script src="lib/csvUtil.js"></script> 
+        <script src="dataviz1/odometer.min.js"></script>
         <script src="dataviz1/jquery.vmap.js"></script>
         <script src="dataviz1/jquery.vmap.france.js"></script>
-        <script src="dataviz2/carte_region.js"></script>
-        
         <script src="dataviz1/degrade.js"></script>
-		<script src="lib/highstock.js"></script>
 		<script src="dataviz1/exporting.js"></script>
-        <script src="lib/csvUtil.js"></script> 
+        <script src="dataviz2/carte_region.js"></script>        
     
-        <!-- onepage scroll -->
+        <!-- onepage scroll : VOIR FULLPAGE.JS, SI ON A LE TEMPS -->
         <script type="text/javascript" src="onepage/jquery.onepage-scroll.js"></script>
         <script type="text/javascript" src="onepage/onePageInit.js"></script>
 	    <link href='onepage/onepage-scroll.css' rel='stylesheet' type='text/css'>
@@ -31,25 +32,25 @@
         <link rel="stylesheet" href="popmenu/stylepopmenu.css"/>
     </head>
 
-    <body>
+
+    <body bgcolor="#EAE9E5"> 
         <!-- image trophée -->
         <div class="preloaded-images">
             <img id="imageCoupeCachee" src="img/coupe.svg" width="1" height="1" alt="Image 01" />
         </div>
 
-        
-        
-        <div class="main">        
-            
+                
+        <div class="main">                    
             <!-- Première page -->    
             <section class="page1">
                 <img src="img/p1.png">
             </section>
             
             
-            <!-- Deuxième page : dataviz carte de France + podiums -->    
-            <section class="page2">
             
+            <!-- Deuxième page : dataviz carte de France + podiums -->    
+            <section class="page2">    
+                <center><img src="img/titreDataviz1.png"></center>
                 <!-- popupmenu -->
                 <div id="popupmenu">
                         <div id="demo_box">
@@ -58,120 +59,105 @@
                             </div>
                             <ul id="demo_ul">
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Tous les sports')" class="pictoChoix" src="img/popmenu/coupe.svg" alt="Tous les sports">
+                                <img onclick="afficherSport('Tous les sports')" class="pictoChoix" src="img/popmenu/coupe.svg" alt="Tous les sports">
                                 </li>
                                 <li class="demo_li">
-                                    <img class="pictoChoix" onclick="afficherSport('Athlétisme')" src="img/popmenu/athletisme.svg" alt="Athlétisme">
+                                <img class="pictoChoix" onclick="afficherSport('Athlétisme')" src="img/popmenu/athletisme.svg" alt="Athlétisme">
                                 </li>
                                 <li class="demo_li">
-                                   <img onclick="afficherSport('Basketball')" class="pictoChoix" src="img/popmenu/basket.svg" alt="Basketball">
+                                <img onclick="afficherSport('Basketball')" class="pictoChoix" src="img/popmenu/basket.svg" alt="Basketball">
                                 </li>
                                 <li class="demo_li">
-                                   <img onclick="afficherSport('Équitation')" class="pictoChoix" src="img/popmenu/equitation.svg" alt="Équitation">
+                                <img onclick="afficherSport('Équitation')" class="pictoChoix" src="img/popmenu/equitation.svg" alt="Équitation">
                                 </li>
                                 <li class="demo_li">
-                                   <img onclick="afficherSport('Sports sous marins')" class="pictoChoix" src="img/popmenu/plongee.svg" alt="Sports sous marins">
-                                </li>                                
+                                <img onclick="afficherSport('Sports sous marins')" class="pictoChoix" src="img/popmenu/plongee.svg" alt="Sports sous marins">                       </li>                                
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Football')" class="pictoChoix" src="img/popmenu/football.svg" alt="Football">
+                                <img onclick="afficherSport('Football')" class="pictoChoix" src="img/popmenu/football.svg" alt="Football">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Golf')" class="pictoChoix" src="img/popmenu/golf.svg" alt="Golf">
+                                <img onclick="afficherSport('Golf')" class="pictoChoix" src="img/popmenu/golf.svg" alt="Golf">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Gymnastique')" class="pictoChoix" src="img/popmenu/gymnastique.svg" alt="Gymnastique">
+                                <img onclick="afficherSport('Gymnastique')" class="pictoChoix" src="img/popmenu/gymnastique.svg" alt="Gymnastique">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Handball')" class="pictoChoix" src="img/popmenu/handball.svg" alt="Handball">
+                                <img onclick="afficherSport('Handball')" class="pictoChoix" src="img/popmenu/handball.svg" alt="Handball">
                                 </li>
                                 <li class="demo_li">
-                                   <img onclick="afficherSport('Judo jujitsu et disciplines associées')" class="pictoChoix" src="img/popmenu/judo.svg" alt="Judo">
+                                <img onclick="afficherSport('Judo jujitsu et disciplines associées')" class="pictoChoix" src="img/popmenu/judo.svg" alt="Judo">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Karaté_et_arts_martiaux_affinitaires')" class="pictoChoix" src="img/popmenu/arts_martiaux.svg" alt="Karaté">
+                                <img onclick="afficherSport('Karaté_et_arts_martiaux_affinitaires')" class="pictoChoix" src="img/popmenu/arts_martiaux.svg" alt="Karaté">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Natation')" class="pictoChoix" src="img/popmenu/natation.svg" alt="Natation">
+                                <img onclick="afficherSport('Natation')" class="pictoChoix" src="img/popmenu/natation.svg" alt="Natation">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Pétanque_et_jeu_provençal')" class="pictoChoix" src="img/popmenu/petanque.svg" alt="Pétanque">
+                                <img onclick="afficherSport('Pétanque_et_jeu_provençal')" class="pictoChoix" src="img/popmenu/petanque.svg" alt="Pétanque">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Randonnée_pédestre')" class="pictoChoix" src="img/popmenu/rando.svg" alt="Randonnée pédestre">
+                                <img onclick="afficherSport('Randonnée_pédestre')" class="pictoChoix" src="img/popmenu/rando.svg" alt="Randonnée pédestre">
                                 </li>
                                 <li class="demo_li">
-                                   <img onclick="afficherSport('Rugby')" class="pictoChoix" src="img/popmenu/rugby.svg" alt="Rugby">
+                                <img onclick="afficherSport('Rugby')" class="pictoChoix" src="img/popmenu/rugby.svg" alt="Rugby">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Ski')" class="pictoChoix" src="img/popmenu/ski.svg" alt="Ski">
+                                <img onclick="afficherSport('Ski')" class="pictoChoix" src="img/popmenu/ski.svg" alt="Ski">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Tennis')" class="pictoChoix" src="img/popmenu/tennis.svg" alt="Tennis">
+                                <img onclick="afficherSport('Tennis')" class="pictoChoix" src="img/popmenu/tennis.svg" alt="Tennis">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Tennis de table')" class="pictoChoix" src="img/popmenu/ping_pong.svg" alt="Tennis de table">
+                                <img onclick="afficherSport('Tennis de table')" class="pictoChoix" src="img/popmenu/ping_pong.svg" alt="Tennis de table">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Tir')" class="pictoChoix" src="img/popmenu/tir.svg" alt="Tir">
+                                <img onclick="afficherSport('Tir')" class="pictoChoix" src="img/popmenu/tir.svg" alt="Tir">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Voile')" class="pictoChoix" src="img/popmenu/voile.svg" alt="Tennis">
+                                <img onclick="afficherSport('Voile')" class="pictoChoix" src="img/popmenu/voile.svg" alt="Tennis">
                                 </li>
                                 <li class="demo_li">
-                                    <img onclick="afficherSport('Autres_fédérations')" class="pictoChoix" src="img/popmenu/autres.svg" alt="Autres fédérations">
+                                <img onclick="afficherSport('Autres_fédérations')" class="pictoChoix" src="img/popmenu/autres.svg" alt="Autres fédérations">
                                 </li>
                             </ul>
                         </div>
                 </div>
 
 
-                <!-- dataviz -->
+                <!-- dataviz (carte et diagramme) -->
                 <div style="padding-top:50px;padding-right:50px;"> 
-                  <div style="">
-                    <div id="francemap"></div>
-                  </div>
-                  <div style="text-align:center;">
-                    <div id="container" style="min-width: 310px; height: 400px;"></div>
-                    <div id="odometer" class="odometer">0</div> licenciés
-                  </div>
+                  <div id="francemap"></div>
+                  <div id="container" style="min-width: 310px; height: 400px;"></div>                    
                 </div>
+                <div id="compteur">
+                    <div id="odometer" class="odometer">0</div>
+                    <div id="texteCompteur">licenciés en France (Tous les sports)</div>  
+                </div> 
                 <div>
                     <h3>Légende (en licenciés pour 10 000 habitants)</h3>
                     <table>
                         <tbody>
                             <tr>
-                                <td>
-                                    <img class="cadreLegende" id="cadreLegende1" src="img/legendes/legende.png"/>
-                                </td>
-                                <td>
-                                    <span id="legende1"></span>
-                                </td>
-                                <td>
-                                    <img class="cadreLegende" id="cadreLegende2" src="img/legendes/legende.png"/>
-                                </td>
-                                <td>
-                                    <span id="legende2"></span>
-                                </td>
+                                <td><img class="cadreLegende" id="cadreLegende1" src="img/legendes/legende.png"/></td>
+                                <td><span id="legende1"></span></td>
+                                
+                                <td><img class="cadreLegende" id="cadreLegende2" src="img/legendes/legende.png"/></td>
+                                <td><span id="legende2"></span></td>
                             </tr>
+                            
                             <tr>
-                                <td>
-                                    <img class="cadreLegende" id="cadreLegende3" src="img/legendes/legende.png"/>
-                                </td>
-                                <td>
-                                    <span id="legende3"></span>
-                                </td>
-                                <td>
-                                    <img class="cadreLegende" id="cadreLegende4" src="img/legendes/legende.png"/>
-                                </td>
-                                <td>
-                                    <span id="legende4"></span>
-                                </td>
-                            </tr>
+                                <td><img class="cadreLegende" id="cadreLegende3" src="img/legendes/legende.png"/></td>
+                                <td><span id="legende3"></span></td>
+                                <td><img class="cadreLegende" id="cadreLegende4" src="img/legendes/legende.png"/></td>
+                                <td><span id="legende4"></span></td>
+                            </tr>                            
                         </tbody>
-                    </table>
-                    
+                    </table>                    
                 </div>                
             </section>
+            
+            
             
             
             
@@ -181,21 +167,24 @@
             </section>      
             
             
+            
+            
             <!-- Quatrième page : dataviz région PDL -->    
             <section class="page4">
-                <div id="carte2">
-                    
-                </div>
+                <div id="carte2"></div>
                 <div id="courbeDpt">
                 </div>
-                <b>TODO :</b> évolution des licenciés dans la région
             </section>
+            
+            
             
             
             <!-- Cinquième page : dataviz jo 2012 en PDL -->    
             <section class="page5">
-                <b>TODO :</b> jo 2012
+                <b>jo 2012</b>
             </section>
+            
+            
             
             
             <!-- Sixième page et suite : vidéo, article, etc... -->    
@@ -205,6 +194,8 @@
                 </div>
             </section>
         </div>
+        
+        
         <script src="dataviz2/dataviz2.js"></script>
         <script src="dataviz1/dataviz.js"></script>
     </body>
