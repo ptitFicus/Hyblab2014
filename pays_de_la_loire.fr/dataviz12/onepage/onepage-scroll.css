@@ -4,6 +4,8 @@ body, html {
   -webkit-transition: opacity 400ms;
   -moz-transition: opacity 400ms;
   transition: opacity 400ms;
+   /*overflow : scroll;*/
+    overflow-y: hidden;
 }
 
 body, .onepage-wrapper, html {
