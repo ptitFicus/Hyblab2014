@@ -312,7 +312,9 @@ function cliqueSurRegion(region) {
         dataDiagramme,
         i,
         sports,
-        chiffres;
+        chiffres,
+        nbBrut,
+        nb10000;
         
     // si le diagramme est affiché, ou si on clique sur une nouvelle région
 	if (diagramme || (region !== regionCliquee)) {
@@ -353,12 +355,12 @@ function cliqueSurRegion(region) {
         
         else {
             htmlInfosRegions += "<p><center><img src='img/popmenu/"  + obtenirPictoSport(sportSelectionne) +"' width=150></center>";
-            var nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];
-            var nb10000 = donneesGeneralesC[sportSelectionne][regionsDeBaseC.indexOf(region)];
+            nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];
+            nb10000 = donneesGeneralesC[sportSelectionne][regionsDeBaseC.indexOf(region)];
             
             htmlInfosRegions+=  "<div style='padding-top:30px;'>"+
                                     "<div class='sportRegions' style='margin-left:200px;'>"+nbBrut+" licenciés au total<br></div>"+
-                                    "<div class='sportRegions' style='margin-left:20px; margin-right:200px; margin-top:25px;'>"+nb10000+" licenciés pour 10 000 habitants<br></div>"+
+                                    "<div class='sportRegions' style='margin-left:15px; margin-right:200px; margin-top:25px;'>"+nb10000+" licenciés pour 10 000 habitants<br></div>"+
                                 "</div>";
         }
 			
@@ -386,10 +388,6 @@ function cliqueSurRegion(region) {
 	regionCliquee = region;
 }
 
-
-/*function afficherRegionModeGlobal(region) {
-    'use strict';
-}*/
 
 
 
