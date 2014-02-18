@@ -67,6 +67,16 @@
     padding:0;
 }
 
+.sportRegions {
+    border: 1px solid #D33C3D;
+    color: #FFF;
+    background: #D33C3D;
+    text-align: center;
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
 #compteur {
     /*border: 1px solid #D33C3D; */
     text-align: center;

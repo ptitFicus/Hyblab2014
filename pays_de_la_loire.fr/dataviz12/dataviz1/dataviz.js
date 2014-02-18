@@ -71,7 +71,7 @@ function creerDiagramme() {
                 }
             },
             min: 0,
-            max: 5
+            max: 4
         },
         scrollbar: {
             enabled: true,
@@ -352,12 +352,14 @@ function cliqueSurRegion(region) {
         
         
         else {
-            // TODO
-            htmlInfosRegions += "<center><img src='img/popmenu/"  + obtenirPictoSport(sportSelectionne) +"' width=130></center>";
+            htmlInfosRegions += "<p><center><img src='img/popmenu/"  + obtenirPictoSport(sportSelectionne) +"' width=150></center>";
             var nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];
             var nb10000 = donneesGeneralesC[sportSelectionne][regionsDeBaseC.indexOf(region)];
             
-            htmlInfosRegions+= "<div style='padding-top:50px;'>- "+nbBrut+" licenciés au total<br>- "+nb10000+" licenciés pour 10 000 habitants</div>";
+            htmlInfosRegions+=  "<div style='padding-top:30px;'>"+
+                                    "<div class='sportRegions' style='margin-left:200px;'>"+nbBrut+" licenciés au total<br></div>"+
+                                    "<div class='sportRegions' style='margin-left:20px; margin-right:200px; margin-top:25px;'>"+nb10000+" licenciés pour 10 000 habitants<br></div>"+
+                                "</div>";
         }
 			
 		document.getElementById("container").innerHTML = htmlInfosRegions;
