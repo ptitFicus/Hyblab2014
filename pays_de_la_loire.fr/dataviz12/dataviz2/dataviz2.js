@@ -55,7 +55,7 @@ $(document).ready(function () {
         map: 'pays_de_la_loire',
         hoverOpacity: 0.5,
         hoverColor: null,
-        backgroundColor: "#ffffff",
+        backgroundColor: "#EAE9E5",
         color: "#218FB2",
         borderColor: null,
         selectedColor: null,
