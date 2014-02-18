@@ -30,12 +30,16 @@
 }
 
 .cadreLegende1, .cadreLegende {
-    width: 40px;
-    
+    width: 40px;    
+    margin-left: 50px;
 }
 
 .cadreLegende {
     border: 2px solid black;
+}
+
+#legende {
+    color: #D33C3D;    
 }
 
 .video {
@@ -57,11 +61,9 @@
 
 #courbeDpt {
     background: url(../img/background_highchart/vide.png) no-repeat center;
-    
 }
 
-.celluleSport {
-    
+.celluleSport {    
     font-weight: bold;
     color: #D33C3D;
     text-align: center;
@@ -91,12 +93,8 @@
 }
 
 #texteCompteur {
-    /*border: 1px solid #D33C3D;*/
-    /*text-align: center;*/
     color: #D33C3D;
     font-weight: bold;     
-    /*right:0px;*/
-    /*width:300px;*/
 }
 
 #element_to_pop_up { 

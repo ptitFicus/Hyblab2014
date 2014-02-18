@@ -315,10 +315,14 @@ function cliqueSurRegion(region) {
         chiffres,
         nbBrut,
         nb10000;
+    
         
     // si le diagramme est affiché, ou si on clique sur une nouvelle région
 	if (diagramme || (region !== regionCliquee)) {
-			
+
+        // on cache le compteur
+        document.getElementById("compteur").style.display = "none";
+
        htmlInfosRegions = "<center><div style='display: table; background-image: url(img/bandeauRegions.png); width: 336px;height: 46px;'><div style='margin-top: 6px; color: "+couleurDeFond+";'><b>"+region+"</b></div></div></center>";
 
         if (modeGlobal) {
@@ -369,7 +373,11 @@ function cliqueSurRegion(region) {
 	} 
     
     else { // si on reclique sur la même région
-		chart.destroy();
+
+        // on ré-affiche le compteur
+        document.getElementById("compteur").style.display = "inline";
+        
+        chart.destroy();
 		creerDiagramme();
 		dataDiagramme = [];
 		for (i = 0; i < regionsC.length; i += 1) {
@@ -541,6 +549,9 @@ function afficherSport(sportSelect) {
 
     sportSelect = sportSelect.toString();
 	document.getElementById("texteCompteur").innerHTML = "licenciés en France (" + sportSelect.replace(/_/g, " ") + ")";
+    
+    // on ré-affiche le compteur si besoin
+    document.getElementById("compteur").style.display = "inline";
     
     sportSelect = sportSelect.replace(/ /g, "_");
     for (prop in donnees) {
