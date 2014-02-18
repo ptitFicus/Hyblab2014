@@ -70,6 +70,7 @@ function receptionnerCliqueDepartement(departement, sport) {
             type: 'areaspline',
             backgroundColor: 'transparent'
         },
+        exporting: { enabled: false },
         title: {
             text: 'Evolution du nombre de licenciés du sport dans la région'
         },
@@ -97,7 +98,6 @@ function receptionnerCliqueDepartement(departement, sport) {
                 threshold: null
             }
         },
-
         series: [{
             type: 'line',
             name: 'Nombre de licenciés',
@@ -133,5 +133,5 @@ $(document).ready(function () {
     
     var carte = document.getElementById("carte2"),
         svg = carte.getElementsByTagName("svg")[0];
-    svg.setAttribute("viewBox", "300 150 400 400");
+    svg.setAttribute("viewBox", "350 100 400 400");
 });
