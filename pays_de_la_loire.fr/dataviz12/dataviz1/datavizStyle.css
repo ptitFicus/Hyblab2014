@@ -80,3 +80,10 @@
     /*right:0px;*/
     /*width:300px;*/
 }
+
+#element_to_pop_up { 
+    display:none; 
+    color: #0F6377;
+    text-align: center;
+    margin:auto;
+}
