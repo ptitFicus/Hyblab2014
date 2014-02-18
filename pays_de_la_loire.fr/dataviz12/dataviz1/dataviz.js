@@ -317,11 +317,10 @@ function cliqueSurRegion(region) {
     // si le diagramme est affiché, ou si on clique sur une nouvelle région
 	if (diagramme || (region !== regionCliquee)) {
 			
-       htmlInfosRegions = "<center><div style='display: table; background-image: url(img/bandeauRegions.png); width: 336px;height: 46px;'><div style='margin-bottom: 3px;'>"+region+"</div></div></center>";
+       htmlInfosRegions = "<center><div style='display: table; background-image: url(img/bandeauRegions.png); width: 336px;height: 46px;'><div style='margin-top: 6px; color: "+couleurDeFond+";'><b>"+region+"</b></div></div></center>";
         htmlInfosRegions += "<center><img src='img/legendes/nbLicences10000.png' width=150></center>";
 
         if (modeGlobal) {
-            // TODO
             sports = obtenirSportsDominants(region).listeNomsSports;
             chiffres = obtenirSportsDominants(region).listeChiffresSports;
                         
@@ -348,6 +347,9 @@ function cliqueSurRegion(region) {
                                 "</tr>";
             htmlInfosRegions += "</table></div>";
         } 
+        
+        
+        
         
         else {
             // TODO
