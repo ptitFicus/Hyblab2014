@@ -192,7 +192,10 @@ function obtenirSportsDominants(region) {
         nomSportMinimum,
         j,
         valeurSport,
-        retour = {};
+        retour = {},
+        changement = true,
+        tmp1,
+        tmp2;
     
     for (i = 0; i < regionsDeBaseC.length; i += 1) {
         if (regionsDeBaseC[i] === region) {
@@ -237,17 +240,16 @@ function obtenirSportsDominants(region) {
     }
     
     // tri
-    var changement = true;
     while (changement) {
-        for (var i=0; i<listeNomsSports.length-1; i++) {
+        for (i = 0; i < listeNomsSports.length - 1; i += 1) {
             changement = false;
-            if (listeChiffresSport[i] < listeChiffresSport[i+1]) {
-                var tmp1 = listeChiffresSport[i];
-                var tmp2 = listeNomsSports[i];
-                listeChiffresSport[i] = listeChiffresSport[i+1];
-                listeNomsSports[i] = listeNomsSports[i+1];
-                listeChiffresSport[i+1] = tmp1;
-                listeNomsSports[i+1] = tmp2;
+            if (listeChiffresSport[i] < listeChiffresSport[i + 1]) {
+                tmp1 = listeChiffresSport[i];
+                tmp2 = listeNomsSports[i];
+                listeChiffresSport[i] = listeChiffresSport[i + 1];
+                listeNomsSports[i] = listeNomsSports[i + 1];
+                listeChiffresSport[i + 1] = tmp1;
+                listeNomsSports[i + 1] = tmp2;
                 changement = true;
             }
         }
@@ -259,6 +261,50 @@ function obtenirSportsDominants(region) {
 }
 
 
+function obtenirPictoSport(sportSelect) {
+    'use strict';
+    if (sportSelect === "Golf") {
+        return 'golf.svg';
+    } else if (sportSelect === "Athlétisme") {
+        return 'athletisme.svg';
+    } else if (sportSelect === "Basketball") {
+        return 'basket.svg';
+    } else if (sportSelect === "Sports_sous_marins") {
+        return 'plongée.svg';
+    } else if (sportSelect === "Football") {
+        return 'football.svg';
+    } else if (sportSelect === "Gymnastique") {
+        return 'gymnastique.svg';
+    } else if (sportSelect === "Handball") {
+        return 'handball.svg';
+    } else if (sportSelect === "Judo_jujitsu_et_disciplines_associées") {
+        return 'judo.svg';
+    } else if (sportSelect === "Karaté_et_arts_martiaux_affinitaires") {
+        return 'arts_martiaux.svg';
+    } else if (sportSelect === "Natation") {
+        return 'natation.svg';
+    } else if (sportSelect === "Pétanque_et_jeu_provençal") {
+        return 'petanque.svg';
+    } else if (sportSelect === "Randonnée_pédestre") {
+        return 'rando.svg';
+    } else if (sportSelect === "Rugby") {
+        return 'rugby.svg';
+    } else if (sportSelect === "Ski") {
+        return 'ski.svg';
+    } else if (sportSelect === "Tennis") {
+        return 'tennis.svg';
+    } else if (sportSelect === "Tennis_de_table") {
+        return 'ping_pong.svg';
+    } else if (sportSelect === "Tir") {
+        return 'tir.svg';
+    } else if (sportSelect === "Voile") {
+        return 'voile.svg';
+    } else if (sportSelect === "Autres_fédérations") {
+        return 'autres.svg';
+    } else {
+        return 'equitation.svg';
+    }
+}
 
 
 
@@ -269,7 +315,9 @@ function cliqueSurRegion(region) {
 	'use strict';
     var htmlInfosRegions,
         dataDiagramme,
-        i;
+        i,
+        sports,
+        chiffres;
         
     // si le diagramme est affiché, ou si on clique sur une nouvelle région
 	if (diagramme || (region !== regionCliquee)) {
@@ -279,17 +327,15 @@ function cliqueSurRegion(region) {
 
         if (modeGlobal) {
             // TODO
-            var sports = obtenirSportsDominants(region).listeNomsSports;
-            var chiffres = obtenirSportsDominants(region).listeChiffresSports;
+            sports = obtenirSportsDominants(region).listeNomsSports;
+            chiffres = obtenirSportsDominants(region).listeChiffresSports;
             
-            htmlInfosRegions += "<img src='img/popmenu/"+obtenirPictoSport(sports[0])+"' width=120>"+chiffres[0]+" licenciés pour 10 000 habitants<br>";
-            htmlInfosRegions += "<img src='img/popmenu/"+obtenirPictoSport(sports[1])+"' width=100>"+chiffres[1]+" licenciés pour 10 000 habitants<br>";
-            htmlInfosRegions += "<img src='img/popmenu/"+obtenirPictoSport(sports[2])+"' width=80>"+chiffres[2]+" licenciés pour 10 000 habitants<br>";
-            htmlInfosRegions += "<img src='img/popmenu/"+obtenirPictoSport(sports[3])+"' width=60>"+chiffres[3]+" licenciés pour 10 000 habitants<br>";
-            htmlInfosRegions += "<img src='img/popmenu/"+obtenirPictoSport(sports[4])+"' width=40>"+chiffres[4]+" licenciés pour 10 000 habitants<br>";
-        } 
-        
-        else {
+            htmlInfosRegions += "<img src='img/popmenu/" + obtenirPictoSport(sports[0]) + "' width=120>" + chiffres[0] + " licenciés pour 10 000 habitants<br>";
+            htmlInfosRegions += "<img src='img/popmenu/" + obtenirPictoSport(sports[1]) + "' width=100>" + chiffres[1] + " licenciés pour 10 000 habitants<br>";
+            htmlInfosRegions += "<img src='img/popmenu/" + obtenirPictoSport(sports[2]) + "' width=80>" + chiffres[2] + " licenciés pour 10 000 habitants<br>";
+            htmlInfosRegions += "<img src='img/popmenu/" + obtenirPictoSport(sports[3]) + "' width=60>" + chiffres[3] + " licenciés pour 10 000 habitants<br>";
+            htmlInfosRegions += "<img src='img/popmenu/" + obtenirPictoSport(sports[4]) + "' width=40>" + chiffres[4] + " licenciés pour 10 000 habitants<br>";
+        } else {
             // TODO
             htmlInfosRegions = htmlInfosRegions + "Mode sport :" + sportSelectionne + "... TODO !!";
         }
@@ -473,7 +519,7 @@ function afficherSport(sportSelect) {
         dataDiagramme;
 
     sportSelect = sportSelect.toString();
-	document.getElementById("texteCompteur").innerHTML = "licenciés en France ("+sportSelect.replace(/_/g, " ")+")";
+	document.getElementById("texteCompteur").innerHTML = "licenciés en France (" + sportSelect.replace(/_/g, " ") + ")";
     
     sportSelect = sportSelect.replace(/ /g, "_");
     for (prop in donnees) {
@@ -833,49 +879,3 @@ window.onresize = function () {
         $('#francemap').vectorMap("placePins", obj, "content");
     }, 0);
 };
-
-
-
-function obtenirPictoSport(sportSelect) {
-    if (sportSelect === "Golf") {
-        return 'golf.svg';
-    } else if (sportSelect === "Athlétisme") {
-        return 'athletisme.svg';
-    } else if (sportSelect === "Basketball") {
-        return 'basket.svg';
-    } else if (sportSelect === "Sports_sous_marins") {
-        return 'plongée.svg';
-    } else if (sportSelect === "Football") {
-        return 'football.svg';
-    } else if (sportSelect === "Gymnastique") {
-        return 'gymnastique.svg';
-    } else if (sportSelect === "Handball") {
-        return 'handball.svg';
-    } else if (sportSelect === "Judo_jujitsu_et_disciplines_associées") {
-        return 'judo.svg';
-    } else if (sportSelect === "Karaté_et_arts_martiaux_affinitaires") {
-        return 'arts_martiaux.svg';
-    } else if (sportSelect === "Natation") {
-        return 'natation.svg';
-    } else if (sportSelect === "Pétanque_et_jeu_provençal") {
-        return 'petanque.svg';
-    } else if (sportSelect === "Randonnée_pédestre") {
-        return 'rando.svg';
-    } else if (sportSelect === "Rugby") {
-        return 'rugby.svg';
-    } else if (sportSelect === "Ski") {
-        return 'ski.svg';
-    } else if (sportSelect === "Tennis") {
-        return 'tennis.svg';
-    } else if (sportSelect === "Tennis_de_table") {
-        return 'ping_pong.svg';
-    } else if (sportSelect === "Tir") {
-        return 'tir.svg';
-    } else if (sportSelect === "Voile") {
-        return 'voile.svg';
-    } else if (sportSelect === "Autres_fédérations") {
-        return 'autres.svg';
-    } else {
-        return 'equitation.svg';
-    }
-}
