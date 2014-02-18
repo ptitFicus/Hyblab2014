@@ -26,6 +26,7 @@ var couleurMin = "#218FB2";         // pour le dégardé de couleur
 var couleurMax = "#0D3D48";         // pour le dégradé de couleur
 var img = "<img src='img/coupe.svg' style='width:30px' />";
 var diagramme = true;
+var couleurDeFond = "#EAE9E5";
 
 
 
@@ -41,7 +42,7 @@ function creerDiagramme() {
             type: 'bar',
             //borderWidth: 1,
             backgroundColor: null, // transparent, permet de mettre une image derrière, par exemple
-            borderColor: "#ffffff"
+            borderColor: couleurDeFond
         },
         title: {
             text: sportSelectionne
@@ -340,6 +341,8 @@ function afficherTousSports() {
             regionGagnante = regions[i];
         }
     }
+    
+    // RATIOS A CALCULER DYNAMIQUEMENT SI LE TEMPS LE PERMET !!!
     ratiosTotauxSpotsRegions.l1 = 2800;
     ratiosTotauxSpotsRegions.l2 = 2500;
     ratiosTotauxSpotsRegions.l3 = 2200;
@@ -472,6 +475,8 @@ function afficherSport(sportSelect) {
                 regionGagnante = regions[i];
             }
         }
+        
+        // RATIOS A CALCULER DYNAMIQUEMENT SI LE TEMPS LE PERMET
         if (sportSelect === "Golf") {
             ratios.l1 = 90;
             ratios.l2 = 70;
@@ -676,8 +681,8 @@ $(document).ready(function () {
         map: 'france_fr',
         hoverOpacity: 0.5,
         hoverColor: null,
-        backgroundColor: "#ffffff",
-        color: "#ffffff",
+        backgroundColor: couleurDeFond,
+        color: couleurDeFond,
         borderColor: null,
         selectedColor: null,
         enableZoom: false,

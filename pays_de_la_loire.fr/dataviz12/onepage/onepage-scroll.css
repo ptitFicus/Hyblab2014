@@ -68,7 +68,7 @@ body, .onepage-wrapper, html {
   left: 8px;
 }
 
-.disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
+/*.disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
   overflow: auto;
 }
 
@@ -82,7 +82,7 @@ body, .onepage-wrapper, html {
   transform: none !important;
   -ms-transform: none !important;
   min-height: 100%;
-}
+}*/
 
 
 .disabled-onepage-scroll .onepage-pagination {
