@@ -29,9 +29,12 @@
     }
 }
 
-.cadreLegende {
+.cadreLegende1, .cadreLegende {
     width: 40px;
-    background-color: #ff0000;
+    
+}
+
+.cadreLegende {
     border: 2px solid black;
 }
 
@@ -58,13 +61,18 @@
 }
 
 .celluleSport {
-    border: 1px solid #D33C3D;
+    
     font-weight: bold;
     color: #D33C3D;
     text-align: center;
     height:100%;
     margin:0;
     padding:0;
+}
+
+.celluleSport h1, .celluleSport h2, .celluleSport h3, .celluleSport h4, .celluleSport h5 
+{
+    border: 1px solid #D33C3D;
 }
 
 .sportRegions {
@@ -96,4 +104,14 @@
     color: #0F6377;
     text-align: center;
     margin:auto;
+}
+
+#legende {
+    width: 50%;
+    float: left;
+}
+
+#compteur {
+    width: 50%;
+    float: right;
 }
