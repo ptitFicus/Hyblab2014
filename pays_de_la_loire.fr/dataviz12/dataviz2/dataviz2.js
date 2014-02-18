@@ -104,6 +104,7 @@ function receptionnerCliqueDepartement(departement, sport) {
             data: donnees
         }]
     });
+    document.getElementById('courbeDpt').style.backgroundImage = 'url(img/background_highchart/' + sport + '.png)';
 }
 
 
