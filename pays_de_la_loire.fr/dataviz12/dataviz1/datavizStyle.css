@@ -39,7 +39,9 @@
 }
 
 #legende {
-    color: #D33C3D;    
+    color: #0F6377;  
+    width: 50%;
+    float: left;
 }
 
 .video {
@@ -104,9 +106,13 @@
     margin:auto;
 }
 
-#legende {
-    width: 50%;
-    float: left;
+.colonne {
+  display:table-cell;
+  width:400px;
+  padding:25px;
+}
+.colonne + .colonne {
+  border-left:1px solid #000;
 }
 
 #compteur {
