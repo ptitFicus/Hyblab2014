@@ -196,3 +196,26 @@
     margin-right: auto;
     display: block;
 }
+
+p {
+    /*text-align:justify;*/
+    text-align:center;
+}
+
+.chapeau {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width:80%;
+    padding-bottom:10px;
+}
+
+.colonne {
+    text-align: justify;
+}
+
+.colonne img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
