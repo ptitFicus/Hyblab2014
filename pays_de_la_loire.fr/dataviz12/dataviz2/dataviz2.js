@@ -28,10 +28,19 @@ function obtenirHistorique(departement, sport) {
 
 function receptionnerCliqueDepartement(departement, sport) {
     'use strict';
+    var donnees,
+        i,
+        min = 10000000;
     selectedDpt = departement;
     document.getElementById('nomDepartementTexte').innerHTML = departement;
-    var donnees = obtenirHistorique(departement, sport);
-        
+    donnees = obtenirHistorique(departement, sport);
+    
+    for (i = 0; i<4 ; i += 1) {
+        if (donnees[i] < min) {
+            min = donnees[i];
+        }
+    }
+    
     $('#courbeDpt').highcharts({
         chart: {
             type: 'areaspline',
@@ -50,7 +59,7 @@ function receptionnerCliqueDepartement(departement, sport) {
             categories: ['2009', '2010', '2011', '2012']
         }],
         yAxis: [{ // Primary yAxis
-            min: 0,
+            min: min - min/10,
             minRange: 0.1,
             title: {
                 //text: 'Nombre de licenciés pour 10 000 habitants'
