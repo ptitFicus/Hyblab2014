@@ -19,7 +19,7 @@ function majField() {
     document.getElementById("discipline").innerHTML = currentTab[i][2];
     document.getElementById("club").innerHTML = currentTab[i][3];
     document.getElementById("resultat").innerHTML = currentTab[i][4];
-    document.getElementById("picto").innerHTML = "<img src='img/popmenu/" + currentTab[i][5] + "' width=150 />";
+    document.getElementById("zonePicto").innerHTML = "<img id='imgPicto' src='img/popmenu/" + currentTab[i][5] + "' width=150 />";
 }
 
 function clickBG() {

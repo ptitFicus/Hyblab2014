@@ -50,6 +50,7 @@
     font-size: 26px;
     color: #0F6377;
     text-align: center;
+    line-height: 40px;
 }
 #canvas_jo {
     margin-top: 25px;
@@ -58,9 +59,9 @@
 }
 #Global
 {
-    margin-top: 0px;
+    margin-top: 25px;
     width: 920px;
-    height: 230px;
+    height: 260px;
 }
 #Global #flamme1
 {
@@ -80,15 +81,21 @@
     margin-top: 72px;
     position: relative;
     z-index: 5;
+    background: none;
+    border: none;
 }
 #centre #info {
     float: left;
     width: 490px;
 }
-#info #picto
+#info #zonePicto
 {
     float: left;
     width: 190px;    
+}
+#imgPicto
+{
+    margin-top: 0px;
 }
 #info #texte
 {
@@ -104,6 +111,8 @@
     margin-top: 72px;
     position: relative;
     z-index: 5;
+    background: none;
+    border: none;
 }
 #Global #flamme2
 {
@@ -119,4 +128,8 @@
 .valeur
 {
     font-family: 'DinPro-Medium', Arial;
+}
+.flammes
+{
+    margin-top: 50px;
 }
