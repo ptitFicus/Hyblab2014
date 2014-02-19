@@ -83,6 +83,7 @@
     z-index: 5;
     background: none;
     border: none;
+    cursor: pointer;
 }
 #centre #info {
     float: left;
@@ -113,6 +114,7 @@
     z-index: 5;
     background: none;
     border: none;
+    cursor: pointer;
 }
 #Global #flamme2
 {

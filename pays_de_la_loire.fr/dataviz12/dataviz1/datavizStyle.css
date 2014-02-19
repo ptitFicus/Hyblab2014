@@ -116,6 +116,7 @@
 #compteur {
     /*border: 1px solid #D33C3D; */
     text-align: center;
+    font-family: 'Abel', Arial;
 }
 
 #texteCompteur {
@@ -129,6 +130,7 @@
     text-align: center;
     /*margin:auto;*/
     margin-right: 45px;
+    font-family: 'Abel', Arial;
 }
 
 .colonne {
@@ -209,14 +211,21 @@ p {
     margin-right: auto;
     width:80%;
     padding-bottom:10px;
+    font-family: 'Abel', Arial;
 }
 
 .colonne {
     text-align: justify;
+    font-family: 'Abel', Arial;
 }
 
 .colonne img {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+#my-button {
+    cursor: pointer;
+    background: none;
+    border: none;
 }
