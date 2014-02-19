@@ -29,19 +29,32 @@
     }
 }
 
-.cadreLegende1, .cadreLegende {
+/*.cadreLegende {
+    border: 1px solid black;
+}*/
+
+.cadreLegende1 {
     width: 40px;    
-    margin-left: 50px;
 }
 
-.cadreLegende {
-    border: 2px solid black;
+.cadreLegende2 {
+    width: 35px;    
 }
+
+.cadreLegende3 {
+    width: 30px;    
+}
+
+.cadreLegende4 {
+    width: 25px;    
+}
+
 
 #legende {
     color: #0F6377;  
     width: 50%;
     float: left;
+    font-size: 80%;
 }
 
 .video {
@@ -121,14 +134,15 @@
   text-align: center;
 }
 .colonne + .colonne {
-  border-left:1px solid #000;
+  border-left:1px solid #D33C3D;
 }
 
 .titreArticle {
     color: #D33C3D;
     /*font-weight:bold;    */
     text-align:center;
-    font-size: 150%;
+    font-size: 125%;
+    margin-bottom: 20px;
 }
 
 #compteur {
@@ -160,4 +174,11 @@
     text-align:center;
     color: #D33C3D;
     font-weight:bold;
+}
+
+.credits {
+    text-align: center;
+    font-size: 75%;
+    bottom:0;
+    left:0;
 }

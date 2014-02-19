@@ -1,0 +1,106 @@
+@font-face 
+{
+    font-family: 'Abel';
+    src: url('fonts/Abel-Regular.ttf') format('truetype');
+}
+@font-face 
+{
+    font-family: 'DinPro-Bold';
+    src: url('fonts/DINPro-Bold.otf') format('truetype');
+}
+@font-face 
+{
+    font-family: 'DinPro-Medium';
+    src: url('fonts/DINPro-Medium.otf') format('truetype');
+}
+#Diapo
+{
+    width: 920px;
+    height: 650px;
+    border-style:solid;
+    border-width:1px;
+}
+#Diapo #titre
+{
+    /* Placement du bloc */
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Mise en forme du texte */
+    width: 600px;
+    background-color: #0F6377;
+    font-family: 'Abel', Arial;
+    font-size: 26px;
+    color: #EAE9E5;
+    text-align: center;
+    line-height: 40px;
+}
+#Diapo #nomDepartement
+{
+    /* Placement du bloc */
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Mise en forme du texte */
+    font-family: 'Abel', Arial;
+    font-size: 26px;
+    color: #0F6377;
+    text-align: center;
+}
+#Diapo #canvas_jo {
+    margin-top: 25px;
+    width: 920px;
+    height: 210px;
+}
+#Diapo #Global
+{
+    margin-top: 0px;
+    width: 920px;
+    height: 230px;
+}
+#Global #flamme1
+{
+    float: left;
+    width: 185px;
+    text-align: center;
+}
+#Global #centre
+{
+    float: left;
+    width: 550px;
+}
+#centre #flecheG
+{
+    float: left;
+    width: 80px;
+    margin-top: 72px;
+    position: relative;
+    z-index: 5;
+}
+#centre #texte {
+    float: left;
+    width: 300px;
+    color: #0F6377;
+}
+#centre #flecheD
+{
+    float: left;
+    width: 80px;
+    margin-top: 72px;
+    position: relative;
+    z-index: 5;
+}
+#Global #flamme2
+{
+    float: left;
+    width: 185px;
+    text-align: center;
+}
+.variable
+{
+    font-family: 'DinPro-Bold', Arial;
+}
+.valeur
+{
+    font-family: 'DinPro-Medium', Arial;
+}

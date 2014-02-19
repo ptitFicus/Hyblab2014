@@ -4,7 +4,7 @@
 var donneesDpt;
 var selectedSportDtp = "tous";
 var selectedDpt = "Loire-Atlantique";
-
+var sportsPDL;
 
 function majCompteurDpt(value) {
     'use strict';
@@ -31,6 +31,7 @@ function receptionnerCliqueDepartement(departement, sport) {
     selectedDpt = departement;
     document.getElementById('nomDepartementTexte').innerHTML = departement;
     var donnees = obtenirHistorique(departement, sport);
+        
     $('#courbeDpt').highcharts({
         chart: {
             type: 'areaspline',
@@ -38,6 +39,7 @@ function receptionnerCliqueDepartement(departement, sport) {
         },
         exporting: { enabled: false },
         title: {
+            //text: 'Nombre de licenciés pour 10 000 habitants',
             text: 'Nombre de licenciés',
             style: {
                 color: '#D33C3D'
@@ -51,6 +53,7 @@ function receptionnerCliqueDepartement(departement, sport) {
             min: 0,
             minRange: 0.1,
             title: {
+                //text: 'Nombre de licenciés pour 10 000 habitants'
                 text: 'Nombre de licenciés'
             }
         }],
@@ -72,6 +75,7 @@ function receptionnerCliqueDepartement(departement, sport) {
         },
         series: [{
             type: 'line',
+            //name: 'Nombre de licenciés pour 10 000 habitants',
             name: 'Nombre de licenciés',
             data: donnees
         }]
@@ -96,6 +100,8 @@ function handleDptSportChange(sport) {
 function lireFichiersDpt(callback) {
     'use strict';
     donneesDpt = {};
+    sportsPDL = new Array();
+    
     var moduleC = moduleCSV(),
         annee = 2009,
         fInit = function (csvString) {
@@ -103,17 +109,21 @@ function lireFichiersDpt(callback) {
             var csvObject = moduleC.csvToObject(csvString),
                 prop,
                 i;
-            
+                        
             for (i = 0; i < csvObject.firstLine.length; i += 1) {
                 donneesDpt[annee][csvObject.firstLine[i]] = {};
             }
             
             for (prop in csvObject) {
+                if (annee == 2012 && prop.toString() !== "firstLine" && prop.toString() != "Federations_multisports_affinitaires" ) { 
+                    sportsPDL.push(prop); 
+                }
+                
                 if (csvObject.hasOwnProperty(prop) && prop.toString() !== "firstLine") {
                     for (i = 0; i < csvObject[prop].length; i += 1) {
                         if (donneesDpt[annee][csvObject.firstLine[i]].tous === undefined) {
                             donneesDpt[annee][csvObject.firstLine[i]].tous = 0;
-                        }
+                        }                        
                         donneesDpt[annee][csvObject.firstLine[i]][prop] = parseInt(csvObject[prop][i], 10);
                         donneesDpt[annee][csvObject.firstLine[i]].tous += parseInt(csvObject[prop][i], 10);
                     }
@@ -122,11 +132,13 @@ function lireFichiersDpt(callback) {
             annee += 1;
             if (annee <= 2012) {
                 moduleC.readTextFile('dataviz2/departements_PDL_licencies_par_sport_' + annee + '.csv', fInit);
+                //moduleC.readTextFile('dataviz2/departements_PDL_licencies10000_par_sport_' + annee + '.csv', fInit);
             } else {
                 callback();
             }
         };
     moduleC.readTextFile('dataviz2/departements_PDL_licencies_par_sport_' + annee + '.csv', fInit);
+    //moduleC.readTextFile('dataviz2/departements_PDL_licencies10000_par_sport_' + annee + '.csv', fInit);
 }
 
 
@@ -163,3 +175,24 @@ $(document).ready(function () {
         svg = carte.getElementsByTagName("svg")[0];
     svg.setAttribute("viewBox", "350 100 300 250");
 });
+
+
+
+
+
+/*function sportDominant(departement) {
+    'use strict';
+    var i,
+        max,
+        sportMax;
+    
+    max = 0;
+    for (i = 0; i<sportsPDL.length ; i++) {
+        if ( donneesDpt[2012][departement][sportsPDL[i]] > max )  {
+            max = donneesDpt[2012][departement][sportsPDL[i]];
+            sportMax = sportsPDL[i];
+        }
+    }
+    
+   return sportMax;
+}*/

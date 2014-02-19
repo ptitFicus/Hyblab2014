@@ -1,55 +1,46 @@
 /*jslint browser: true*/
 /*global $, alert */
 
+
 ;(function($) {
      // DOM Ready
     $(function() {
-        
-        var annee;
-        
-        $('#boutonGauche').bind('click', function(e) {
+                        
+        $('#bouton2009').bind('click', function(e) {
             e.preventDefault();
-            annee = document.getElementById("imagePodium").alt;
-            
-            if (annee == 2009) {
-                document.getElementById("imagePodium").src= "img/podiums/2012.png";
-                document.getElementById("imagePodium").alt = 2012;
-            }
-            else if (annee == 2010) {
-                document.getElementById("imagePodium").src= "img/podiums/2009.png";
-                document.getElementById("imagePodium").alt = 2009;
-            }
-            else if (annee == 2011) {
-                document.getElementById("imagePodium").src= "img/podiums/2010.png";
-                document.getElementById("imagePodium").alt = 2010;
-            }
-            else if (annee == 2012) {
-                document.getElementById("imagePodium").src= "img/podiums/2011.png";
-                document.getElementById("imagePodium").alt = 2011;
-            }
+            document.getElementById("imagePodium").src= "img/podiums/2009.png";
+            document.getElementById("img2009").src= "img/podiums/c2009.png";
+            document.getElementById("img2010").src= "img/podiums/nc2010.png";
+            document.getElementById("img2011").src= "img/podiums/nc2011.png";
+            document.getElementById("img2012").src= "img/podiums/nc2012.png";
         });
 
 
-        $('#boutonDroite').bind('click', function(e) {
+        $('#bouton2010').bind('click', function(e) {
             e.preventDefault();
-            annee = document.getElementById("imagePodium").alt;
-
-            if (annee == 2009) {
-                document.getElementById("imagePodium").src= "img/podiums/2010.png";
-                document.getElementById("imagePodium").alt = 2010;
-            }
-            else if (annee == 2010) {
-                document.getElementById("imagePodium").src= "img/podiums/2011.png";
-                document.getElementById("imagePodium").alt = 2011;
-            }
-            else if (annee == 2011) {
-                document.getElementById("imagePodium").src= "img/podiums/2012.png";
-                document.getElementById("imagePodium").alt = 2012;
-            }
-            else if (annee == 2012) {
-                document.getElementById("imagePodium").src= "img/podiums/2009.png";
-                document.getElementById("imagePodium").alt = 2009;
-            }
+            document.getElementById("imagePodium").src= "img/podiums/2010.png";
+            document.getElementById("img2009").src= "img/podiums/nc2009.png";
+            document.getElementById("img2010").src= "img/podiums/c2010.png";
+            document.getElementById("img2011").src= "img/podiums/nc2011.png";
+            document.getElementById("img2012").src= "img/podiums/nc2012.png";
+        });
+        
+        $('#bouton2011').bind('click', function(e) {
+            e.preventDefault();
+            document.getElementById("imagePodium").src= "img/podiums/2011.png";
+            document.getElementById("img2009").src= "img/podiums/nc2009.png";
+            document.getElementById("img2010").src= "img/podiums/nc2010.png";
+            document.getElementById("img2011").src= "img/podiums/c2011.png";
+            document.getElementById("img2012").src= "img/podiums/nc2012.png";
+        });
+        
+        $('#bouton2012').bind('click', function(e) {
+            e.preventDefault();
+            document.getElementById("imagePodium").src= "img/podiums/2012.png";
+            document.getElementById("img2009").src= "img/podiums/nc2009.png";
+            document.getElementById("img2010").src= "img/podiums/nc2010.png";
+            document.getElementById("img2011").src= "img/podiums/nc2011.png";
+            document.getElementById("img2012").src= "img/podiums/c2012.png";
         });
     });
 })(jQuery);

@@ -18,7 +18,6 @@
         <script src="dataviz1/degrade.js"></script>
 		<script src="dataviz1/exporting.js"></script>
         <script src="dataviz2/carte_region.js"></script>        
-        <script src="datavizPodiums/datavizPodiums.js"></script>        
         <script src="popupbox/popup_sources.js"></script>
     
         <!-- onepage scroll -->
@@ -63,76 +62,77 @@
             <section class="page2">    
                 <center><img src="img/titreDataviz1.png" style="padding-top:15px;"></center>
                 <!-- popupmenu -->
-                <div id="popupmenu" style="margin-left:30px;">
-                        <div id="demo_box">
-                            <div class="pop_ctrl">
-                                <img src="img/boutonMenu.png">
-                            </div>
-                            <ul id="demo_ul">
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Tous les sports')" class="pictoChoix" src="img/popmenu/coupe.svg" alt="Tous les sports">
-                                </li>
-                                <li class="demo_li">
-                                <img class="pictoChoix" onclick="afficherSport('Athlétisme')" src="img/popmenu/athletisme.svg" alt="Athlétisme">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Basketball')" class="pictoChoix" src="img/popmenu/basket.svg" alt="Basketball">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Équitation')" class="pictoChoix" src="img/popmenu/equitation.svg" alt="Équitation">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Sports sous marins')" class="pictoChoix" src="img/popmenu/plongee.svg" alt="Sports sous marins">                       </li>                                
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Football')" class="pictoChoix" src="img/popmenu/football.svg" alt="Football">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Golf')" class="pictoChoix" src="img/popmenu/golf.svg" alt="Golf">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Gymnastique')" class="pictoChoix" src="img/popmenu/gymnastique.svg" alt="Gymnastique">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Handball')" class="pictoChoix" src="img/popmenu/handball.svg" alt="Handball">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Judo jujitsu et disciplines associées')" class="pictoChoix" src="img/popmenu/judo.svg" alt="Judo">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Karaté_et_arts_martiaux_affinitaires')" class="pictoChoix" src="img/popmenu/arts_martiaux.svg" alt="Karaté">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Natation')" class="pictoChoix" src="img/popmenu/natation.svg" alt="Natation">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Pétanque_et_jeu_provençal')" class="pictoChoix" src="img/popmenu/petanque.svg" alt="Pétanque">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Randonnée_pédestre')" class="pictoChoix" src="img/popmenu/rando.svg" alt="Randonnée pédestre">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Rugby')" class="pictoChoix" src="img/popmenu/rugby.svg" alt="Rugby">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Ski')" class="pictoChoix" src="img/popmenu/ski.svg" alt="Ski">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Tennis')" class="pictoChoix" src="img/popmenu/tennis.svg" alt="Tennis">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Tennis de table')" class="pictoChoix" src="img/popmenu/ping_pong.svg" alt="Tennis de table">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Tir')" class="pictoChoix" src="img/popmenu/tir.svg" alt="Tir">
-                                </li> 
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Voile')" class="pictoChoix" src="img/popmenu/voile.svg" alt="Tennis">
-                                </li>
-                                <li class="demo_li">
-                                <img onclick="afficherSport('Autres_fédérations')" class="pictoChoix" src="img/popmenu/autres.svg" alt="Autres fédérations">
-                                </li>
-                            </ul>
+                <div id="popupmenu" style="margin-left:435px;">
+                    <div id="demo_box">
+                        <div class="pop_ctrl">
+                            <img id="imgCategorie" src="img/categories.png" style="opacity:0.4;">
                         </div>
+                        <ul id="demo_ul">
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tous les sports')" class="pictoChoix" src="img/popmenu/coupe.svg" alt="Tous les sports">
+                            </li>
+                            <li class="demo_li">
+                            <img class="pictoChoix" onclick="afficherSport('Athlétisme')" src="img/popmenu/athletisme.svg" alt="Athlétisme">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Basketball')" class="pictoChoix" src="img/popmenu/basket.svg" alt="Basketball">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Équitation')" class="pictoChoix" src="img/popmenu/equitation.svg" alt="Équitation">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Sports sous marins')" class="pictoChoix" src="img/popmenu/plongee.svg" alt="Sports sous marins">                       
+                            </li>               
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Football')" class="pictoChoix" src="img/popmenu/football.svg" alt="Football">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Golf')" class="pictoChoix" src="img/popmenu/golf.svg" alt="Golf">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Gymnastique')" class="pictoChoix" src="img/popmenu/gymnastique.svg" alt="Gymnastique">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Handball')" class="pictoChoix" src="img/popmenu/handball.svg" alt="Handball">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Judo jujitsu et disciplines associées')" class="pictoChoix" src="img/popmenu/judo.svg" alt="Judo">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Karaté_et_arts_martiaux_affinitaires')" class="pictoChoix" src="img/popmenu/arts_martiaux.svg" alt="Karaté">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Natation')" class="pictoChoix" src="img/popmenu/natation.svg" alt="Natation">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Pétanque_et_jeu_provençal')" class="pictoChoix" src="img/popmenu/petanque.svg" alt="Pétanque">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Randonnée_pédestre')" class="pictoChoix" src="img/popmenu/rando.svg" alt="Randonnée pédestre">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Rugby')" class="pictoChoix" src="img/popmenu/rugby.svg" alt="Rugby">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Ski')" class="pictoChoix" src="img/popmenu/ski.svg" alt="Ski">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tennis')" class="pictoChoix" src="img/popmenu/tennis.svg" alt="Tennis">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tennis de table')" class="pictoChoix" src="img/popmenu/ping_pong.svg" alt="Tennis de table">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tir')" class="pictoChoix" src="img/popmenu/tir.svg" alt="Tir">
+                            </li> 
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Voile')" class="pictoChoix" src="img/popmenu/voile.svg" alt="Tennis">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Autres_fédérations')" class="pictoChoix" src="img/popmenu/autres.svg" alt="Autres fédérations">
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
 
@@ -145,23 +145,24 @@
                     <div id="odometer" class="odometer">0</div>
                     <div id="texteCompteur">licenciés en France (Tous les sports)</div>
                 </div>
-                <div id="legende">
-                    <b>Nombre minimum de licenciés pour 10 000 habitants :</b><p>
-                    <table>
+                <div id="legende">                    
+                    <table style="margin-left:50px;">
+                        <caption><b>Nombre minimum de licenciés pour 10 000 habitants :</b><p></caption>
                         <tbody>
                             <tr>
-                                <td><img class="cadreLegende1" id="cadreLegende1" src="img/legendes/legende_rond_avec_fond.png"/></td>
-                                <td><span id="legende1"></span></td>
-                                
-                                <td><img class="cadreLegende1" id="cadreLegende2" src="img/legendes/legende_rond_avec_fond.png"/></td>
-                                <td><span id="legende2"></span></td>
+                                <td align="center"><img class="cadreLegende1" id="cadreLegende1" src="img/legendes/legende_rond_avec_fond.png"/></td>
+                                <td align="left"><span id="legende1"></span></td>
+                                <td><span style="margin-right:60px;"></span></td>
+                                <td align="center"><img class="cadreLegende2" id="cadreLegende2" src="img/legendes/legende_rond_avec_fond.png"/></td>
+                                <td align="left"><span id="legende2"></span></td>
                             </tr>
                             
                             <tr>
-                                <td><img class="cadreLegende1" id="cadreLegende3" src="img/legendes/legende_rond_avec_fond.png"/></td>
-                                <td><span id="legende3"></span></td>
-                                <td><img class="cadreLegende1" id="cadreLegende4" src="img/legendes/legende_rond_avec_fond.png"/></td>
-                                <td><span id="legende4"></span></td>
+                                <td align="center"><img class="cadreLegende3" id="cadreLegende3" src="img/legendes/legende_rond_avec_fond.png"/></td>
+                                <td align="left"><span id="legende3"></span></td>
+                                <td><span style="margin-right:60px;"></span></td>
+                                <td align="center"><img class="cadreLegende4" id="cadreLegende4" src="img/legendes/legende_rond_avec_fond.png"/></td>
+                                <td align="left"><span id="legende4"></span></td>
                             </tr>                   
                         </tbody>
                     </table>                    
@@ -176,11 +177,11 @@
                 <center><img src="img/podiums/titre.png" style="padding-top:15px; padding-bottom:30px;"></center>
                 
                 <div align='center'>
-                    <table>
+                    <!--<table>
                         <tr>
                             <td><button id="boutonGauche" type="button" style="background:#EAE9E5; border:none; margin-right:100px;">
                                 <img src="img/podiums/gauche.png" alt=""/> 
-                            </button></td>
+                            </button></td>                            
                             
                             <td><img id="imagePodium" src="img/podiums/2009.png" alt="2009"></td>
                             
@@ -188,30 +189,43 @@
                                 <img src="img/podiums/droite.png" alt="" /> 
                             </button></td>
                         </tr>
-                    </table>
+                    </table>-->
+                    <button id="bouton2009" type="button" style="background:#EAE9E5; border:none; margin-right:20px;" >
+                        <img id="img2009" src="img/podiums/c2009.png">
+                    </button>
+                    <button id="bouton2010" type="button" style="background:#EAE9E5; border:none; margin-right:20px;" >
+                        <img id="img2010" src="img/podiums/nc2010.png">
+                    </button><span style="margin-right:20px;"></span>
+                    <button id="bouton2011" type="button" style="background:#EAE9E5; border:none; margin-right:20px;" >
+                        <img id="img2011" src="img/podiums/nc2011.png">
+                    </button><span style="margin-right:20px;"></span>
+                    <button id="bouton2012" type="button" style="background:#EAE9E5; border:none;" >
+                        <img id="img2012" src="img/podiums/nc2012.png">
+                    </button>
                     
-                    <p><img src="img/podiums/legende.png">
+                    <div style="margin-top:40px;"><img id="imagePodium" src="img/podiums/2009.png" alt="2009"></div>
+                    <div style="margin-top:40px;"><img src="img/podiums/legende.png"></div>
                 </div>
             </section>
             
             
-            
-            
-            <!-- Quatrième page : interview -->    
+            <!-- Quatrième page : interview PDL -->    
             <section class="page4">
-                <center><img src="img/legendes/interview.png" style="padding-top:15px; padding-bottom:30px;"></center>
+                <center><img src="img/legendes/interview.png" style="padding-top:15px; padding-bottom:20px;"></center>
+                <center><div style="text-align:center; width:800px; padding-bottom:10px;">Les Pays de la Loire ont toujours occupé une place de meneur dans le panorama de la pratique sportive française. Gildas Loirand, sociologue, enseignant - chercheur et maître de conférences à l' UFR STAPS, revient sur trois des raisons qui font de notre région une des plus dynamiques de France.</div></center>
                 <div class="colonne">
-                    <div class="titreArticle">EXCEPTEUR SINT</div>
-                    <center><img src="img/traitInterview.png"></center><p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,  dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.<p></div>
+                    <div class="titreArticle">LE VOLONTARISME POLITIQUE</div>
+                    <div style="text-align:justify;">Le volontarisme politique en Pays de la Loire est historique et a toujours joué un grand rôle dans le développement du sport. Plus marqué encore en Loire Atlantique, c’ est un des premiers départements de France, dès 1974, à développer un service d’animation sportive départemental. On affecte des techniciens fonctionnaires dans les cantons afin de proposer une pratique alternative à celle proposée par les clubs traditionnels. Les animateurs sportifs départementaux contribuent ainsi largement au développement des pratiques telles que le tennis de table.</div><p>
+                    <div class="titreArticle">LA FUSION DES CLUBS</div>
+                    <div style="text-align:justify;">La fusion de certains clubs au fil des années en Pays de la Loire a permis un accroissement certain du niveau d' excellence sportive. Elle a permis de concentrer des activités, des équipes, et de mettre en commun des ressources économiques et matérielles. Parmi les plus populaires, figure le club féminin Rezé-Nantes Basket qui évolue en 1ère division (Pro A).</div></div>
                 <div class="colonne">
-                    <div class="titreArticle">LE SPORT AU QUOTIDIEN ?</div>
-                    <center><img src="img/traitInterview.png"></center><p>
-                    Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.<p>Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</div>
-            </section>      
+                    <div class="titreArticle">LES SPORTS AFFINITAIRES</div>
+                    <div style="text-align:justify;">Les nombreux conflits idéologiques ayant opposé patronages laïques et catholiques ont eux aussi influencé la diffusion du sport dans la région. Dans leurs affrontements, les deux instances ont toujours eu en commun la volonté affirmée de structurer le temps libre des écoliers, en leur donnant notamment accès à la pratique sportive. De cette manière, les sports tels que la gymnastique et basket-ball se sont rapidement popularisés. L’influence du patronage catholique est encore présente aujourd’hui, puisque L’Hermine, club phare de basket nantais, et le FC Nantes, en sont issus.</div>
+                    <p><img src="img/medaille.png" width="100">
+                </div>
+            </section>
             
-            
-            
+                        
             
             
             
@@ -250,21 +264,24 @@
                         <div id="odometerDpt" class="odometer">0</div>
                     </div>
                 </div>
+                
+                
             </section>
             
             
-            <!-- Sixième page : article basket en PDL -->    
+            <!-- Sixième page : interview basket en PDL -->    
             <section class="page6">
+                <center><img src="img/legendes/interview.png" style="padding-top:15px; padding-bottom:30px;"></center>
                 <div class="colonne">
                     <div class="titreArticle">LE BASKET EN PDL</div>
-                    <center><img src="img/traitInterview.png"></center><p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,  dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.<p></div>
                 <div class="colonne">
                     <div class="titreArticle">BLABLABLABLA !</div>
-                    <center><img src="img/traitInterview.png"></center><p>
                     Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.<p>Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</div>
             </section>
 
+            
+            
             
             
             <!-- Septième page : dataviz jo 2012 en PDL -->    
@@ -272,19 +289,28 @@
                 <center><img src="img/jo.png"></center>
             </section>
             
-            
-            
-            
-            <!-- Huitième page et suite : vidéo, article, etc... -->    
+
+            <!-- Huitième page : données insolites -->    
             <section class="page8">
-                <div align="center" style="padding-top:50px;">
-                    articles, données insolites, vidéo, etc<p>
+                <center><img src="img/donneesInsolites.png"></center>
+            </section>
+
+            
+            
+            <!-- Neuvième page : vidéo et crédits -->
+            <section class="page9">
+                <center><img src="img/titreVideo.png" style="padding-top:15px;"></center>
+                <div align="center" style="padding-top:50px; padding-bottom:100px;">
                     <iframe class="video" src="//www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
                 </div>
+                <div class="credits">
+                    Ce site a été réalisé par Thomas Pradié, Benjamin Cavy, Manuela Guerin,Textes: Véron Laura, Suzie Croizier, Design site: Forget Alexandre, Denéchère Baptiste 
+                    <p>| <a href="www.agrnantes.fr">AGR école de l’image</a> | <a href="www.polytech-nantes.fr">Polytech Nantes</a> | <a href="www.sciencescom.org">Sciences Com Nantes</a> |
+                </div>
             </section>
-        </div>
         
         
+        <script src="datavizPodiums/datavizPodiums.js"></script>        
         <script src="dataviz2/dataviz2.js"></script>
         <script src="dataviz1/dataviz.js"></script>
     </body>
