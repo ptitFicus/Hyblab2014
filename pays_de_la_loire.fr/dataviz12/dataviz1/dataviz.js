@@ -236,8 +236,8 @@ function obtenirSportsDominants(region) {
     
     // tri
     while (changement) {
+        changement = false;
         for (i = 0; i < listeNomsSports.length - 1; i += 1) {
-            changement = false;
             if (listeChiffresSport[i] < listeChiffresSport[i + 1]) {
                 tmp1 = listeChiffresSport[i];
                 tmp2 = listeNomsSports[i];
@@ -252,6 +252,7 @@ function obtenirSportsDominants(region) {
     
     retour.listeNomsSports = listeNomsSports;
     retour.listeChiffresSports = listeChiffresSport;
+    
     return retour;
 }
 
@@ -324,7 +325,7 @@ function cliqueSurRegion(region) {
         // on cache le compteur
         document.getElementById("compteur").style.display = "none";
 
-       htmlInfosRegions = "<center><div style='display: table; background-image: url(img/bandeauRegions.png); width: 336px;height: 46px;'><div style='margin-top: 6px; color: "+couleurDeFond+";'><b>"+region+"</b></div></div></center>";
+       htmlInfosRegions = "<center><div style='text-align:center; display: table; background-image: url(img/bandeauRegions.png); width: 336px;height: 46px;'><div style='margin-top: 6px; color: "+couleurDeFond+";'><b>"+region+"</b></div></div></center>";
 
         if (modeGlobal) {
             htmlInfosRegions += "<center><img src='img/legendes/nbLicences10000.png' width=150></center>";
