@@ -252,7 +252,7 @@ function obtenirSportsDominants(region) {
     
     retour.listeNomsSports = listeNomsSports;
     retour.listeChiffresSports = listeChiffresSport;
-    
+        
     return retour;
 }
 
