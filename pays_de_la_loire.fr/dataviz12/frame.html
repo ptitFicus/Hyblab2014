@@ -63,7 +63,7 @@
             
             <!-- Deuxième page : dataviz carte de France -->    
             <section class="page2">    
-                <center><img src="img/titreDataviz1.png" style="padding-top:15px;"></center>
+                <div id="titre">NOMBRE DE LICENCIÉS PAR RÉGIONS EN 2012</div>                                
                 <!-- popupmenu -->
                 <div id="popupmenu" style="margin-left:435px;">
                     <div id="demo_box">
@@ -191,8 +191,8 @@
             
             <!-- Troisième page : dataviz podiums -->    
             <section class="page3">    
-                <center><img src="img/podiums/titre.png" style="padding-top:15px; padding-bottom:30px;"></center>
                 
+                <div id="titre">LES TROIS RÉGIONS LES PLUS SPORTIVES DE 2009 À 2012</div>                
                 <div align='center'>
                         <img class="boutonAnnee" id="img2009" onclick="changerAnneePodium(2009, [2009, 2012]);" src="img/podiums/nc2009.png">
                         <img class="boutonAnnee" id="img2010" onclick="changerAnneePodium(2010, [2009, 2012]);" src="img/podiums/nc2010.png">
@@ -206,7 +206,7 @@
             
             <!-- Quatrième page : interview PDL -->    
             <section class="page4">
-                <center><img src="img/legendes/interview.png" style="padding-top:15px; padding-bottom:20px;"></center>
+                <div id="titre">INTERVIEW</div>                                
                 <p>
                     <div class="chapeau">
                         Les Pays de la Loire ont toujours occupé une place de meneur dans le panorama de la pratique sportive française. Gildas Loirand, sociologue, enseignant - chercheur et maître de conférences à l' UFR STAPS, revient sur trois des raisons qui font de notre région une des plus dynamiques de France.
@@ -237,7 +237,7 @@
             
             <!-- Cinquième page : dataviz région PDL -->    
             <section class="page5">
-                <center><img src="img/titreDataviz1.png" style="padding-top:15px; padding-bottom:25px;"></center>
+                <div id="titre">L'ÉVOLUTION DU NOMBRE DE LICENCIÉS DE VOTRE RÉGION</div>
                 <div id="nomDepartementCadre"><span id="nomDepartementTexte">Loire Atlantique</span></div>
                 <select id="choixSportDpt" onchange="handleDptSportChange(this.value);">
                     <option value="tous">Tous les sports</option>
@@ -277,7 +277,7 @@
             
             <!-- Sixième page : interview basket en PDL -->    
             <section class="page6">
-                <center><img src="img/legendes/interview.png" style="padding-top:15px; padding-bottom:30px;"></center>
+                <div id="titre">INTERVIEW</div>                                
                 <div class="colonne">
                     <div class="titreArticle">LE BASKET EN PDL</div>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,  dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.<p></div>
@@ -322,6 +322,7 @@
 
             <!-- Huitième page : données insolites -->    
             <section class="page8">
+                <div id="titre">LE SAVIEZ-VOUS ? LES DONNÉES INSOLITES DE VOTRE RÉGION</div>
                 <center><img src="img/donneesInsolites.png"></center>
             </section>
 
@@ -329,7 +330,7 @@
             
             <!-- Neuvième page : vidéo et crédits -->
             <section class="page9">
-                <center><img src="img/titreVideo.png" style="padding-top:15px;"></center>
+                <div id="titre">VIDÉO KINBALL</div>
                 <div align="center" style="padding-top:50px; padding-bottom:100px;">
                     <iframe class="video" src="//www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
                 </div>
