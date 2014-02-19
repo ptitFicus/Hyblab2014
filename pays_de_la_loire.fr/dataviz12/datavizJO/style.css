@@ -79,10 +79,21 @@
     position: relative;
     z-index: 5;
 }
-#centre #texte {
+#centre #info {
     float: left;
     width: 490px;
+}
+#info #picto
+{
+    float: left;
+    width: 190px;    
+}
+#info #texte
+{
+    float: left;
+    width: 300px;
     color: #0F6377;
+    font-size: 15px;
 }
 #centre #flecheD
 {
