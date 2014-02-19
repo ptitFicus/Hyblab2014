@@ -3,15 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title> Dataviz JO </title>
+        <script type="text/javascript" src="csvUtil.js"></script>
         <script type="text/javascript" src="raphael-min.js"></script>
         <script type="text/javascript" src="dataviz_jo.js"></script>
-        <script type="text/javascript" src="csvUtil.js"></script>
         <link href='style.css' rel='stylesheet' type='text/css'>
     </head>
     <body bgcolor="#EAE9E5">
         <div id="Diapo">
-            <div id="titre">NOMBRE DE LICENCIéS PAR RéGION EN 2012</div>
-            <div id="nomDepartement">Test NOM DEPARTEMENT</div>
+            <div id="titre">Nombre de licenciés par région en 2012</div>
+            <div id="nomDepartement"></div>
             <div id="canvas_jo"></div>
             
             <div id="Global">
@@ -21,7 +21,7 @@
                         <img src="images/flechegauche.svg" width="20" alt=""/> 
                     </button>
                     <div id="texte">
-                        <p><span class="variable">Nom : </span><span id="nom" class="valeur"></spsan></p>
+                        <p><span class="variable">Nom : </span><span id="nom" class="valeur"></span></p>
                         <p><span class="variable">Discipline : </span><span id="discipline" class="valeur"></span></p>
                         <p><span class="variable">Club : </span><span id="club" class="valeur"></span></p>
                         <p><span class="variable">Résultats : </span><span id="resultat" class="valeur"></span></p>

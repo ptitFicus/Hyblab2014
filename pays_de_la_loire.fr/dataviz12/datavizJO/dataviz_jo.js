@@ -8,28 +8,31 @@ var currentTab = [],
 
 var i = 0;
 
+var moduleC;
+
 var paper;
 
-function clickBG() {
+
+function majField() {
     'use strict';
-    i--;
-    //if (i==0) document.getElementById("boutonGauche").disabled = true;
-    //else document.getElementById("boutonGauche").disabled = false;
     document.getElementById("nom").innerHTML = currentTab[i][0] + " " + currentTab[i][1];
     document.getElementById("discipline").innerHTML = currentTab[i][2];
     document.getElementById("club").innerHTML = currentTab[i][3];
     document.getElementById("resultat").innerHTML = currentTab[i][4];
 }
 
+function clickBG() {
+    'use strict';
+    i--;
+    if (i < 0) i = currentTab.length-1;
+    majField();
+}
+
 function clickBD() {
     'use strict';
     i++;
-    //if (i==7) document.getElementById("boutonGauche").disabled = true;
-    //else document.getElementById("boutonGauche").disabled = false;
-    document.getElementById("nom").innerHTML = currentTab[i][0] + " " + currentTab[i][1];
-    document.getElementById("discipline").innerHTML = currentTab[i][2];
-    document.getElementById("club").innerHTML = currentTab[i][3];
-    document.getElementById("resultat").innerHTML = currentTab[i][4];
+    if (i > currentTab.length - 1) i = 0;
+    majField();
 }
 
 function initDepartement(dep, tabDep) {
@@ -40,38 +43,27 @@ function initDepartement(dep, tabDep) {
     
     switch (dep) {
     case "44":
-        document.getElementById("nomDepartement").innerHTML = "LOIRE-ATLANTIQUE";
+        document.getElementById("nomDepartement").innerHTML = "Loire-Atlantique";
         break;
     case "85":
-        document.getElementById("nomDepartement").innerHTML = "VENDéE";
+        document.getElementById("nomDepartement").innerHTML = "Vendée";
         break;
     case "53":
-        document.getElementById("nomDepartement").innerHTML = "MAYENNE";
+        document.getElementById("nomDepartement").innerHTML = "Mayenne";
         break;
     case "49":
-        document.getElementById("nomDepartement").innerHTML = "MAINE ET LOIRE";
+        document.getElementById("nomDepartement").innerHTML = "Maine et Loire";
         break;
     case "72":
-        document.getElementById("nomDepartement").innerHTML = "SARTHE";
+        document.getElementById("nomDepartement").innerHTML = "Sarthe";
         break;
-    };
+    }
 }
 
-function afficherDepartement(tabDep) {
-    'use strict';
-    //document.getElementById("nom").innerHTML = tabDep[i][0] + " " + tabDep[0][1];
-    /*document.getElementById("discipline").innerHTML = tabDep[i][2];
-    document.getElementById("club").innerHTML = tabDep[i][3];
-    document.getElementById("resultat").innerHTML = tabDep[i][4];*/
-}
-
-window.onload = function () {
+function loadCSV() {
     'use strict';
     
-    /* CHARGEMENT CSV */
-
-    var moduleC = moduleCSV();
-    
+    moduleC = moduleCSV();
     moduleC.readTextFile('csv/athletes_jo_2012.csv', function (csvString) {
         var csvObject = moduleC.csvToObject(csvString),
             prop,
@@ -132,16 +124,19 @@ window.onload = function () {
                 
             }
         }
+        majField();
     });
+}
+
+window.onload = function () {
+    'use strict';
     
-    initDepartement("44", tab44);
-    afficherDepartement(tab44);
+    loadCSV();
+    
     /* LOGO JO */
-    
     paper = new Raphael(document.getElementById('canvas_jo'), 920, 400);
     
-    
-    /* Dessiner les anneaux */
+    initDepartement("44", tab44);
     
     var rond1 = paper.path("M302.311,138.928c-38.583,0-69.862,31.278-69.862,69.861c0,38.583,31.278,69.862,69.862,69.862s69.862-31.278,69.862-69.862C372.173,170.206,340.895,138.928,302.311,138.928z M302.311,265.693c-31.427,0-56.904-25.477-56.904-56.904c0-31.427,25.477-56.904,56.904-56.904c31.427,0,56.904,25.477,56.904,56.904C359.215,240.216,333.739,265.693,302.311,265.693z M293.727,213.489h-8.546v-3.858l8.546-10.158h4.089v10.377h2.119v3.64h-2.119v3.156h-4.089V213.489z M293.727,209.849v-5.314l-4.516,5.314H293.727z M313.234,213.489h-8.546v-3.858l8.546-10.158h4.089v10.377h2.119v3.64h-2.119v3.156h-4.089V213.489z M313.234,209.849v-5.314l-4.516,5.314H313.234z");
     rond1.attr({fill: "#2290B2", stroke: "none", opacity: 1});
@@ -179,6 +174,7 @@ window.onload = function () {
         rond5.attr({opacity: 0.5});
         
         initDepartement("44", tab44);
+        majField();
     });
     cercle2.attr({cursor: 'pointer'}).mouseup(function (e) {
         rond1.attr({opacity: 0.5});
@@ -188,6 +184,7 @@ window.onload = function () {
         rond5.attr({opacity: 0.5});
         
         initDepartement("53", tab53);
+        majField();
     });
     cercle3.attr({cursor: 'pointer'}).mouseup(function (e) {
         rond1.attr({opacity: 0.5});
@@ -197,6 +194,7 @@ window.onload = function () {
         rond5.attr({opacity: 0.5});
         
         initDepartement("72", tab72);
+        majField();
     });
     cercle4.attr({cursor: 'pointer'}).mouseup(function (e) {
         rond1.attr({opacity: 0.5});
@@ -206,6 +204,7 @@ window.onload = function () {
         rond5.attr({opacity: 0.5});
         
         initDepartement("49", tab49);
+        majField();
     });
     cercle5.attr({cursor: 'pointer'}).mouseup(function (e) {
         rond1.attr({opacity: 0.5});
@@ -215,6 +214,7 @@ window.onload = function () {
         rond5.attr({opacity: 1});
         
         initDepartement("85", tab85);
+        majField();
     });
     
     /* Mettre le logo tout en haut à gauche */
@@ -242,6 +242,5 @@ window.onload = function () {
     cercle3.translate(233.67, 0);
     cercle4.translate(233.67, 0);
     cercle5.translate(233.67, 0);
-
 };
 

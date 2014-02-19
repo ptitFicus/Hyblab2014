@@ -30,6 +30,7 @@
     width: 600px;
     background-color: #0F6377;
     font-family: 'Abel', Arial;
+    text-transform: uppercase;
     font-size: 26px;
     color: #EAE9E5;
     text-align: center;
@@ -43,6 +44,7 @@
     margin-right: auto;
     /* Mise en forme du texte */
     font-family: 'Abel', Arial;
+    text-transform: uppercase;
     font-size: 26px;
     color: #0F6377;
     text-align: center;
@@ -72,20 +74,20 @@
 #centre #flecheG
 {
     float: left;
-    width: 80px;
+    width: 30px;
     margin-top: 72px;
     position: relative;
     z-index: 5;
 }
 #centre #texte {
     float: left;
-    width: 300px;
+    width: 490px;
     color: #0F6377;
 }
 #centre #flecheD
 {
     float: left;
-    width: 80px;
+    width: 30px;
     margin-top: 72px;
     position: relative;
     z-index: 5;
@@ -99,6 +101,7 @@
 .variable
 {
     font-family: 'DinPro-Bold', Arial;
+    text-transform: uppercase;
 }
 .valeur
 {
