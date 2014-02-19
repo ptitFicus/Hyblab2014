@@ -20,11 +20,10 @@
         <script src="dataviz2/carte_region.js"></script>        
         <script src="popupbox/popup_sources.js"></script>
     
-        <!-- onepage scroll : VOIR AVEC FULLPAGE.JS (qui conserve le scrollbar), SI ON A LE TEMPS -->
+        <!-- onepage scroll -->
         <script type="text/javascript" src="onepage/jquery.onepage-scroll.js"></script>
         <script type="text/javascript" src="onepage/onePageInit.js"></script>
 	    <link href='onepage/onepage-scroll.css' rel='stylesheet' type='text/css'>
-        <link href='onepage/style.css' rel='stylesheet' type='text/css'>
 
         <!-- popup menu -->
         <script src="popmenu/jquery.popmenu.js"></script>
@@ -59,11 +58,11 @@
             
             
             
-            <!-- Deuxième page : dataviz carte de France + podiums -->    
+            <!-- Deuxième page : dataviz carte de France -->    
             <section class="page2">    
                 <center><img src="img/titreDataviz1.png" style="padding-top:15px;"></center>
                 <!-- popupmenu -->
-                <div id="popupmenu">
+                <div id="popupmenu" style="margin-left:30px;">
                         <div id="demo_box">
                             <div class="pop_ctrl">
                                 <img src="img/boutonMenu.png">
@@ -171,11 +170,16 @@
             
             
             
+            <!-- Troisième page : dataviz podiums -->    
+            <section class="page3">    
+                <center><img src="img/podiums.png"></center>
+            </section>
             
             
             
-            <!-- Troisième page : article -->    
-            <section class="page3">
+            
+            <!-- Quatrième page : interview -->    
+            <section class="page4">
                 <center><img src="img/legendes/interview.png" style="padding-top:15px; padding-bottom:30px;"></center>
                 <div class="colonne">
                     <div class="titreArticle">EXCEPTEUR SINT</div>
@@ -192,8 +196,9 @@
             
             
             
-            <!-- Quatrième page : dataviz région PDL -->    
-            <section class="page4">
+            <!-- Cinquième page : dataviz région PDL -->    
+            <section class="page5">
+                <center><img src="img/titreDataviz1.png" style="padding-top:15px; padding-bottom:25px;"></center>
                 <div id="nomDepartementCadre"><span id="nomDepartementTexte">Loire Atlantique</span></div>
                 <select id="choixSportDpt" onchange="handleDptSportChange(this.value);">
                     <option value="tous">Tous les sports</option>
@@ -231,17 +236,18 @@
             
             
             
-            <!-- Cinquième page : dataviz jo 2012 en PDL -->    
-            <section class="page5">
-                <b>jo 2012</b>              
+            <!-- Sixième page : dataviz jo 2012 en PDL -->    
+            <section class="page6">
+                <center><img src="img/jo.png"></center>
             </section>
             
             
             
             
-            <!-- Sixième page et suite : vidéo, article, etc... -->    
-            <section class="page6">
+            <!-- Septième page et suite : vidéo, article, etc... -->    
+            <section class="page7">
                 <div align="center" style="padding-top:50px;">
+                    articles, données insolites, vidéo, etc<p>
                     <iframe class="video" src="//www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
                 </div>
             </section>

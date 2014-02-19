@@ -118,6 +118,7 @@
   display:table-cell;
   width:400px;
   padding:25px;
+  text-align: center;
 }
 .colonne + .colonne {
   border-left:1px solid #000;
