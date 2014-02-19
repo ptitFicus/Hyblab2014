@@ -89,6 +89,14 @@
     padding:0;
 }
 
+.sportRegionsTotal {
+    border: 1px solid #D33C3D;
+    color: #FFF;
+    background: #D33C3D;
+    text-align: center;
+    margin-left:100px; margin-right:75px; margin-top:10px;
+}
+
 #compteur {
     /*border: 1px solid #D33C3D; */
     text-align: center;
@@ -125,8 +133,7 @@
     text-align:center;
     width:50%;
     color: #D33C3D;
-    font-weight:bold;
-    
+    font-weight:bold;    
 }
 
 #nomDepartementTexte {

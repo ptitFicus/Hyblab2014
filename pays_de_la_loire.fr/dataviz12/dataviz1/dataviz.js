@@ -17,7 +17,7 @@ var paletteDiagramme;						// couleurs, pour le diagramme
 var sportSelectionne = 'Tous les sports';	// pour le diagramme
 var regionGagnante = '';                    // région ayant la coupe du nombre de licenciés pour le sport sélectionné
 var modeGlobal = true;						// tous les sports ou non
-var regionCliquee = 'Tous les sports';		// pour le diagramme
+var regionCliquee = 'France';		// pour le diagramme
 var donneesGeneralesBrutes;         // toutes les données du csv (total)
 var donneesParSportsBrutes;         // chiffres de licenciés (total) par sport
 var sports;                         // liste des sports
@@ -314,7 +314,8 @@ function cliqueSurRegion(region) {
         sports,
         chiffres,
         nbBrut,
-        nb10000;
+        nb10000,
+        prop;
     
         
     // si le diagramme est affiché, ou si on clique sur une nouvelle région
@@ -332,26 +333,46 @@ function cliqueSurRegion(region) {
                         
             htmlInfosRegions += "<div align='center';><table>";            
             htmlInfosRegions += "<tr>"+
-                                    "<td align='right';><img src='img/popmenu/" + obtenirPictoSport(sports[0]) + "' width=90></td>"+
-                                    "<td align='left';><div class='celluleSport'><h1>" + chiffres[0] + "</h1></div></td>"+
+                                    "<td><img src='img/1ere.png' width=90></td>"+
+                                    "<td><img src='img/popmenu/" + obtenirPictoSport(sports[0]) + "' width=90></td>"+
+                                    "<td><div class='celluleSport'><h1>" + chiffres[0] + "</h1></div></td>"+
                                 "</tr>";
             htmlInfosRegions += "<tr>"+
-                                    "<td align='right';><div class='celluleSport'><h2>"+chiffres[1]+"</h2></div></td>"+
-                                    "<td align='left';><img src='img/popmenu/" + obtenirPictoSport(sports[1]) + "' width=80></td>"+
+                                    "<td></td>"+
+                                    "<td><div class='celluleSport'><h2>"+chiffres[1]+"</h2></div></td>"+
+                                    "<td><img src='img/popmenu/" + obtenirPictoSport(sports[1]) + "' width=80></td>"+
+                                    "<td><img src='img/2eme.png' width=50></td>"+
                                 "</tr>";
             htmlInfosRegions += "<tr>"+
-                                    "<td align='right';><img src='img/popmenu/" + obtenirPictoSport(sports[2]) + "' width=70></td>"+
-                                    "<td align='left';><div class='celluleSport'><h3>" + chiffres[2] + "</h3></div></td>"+
+                                    "<td align='right'><img src='img/3eme.png' width=40></td>"+
+                                    "<td align='middle'><img src='img/popmenu/" + obtenirPictoSport(sports[2]) + "' width=70></td>"+
+                                    "<td><div class='celluleSport'><h3>" + chiffres[2] + "</h3></div></td>"+
                                 "</tr>";
             htmlInfosRegions += "<tr>"+
-                                    "<td align='right';><div class='celluleSport'><h4>"+chiffres[3]+"</h4></div></td>"+
-                                    "<td align='left';><img src='img/popmenu/" + obtenirPictoSport(sports[3]) + "' width=60></td>"+
+                                    "<td></td>"+
+                                    "<td align='right'><div class='celluleSport'><h4>"+chiffres[3]+"</h4></div></td>"+
+                                    "<td align='middle'><img src='img/popmenu/" + obtenirPictoSport(sports[3]) + "' width=60></td>"+
+                                    "<td align='left'><img src='img/4eme.png' width=30></td>"+
                                 "</tr>";
             htmlInfosRegions += "<tr>"+
-                                    "<td align='right';><img src='img/popmenu/" + obtenirPictoSport(sports[4]) + "' width=50></td>"+
-                                    "<td align='left';><div class='celluleSport'><h5>" + chiffres[4] + "</h5></div></td>"+
+                                    "<td align='right'><img src='img/5eme.png' width=20></td>"+
+                                    "<td align='middle'><img src='img/popmenu/" + obtenirPictoSport(sports[4]) + "' width=50></td>"+
+                                    "<td><div class='celluleSport'><h5>" + chiffres[4] + "</h5></div></td>"+
+                "<td></td>"+
                                 "</tr>";
             htmlInfosRegions += "</table></div>";
+            
+            /*nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];*/
+            i=0, nbBrut=0;
+            for (prop in donneesGeneralesBrutes) {
+                if (i>0) {
+                    //alert(prop);
+                    nbBrut += parseInt(donneesGeneralesBrutes[prop][regionsDeBaseC.indexOf(region)]);
+                }
+                i++;
+            }
+            
+            htmlInfosRegions += "<div class='sportRegionsTotal'>"+nbBrut+" licenciés au total dans la région<br></div>";
         } 
         
         
@@ -363,8 +384,8 @@ function cliqueSurRegion(region) {
             nb10000 = donneesGeneralesC[sportSelectionne][regionsDeBaseC.indexOf(region)];
             
             htmlInfosRegions+=  "<div style='padding-top:30px;'>"+
-                                    "<div class='sportRegions' style='margin-left:200px;'>"+nbBrut+" licenciés au total<br></div>"+
                                     "<div class='sportRegions' style='margin-left:15px; margin-right:200px; margin-top:25px;'>"+nb10000+" licenciés pour 10 000 habitants<br></div>"+
+                                    "<div class='sportRegions' style='margin-left:250px; margin-top:30px;'>"+nbBrut+" licenciés au total<br></div>"+
                                 "</div>";
         }
 			
