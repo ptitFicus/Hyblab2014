@@ -30,12 +30,18 @@
 }
 
 .cadreLegende1, .cadreLegende {
-    width: 40px;
-    
+    width: 40px;    
+    margin-left: 50px;
 }
 
 .cadreLegende {
     border: 2px solid black;
+}
+
+#legende {
+    color: #0F6377;  
+    width: 50%;
+    float: left;
 }
 
 .video {
@@ -57,11 +63,9 @@
 
 #courbeDpt {
     background: url(../img/background_highchart/vide.png) no-repeat center;
-    
 }
 
-.celluleSport {
-    
+.celluleSport {    
     font-weight: bold;
     color: #D33C3D;
     text-align: center;
@@ -91,12 +95,8 @@
 }
 
 #texteCompteur {
-    /*border: 1px solid #D33C3D;*/
-    /*text-align: center;*/
     color: #D33C3D;
     font-weight: bold;     
-    /*right:0px;*/
-    /*width:300px;*/
 }
 
 #element_to_pop_up { 
@@ -106,9 +106,13 @@
     margin:auto;
 }
 
-#legende {
-    width: 50%;
-    float: left;
+.colonne {
+  display:table-cell;
+  width:400px;
+  padding:25px;
+}
+.colonne + .colonne {
+  border-left:1px solid #000;
 }
 
 #compteur {
