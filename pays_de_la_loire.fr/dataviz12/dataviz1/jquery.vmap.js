@@ -896,8 +896,7 @@
         var topDiff = 10;
         var horDiff = -5;
         if ($("#jqvmap2_Nord-Pas-de-Calais").position().top > 10 && $("#jqvmap2_Bretagne").position().left != 0) {
-            //alert($("#jqvmap1_Nord-Pas-de-Calais").position().top + ";" + $("#jqvmap1_Bretagne").position().left);
-            topDiff = 45;
+            topDiff = 110;
             horDiff = 0;
         }
         //alert(map.diff);
