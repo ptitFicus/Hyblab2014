@@ -123,6 +123,13 @@
   border-left:1px solid #000;
 }
 
+.titreArticle {
+    color: #D33C3D;
+    /*font-weight:bold;    */
+    text-align:center;
+    font-size: 150%;
+}
+
 #compteur {
     width: 50%;
     float: right;

@@ -67,7 +67,7 @@ function creerDiagramme() {
                     return '&nbsp;&nbsp;&nbsp;' + nomRegion;
                 },
                 style: {
-                    color: rouge
+                    color: "#EAE9E5"
                 }
             },
             min: 0,

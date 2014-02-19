@@ -55,7 +55,7 @@ body, .onepage-wrapper, html {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: rgba(0,0,0,0.85);
+  background: #D33C3D;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -64,13 +64,13 @@ body, .onepage-wrapper, html {
 .onepage-pagination li a.active:before{
   width: 10px;
   height: 10px;
-  background: none;
-  border: 1px solid black;
+  background: #D33C3D;
+  border: 1px solid #D33C3D;
   margin-top: -4px;
   left: 8px;
 }
 
-/*.disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
+.disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
   overflow: auto;
 }
 
@@ -84,7 +84,7 @@ body, .onepage-wrapper, html {
   transform: none !important;
   -ms-transform: none !important;
   min-height: 100%;
-}*/
+}
 
 
 .disabled-onepage-scroll .onepage-pagination {
