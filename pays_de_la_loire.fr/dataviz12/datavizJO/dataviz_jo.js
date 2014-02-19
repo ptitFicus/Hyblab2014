@@ -19,7 +19,7 @@ function majField() {
     document.getElementById("discipline").innerHTML = currentTab[i][2];
     document.getElementById("club").innerHTML = currentTab[i][3];
     document.getElementById("resultat").innerHTML = currentTab[i][4];
-    document.getElementById("picto").innerHTML = "<img src='images/picto/" + currentTab[i][5] + "' width=150 />";
+    document.getElementById("picto").innerHTML = "<img src='img/popmenu/" + currentTab[i][5] + "' width=150 />";
 }
 
 function clickBG() {
@@ -65,7 +65,7 @@ function loadCSV() {
     'use strict';
     
     moduleC = moduleCSV();
-    moduleC.readTextFile('csv/athletes_jo_2012.csv', function (csvString) {
+    moduleC.readTextFile('datavizJO/csv/athletes_jo_2012.csv', function (csvString) {
         var csvObject = moduleC.csvToObject(csvString),
             prop,
             s = "",

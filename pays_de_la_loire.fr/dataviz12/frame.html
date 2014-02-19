@@ -19,6 +19,9 @@
 		<script src="dataviz1/exporting.js"></script>
         <script src="dataviz2/carte_region.js"></script>        
         <script src="popupbox/popup_sources.js"></script>
+        <link href='datavizJO/datavizJO_style.css' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="datavizJO/dataviz_jo.js"></script>
+        <script type="text/javascript" src="lib/raphael-min.js"></script>
     
         <!-- onepage scroll -->
         <script type="text/javascript" src="onepage/jquery.onepage-scroll.js"></script>
@@ -278,7 +281,31 @@
             
             <!-- Septième page : dataviz jo 2012 en PDL -->    
             <section class="page7">
-                <center><img src="img/jo.png"></center>
+                <div id="titre">Nombre de licenciés par région en 2012</div>
+                <div id="nomDepartement"></div>
+                <div id="canvas_jo"></div>
+            
+                <div id="Global">
+                    <div id="flamme1"><img src='datavizJO/images/flamme2.svg'/></div>
+                    <div id="centre">
+                        <button id="flecheG" type="button" style="background:none; border:none;" onclick="clickBG();">
+                            <img src="datavizJO/images/flechegauche.svg" width="20" alt=""/> 
+                        </button>
+                        <div id="info">
+                            <div id="picto"></div>
+                            <div id="texte">
+                                <p><span class="variable">Nom : </span><span id="nom" class="valeur"></span></p>
+                                <p><span class="variable">Discipline : </span><span id="discipline" class="valeur"></span></p>
+                                <p><span class="variable">Club : </span><span id="club" class="valeur"></span></p>
+                                <p><span class="variable">Résultats : </span><span id="resultat" class="valeur"></span></p>
+                            </div>
+                        </div>
+                        <button id="flecheD" type="button" style="background:none; border:none;" onclick="clickBD();">
+                            <img src="datavizJO/images/flechedroite.svg" width="20" alt=""/> 
+                        </button>
+                    </div>
+                    <div id="flamme2"><img src='datavizJO/images/flamme2.svg'/></div>
+                </div>
             </section>
             
 

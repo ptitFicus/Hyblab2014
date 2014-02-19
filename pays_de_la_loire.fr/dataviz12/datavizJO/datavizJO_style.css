@@ -1,17 +1,17 @@
 @font-face 
 {
     font-family: 'Abel';
-    src: url('fonts/Abel-Regular.ttf') format('truetype');
+    src: url('../fonts/Abel-Regular.ttf') format('truetype');
 }
 @font-face 
 {
     font-family: 'DinPro-Bold';
-    src: url('fonts/DINPro-Bold.otf') format('truetype');
+    src: url('../fonts/DINPro-Bold.otf') format('truetype');
 }
 @font-face 
 {
     font-family: 'DinPro-Medium';
-    src: url('fonts/DINPro-Medium.otf') format('truetype');
+    src: url('../fonts/DINPro-Medium.otf') format('truetype');
 }
 #Diapo
 {
@@ -20,7 +20,7 @@
     border-style:solid;
     border-width:1px;
 }
-#Diapo #titre
+#titre
 {
     /* Placement du bloc */
     margin-top: 25px;
@@ -36,7 +36,7 @@
     text-align: center;
     line-height: 40px;
 }
-#Diapo #nomDepartement
+#nomDepartement
 {
     /* Placement du bloc */
     margin-top: 25px;
@@ -49,12 +49,12 @@
     color: #0F6377;
     text-align: center;
 }
-#Diapo #canvas_jo {
+#canvas_jo {
     margin-top: 25px;
     width: 920px;
     height: 210px;
 }
-#Diapo #Global
+#Global
 {
     margin-top: 0px;
     width: 920px;
