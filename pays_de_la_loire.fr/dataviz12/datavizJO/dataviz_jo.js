@@ -19,6 +19,7 @@ function majField() {
     document.getElementById("discipline").innerHTML = currentTab[i][2];
     document.getElementById("club").innerHTML = currentTab[i][3];
     document.getElementById("resultat").innerHTML = currentTab[i][4];
+    document.getElementById("picto").innerHTML = "<img src='images/picto/" + currentTab[i][5] + "' width=150 />";
 }
 
 function clickBG() {
@@ -74,54 +75,31 @@ function loadCSV() {
             if (csvObject.hasOwnProperty(prop)) {
                 s += prop + " : " + csvObject[prop] + "\n";
                 
+                tab.push(prop);
+                    tab.push(csvObject[prop][0]);
+                    tab.push(csvObject[prop][2]);
+                    tab.push(csvObject[prop][3]);
+                    tab.push(csvObject[prop][4]);
+                    tab.push(csvObject[prop][5]);
+                
                 switch (csvObject[prop][1]) {
                 case "44":
-                    tab.push(prop);
-                    tab.push(csvObject[prop][0]);
-                    tab.push(csvObject[prop][2]);
-                    tab.push(csvObject[prop][3]);
-                    tab.push(csvObject[prop][4]);
                     tab44.push(tab);
-                    tab = [];
                     break;
                 case "85":
-                    tab.push(prop);
-                    tab.push(csvObject[prop][0]);
-                    tab.push(csvObject[prop][2]);
-                    tab.push(csvObject[prop][3]);
-                    tab.push(csvObject[prop][4]);
                     tab85.push(tab);
-                    tab = [];
                     break;
                 case "53":
-                    tab.push(prop);
-                    tab.push(csvObject[prop][0]);
-                    tab.push(csvObject[prop][2]);
-                    tab.push(csvObject[prop][3]);
-                    tab.push(csvObject[prop][4]);
                     tab53.push(tab);
-                    tab = [];
                     break;
                 case "72":
-                    tab.push(prop);
-                    tab.push(csvObject[prop][0]);
-                    tab.push(csvObject[prop][2]);
-                    tab.push(csvObject[prop][3]);
-                    tab.push(csvObject[prop][4]);
                     tab72.push(tab);
-                    tab = [];
                     break;
                 case "49":
-                    tab.push(prop);
-                    tab.push(csvObject[prop][0]);
-                    tab.push(csvObject[prop][2]);
-                    tab.push(csvObject[prop][3]);
-                    tab.push(csvObject[prop][4]);
                     tab49.push(tab);
-                    tab = [];
                     break;
                 }
-                
+                tab = [];
             }
         }
         majField();
