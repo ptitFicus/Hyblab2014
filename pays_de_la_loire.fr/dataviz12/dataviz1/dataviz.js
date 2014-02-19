@@ -24,7 +24,7 @@ var sports;                         // liste des sports
 var totalLicenciesTousLesSports;    // pour le compteur
 var couleurMin = "#218FB2";         // pour le dégardé de couleur
 var couleurMax = "#0D3D48";         // pour le dégradé de couleur
-var img = "<img src='img/coupe.svg' id='coupeCarte' />";
+var img = "<img src='img/la_coupe.svg' class='coupeCarte' />";
 var diagramme = true;
 var couleurDeFond = "#EAE9E5";
 var bleuFonce = "#0F6377";

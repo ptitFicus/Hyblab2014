@@ -15,6 +15,7 @@
 #container {
     float:right;
     width:50%;
+     height: 350px;
 }
 
 /*@media screen and (max-width:699px){
@@ -31,7 +32,7 @@
     border: 1px solid black;
 }*/
 
-#coupeCarte {
+.coupeCarte {
     width: 30px;
 }
 
