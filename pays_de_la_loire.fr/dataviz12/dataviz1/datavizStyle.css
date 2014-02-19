@@ -190,3 +190,9 @@
 .boutonAnnee {
     margin-right: 20px;
 }
+
+#imageHeader {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
