@@ -895,24 +895,29 @@
       var map = this;
         var topDiff = 10;
         var horDiff = -5;
-        if ($("#jqvmap2_Nord-Pas-de-Calais").position().top > 10 && $("#jqvmap2_Bretagne").position().left != 0) {
-            topDiff = 110;
-            horDiff = 0;
-        }
+        
         //alert(map.diff);
       var pins = this.container.find('.jqvmap_pin');
       jQuery.each(pins, function(index, pinObj){
         pinObj = jQuery(pinObj);
         var countryId = map.getCountryId(pinObj.attr('for'));
         var countryObj = jQuery('#' + countryId);
-
+        
         var bbox = document.getElementById(countryId).getBBox();
         var position = countryObj.position();
-
+        
+          if ($("#jqvmap2_Nord-Pas-de-Calais").position().top > 10 && $("#jqvmap2_Bretagne").position().left != 0) {
+            var posNord = $("#jqvmap2_Nord-Pas-de-Calais").position().top;
+            position.top = position.top - posNord;
+            topDiff = 0;
+            horDiff = 0;
+        }
+        alert($("#jqvmap2_Nord-Pas-de-Calais").position().top + ";" + position.top);
         var scale = map.scale;
         
         var left = position.left - horDiff + (bbox.width / 2) * scale - pinObj.width()/2 ,
         top = position.top - topDiff + (bbox.height / 2) * scale - pinObj.height() / 2;
+          
           
         pinObj.css('left',left).css('top',top);
       });

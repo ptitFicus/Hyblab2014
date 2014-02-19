@@ -35,7 +35,6 @@ var rouge = "#D33C3D";
 
 
 
-
 // Création/configuration du diagramme ---------------------------------------------------------------------
 function creerDiagramme() {
     'use strict';
@@ -840,7 +839,7 @@ $(document).ready(function () {
         
         donnees = csvObject;
 
-        afficherSport('Tous les sports');
+        setTimeout(afficherSport('Tous les sports'), 500);
         
 		// DIAGRAMME ----------------------------------
 		donneesGeneralesC = csvObject;
