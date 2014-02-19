@@ -121,14 +121,15 @@
   text-align: center;
 }
 .colonne + .colonne {
-  border-left:1px solid #000;
+  border-left:1px solid #D33C3D;
 }
 
 .titreArticle {
     color: #D33C3D;
     /*font-weight:bold;    */
     text-align:center;
-    font-size: 150%;
+    font-size: 125%;
+    margin-bottom: 20px;
 }
 
 #compteur {
@@ -160,4 +161,11 @@
     text-align:center;
     color: #D33C3D;
     font-weight:bold;
+}
+
+.credits {
+    text-align: center;
+    font-size: 75%;
+    bottom:0;
+    left:0;
 }
