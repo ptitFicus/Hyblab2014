@@ -29,19 +29,32 @@
     }
 }
 
-.cadreLegende1, .cadreLegende {
+/*.cadreLegende {
+    border: 1px solid black;
+}*/
+
+.cadreLegende1 {
     width: 40px;    
-    margin-left: 50px;
 }
 
-.cadreLegende {
-    border: 2px solid black;
+.cadreLegende2 {
+    width: 35px;    
 }
+
+.cadreLegende3 {
+    width: 30px;    
+}
+
+.cadreLegende4 {
+    width: 25px;    
+}
+
 
 #legende {
     color: #0F6377;  
     width: 50%;
     float: left;
+    font-size: 80%;
 }
 
 .video {
