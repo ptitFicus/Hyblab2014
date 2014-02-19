@@ -1,46 +1,22 @@
 /*jslint browser: true*/
 /*global $, alert */
 
-
-;(function($) {
-     // DOM Ready
-    $(function() {
-                        
-        $('#img2009').bind('click', function(e) {
-            e.preventDefault();
-            document.getElementById("imagePodium").src= "img/podiums/2009.svg";
-            document.getElementById("img2009").src= "img/podiums/c2009.png";
-            document.getElementById("img2010").src= "img/podiums/nc2010.png";
-            document.getElementById("img2011").src= "img/podiums/nc2011.png";
-            document.getElementById("img2012").src= "img/podiums/nc2012.png";
-        });
-
-
-        $('#img2010').bind('click', function(e) {
-            e.preventDefault();
-            document.getElementById("imagePodium").src= "img/podiums/2010.svg";
-            document.getElementById("img2009").src= "img/podiums/nc2009.png";
-            document.getElementById("img2010").src= "img/podiums/c2010.png";
-            document.getElementById("img2011").src= "img/podiums/nc2011.png";
-            document.getElementById("img2012").src= "img/podiums/nc2012.png";
-        });
-        
-        $('#img2011').bind('click', function(e) {
-            e.preventDefault();
-            document.getElementById("imagePodium").src= "img/podiums/2011.svg";
-            document.getElementById("img2009").src= "img/podiums/nc2009.png";
-            document.getElementById("img2010").src= "img/podiums/nc2010.png";
-            document.getElementById("img2011").src= "img/podiums/c2011.png";
-            document.getElementById("img2012").src= "img/podiums/nc2012.png";
-        });
-        
-        $('#img2012').bind('click', function(e) {
-            e.preventDefault();
-            document.getElementById("imagePodium").src= "img/podiums/2012.svg";
-            document.getElementById("img2009").src= "img/podiums/nc2009.png";
-            document.getElementById("img2010").src= "img/podiums/nc2010.png";
-            document.getElementById("img2011").src= "img/podiums/nc2011.png";
-            document.getElementById("img2012").src= "img/podiums/c2012.png";
-        });
-    });
-})(jQuery);
+/** 
+ * Change l'année de la dataviz des podiums
+ */
+function changerAnneePodium (annee, interval) {
+    annee = parseInt(annee, 10);
+    var debut = parseInt(interval[0], 10),
+        fin = parseInt(interval[1], 10),
+        actuel = debut,
+        prefixe;
+    document.getElementById("imagePodium").src= "img/podiums/" + annee + ".svg";
+    for (actuel = debut; actuel <= fin; actuel += 1) {
+        if(actuel === annee) {
+            prefixe = "c";
+        } else {
+            prefixe = "nc";
+        }
+        document.getElementById("img"+actuel).src= "img/podiums/" + prefixe + actuel.toString() + ".png";
+    }
+}
