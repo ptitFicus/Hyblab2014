@@ -33,6 +33,10 @@
     border: 1px solid black;
 }*/
 
+#coupeCarte {
+    width: 30px;
+}
+
 .cadreLegende1 {
     width: 40px;    
 }
