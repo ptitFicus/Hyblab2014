@@ -912,7 +912,6 @@
             topDiff = 0;
             horDiff = 0;
         }
-        alert($("#jqvmap2_Nord-Pas-de-Calais").position().top + ";" + position.top);
         var scale = map.scale;
         
         var left = position.left - horDiff + (bbox.width / 2) * scale - pinObj.width()/2 ,
