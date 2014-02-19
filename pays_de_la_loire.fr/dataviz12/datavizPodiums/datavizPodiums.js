@@ -6,7 +6,7 @@
     $(function() {
         
         var annee;
-        
+                
         $('#boutonGauche').bind('click', function(e) {
             e.preventDefault();
             annee = document.getElementById("imagePodium").alt;
