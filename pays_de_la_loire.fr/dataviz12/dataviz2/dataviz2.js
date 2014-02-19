@@ -47,11 +47,13 @@ function receptionnerCliqueDepartement(departement, sport) {
         xAxis: [{
             categories: ['2009', '2010', '2011', '2012']
         }],
-        yAxis: {
+        yAxis: [{ // Primary yAxis
+            min: 0,
+            minRange: 0.1,
             title: {
                 text: 'Nombre de licenciés'
             }
-        },
+        }],
         tooltip: {
             shared: true
         },
