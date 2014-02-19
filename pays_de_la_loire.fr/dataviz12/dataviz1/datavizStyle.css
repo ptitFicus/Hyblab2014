@@ -45,7 +45,7 @@
 
 #carte2 {
     width:50%;
-    height: 500px;
+    height: 400px;
     float:right;
 }
 
@@ -114,4 +114,31 @@
 #compteur {
     width: 50%;
     float: right;
+}
+
+#nomDepartementCadre {
+    padding: 10px;
+    text-align:center;
+    width:50%;
+    color: #D33C3D;
+    font-weight:bold;
+    
+}
+
+#nomDepartementTexte {
+    border: 2px solid #D33C3D;
+    padding: 5px;
+}
+
+#choixSportDpt {
+    background-color: #D33C3D;
+    color: #ffffff;
+}
+
+#totalDpt {
+    float: right;
+    width: 50%;
+    text-align:center;
+    color: #D33C3D;
+    font-weight:bold;
 }

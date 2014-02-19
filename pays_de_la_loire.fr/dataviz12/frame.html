@@ -185,7 +185,8 @@ Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis
             
             <!-- Quatrième page : dataviz région PDL -->    
             <section class="page4">
-                <select onchange="handleDptSportChange(this.value);">
+                <div id="nomDepartementCadre"><span id="nomDepartementTexte">Loire Atlantique</span></div>
+                <select id="choixSportDpt" onchange="handleDptSportChange(this.value);">
                     <option value="tous">Tous les sports</option>
                     <option value="Athletisme">Athlétisme</option>
                     <option value="Basket-Ball">Basketball</option>
@@ -210,6 +211,10 @@ Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis
                 </select>
                 <div id="courbeDpt"></div>
                 <div id="carte2"></div>
+                <div id="totalDpt">
+                    TOTAL (2012)<br>
+                    <div id="odometerDpt" class="odometer">0</div>
+                </div>
             </section>
             
             
