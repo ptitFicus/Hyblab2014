@@ -47,8 +47,8 @@
             <!-- Première page -->    
             <section class="page1">
                 <img id="imageHeader" src="img/Bandeau-Hyblab.jpg">
-                <center><div style="text-align:center; width:500px; color:#0F6377">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,  dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim . M[...]</div></center>                
-            </section>
+                <img id="imageHeader" src="img/couronne-titre.svg">
+                <div id="texteIntro">Depuis 2012, nous sommes les champions ! Avec près de 1 licencié pour 3 habitants, les Pays de la Loire méritent le titre de région la plus sportive de France. On a voulu comprendre ce qui expliquait cette place sur la plus haute marche du podium. La réponse dans notre infographie interactive. Et parce que nous sommes fair-play, vous pourrez aussi comparez ces résultats avec ceux des autres régions.</div>               </section>
             
             
             
@@ -56,7 +56,7 @@
             
             <!-- Deuxième page : dataviz carte de France -->    
             <section class="page2">    
-                <div id="titre">NOMBRE DE LICENCIÉS PAR RÉGIONS EN 2012</div>                                
+                <div class="titre">NOMBRE DE LICENCIÉS PAR RÉGIONS EN 2012</div>                                
                 <!-- popupmenu -->
                 <div id="popupmenu" style="margin-left:400px;">
                     <div id="demo_box">
@@ -141,6 +141,7 @@
                 <div id="compteur">
                     <div id="odometer" class="odometer">0</div>
                     <div id="texteCompteur">licenciés en France (Tous les sports)</div>
+                    <!-- <img src="img/legendes/cadre_licencies.svg"> -->
                 </div>
                 <div id="legende">
                     <table>
@@ -185,7 +186,7 @@
             
             <!-- Troisième page : dataviz podiums -->    
             <section class="page3">    
-                <div id="titre">LES TROIS RÉGIONS LES PLUS SPORTIVES DE 2009 À 2012</div>                
+                <div class="titre">LES TROIS RÉGIONS LES PLUS SPORTIVES DE 2009 À 2012</div>                
                 <div align='center'>
                         <img class="boutonAnnee" id="img2009" onclick="changerAnneePodium(2009, [2009, 2012]);" src="img/podiums/nc2009.png">
                         <img class="boutonAnnee" id="img2010" onclick="changerAnneePodium(2010, [2009, 2012]);" src="img/podiums/nc2010.png">
@@ -199,7 +200,7 @@
             
             <!-- Quatrième page : interview PDL -->    
             <section class="page4">
-                    <div id="titre">INTERVIEW</div>    
+                    <div class="titre">INTERVIEW</div>    
                     <div class="chapeau">
                         Les Pays de la Loire ont toujours occupé une place de meneur dans le panorama de la pratique sportive française. Gildas Loirand, sociologue, enseignant - chercheur et maître de conférences à l' UFR STAPS, revient sur trois des raisons qui font de notre région une des plus dynamiques de France.
                     </div>
@@ -234,7 +235,7 @@
             
             <!-- Cinquième page : dataviz région PDL -->    
             <section class="page5">
-                <div id="titre">L'ÉVOLUTION DU NOMBRE DE LICENCIÉS DE VOTRE RÉGION</div>
+                <div class="titre">L'ÉVOLUTION DU NOMBRE DE LICENCIÉS DE VOTRE RÉGION</div>
                 <div id="nomDepartementCadre"><span id="nomDepartementTexte">Loire Atlantique</span></div>
                 <select id="choixSportDpt" onchange="handleDptSportChange(this.value);">
                     <option value="tous">Tous les sports</option>
@@ -274,7 +275,7 @@
             
             <!-- Sixième page : interview basket en PDL -->    
             <section class="page6">
-                <div id="titre">INTERVIEW</div>                                
+                <div class="titre">INTERVIEW</div>                                
                 <div class="colonne">
                     <div class="titreArticle">LE BASKET EN PDL</div>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,  dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.<p></div>
@@ -289,7 +290,7 @@
             
             <!-- Septième page : dataviz jo 2012 en PDL -->    
             <section class="page7">
-                <div id="titre">LA RÉGION AUX J.O DE LONDRES 2012</div>
+                <div class="titre">LA RÉGION AUX J.O DE LONDRES 2012</div>
                 <div id="nomDepartement"></div>
                 <div id="canvas_jo"></div>
             
@@ -319,7 +320,7 @@
 
             <!-- Huitième page : données insolites -->    
             <section class="page8">
-                <div id="titre">LE SAVIEZ-VOUS ? LES DONNÉES INSOLITES DE VOTRE RÉGION</div>
+                <div class="titre">LE SAVIEZ-VOUS ? LES DONNÉES INSOLITES DE VOTRE RÉGION</div>
                     <img id="imageInsolite" src="img/donneesInsolites.png">
             </section>
 
@@ -327,7 +328,7 @@
             
             <!-- Neuvième page : vidéo et crédits -->
             <section class="page9">
-                <div id="titre">VIDÉO KINBALL</div>
+                <div class="titre">VIDÉO KINBALL</div>
                 <div align="center" style="padding-top:50px; padding-bottom:100px;">
                     <iframe class="video" src="//www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
                 </div>
