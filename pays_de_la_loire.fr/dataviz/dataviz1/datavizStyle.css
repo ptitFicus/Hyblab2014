@@ -168,10 +168,7 @@
     display:none; 
     color: #0F6377;
     text-align: center;
-    /*margin:auto;*/
-    /*margin-right: 45px;*/
     font-family: 'Abel', Arial;
-    /*margin:100px;*/
 }
 
 #defAffinitaires {
@@ -179,10 +176,14 @@
 }
 
 .colonne {
-  display:table-cell;
-  width:40%;
-  padding:25px;
-  text-align: center;
+    display:table-cell;
+    width:40%;
+    padding: 15px;
+    text-align: justify;
+    font-family: 'Abel', Arial;
+    font-size: 12pt;
+    line-height: 17pt;
+    
 }
 .colonne + .colonne {
   border-left:1px solid #D33C3D;
@@ -265,13 +266,6 @@ p {
     line-height: 17pt;
 }
 
-.colonne {
-    text-align: justify;
-    font-family: 'Abel', Arial;
-    font-size: 12pt;
-    line-height: 17pt;
-}
-
 .contenuArticle {
     margin-left: auto;
     margin-right: auto;
@@ -296,4 +290,21 @@ p {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+
+.articleSansCol {
+    text-align:justify;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+#texteIntro {
+    width: 50%;
+    margin-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    font-family: 'Abel', Arial;
+    color: #0F6377;
 }
