@@ -233,8 +233,7 @@
 .credits {
     text-align: center;
     font-size: 75%;
-    bottom:0;
-    left:0;
+    font-family: 'Abel', Arial;
 }
 
 .boutonAnnee {
@@ -297,6 +296,9 @@ p {
     text-align:justify;
     width: 60%;
     margin-bottom: 20px;
+    font-family: 'Abel', Arial;
+    font-size: 12pt;
+    line-height: 17pt;
 }
 
 #texteIntro {
@@ -307,4 +309,9 @@ p {
     text-align: justify;
     font-family: 'Abel', Arial;
     color: #0F6377;
+}
+
+
+#odometer {
+    margin-top: 50px;
 }
