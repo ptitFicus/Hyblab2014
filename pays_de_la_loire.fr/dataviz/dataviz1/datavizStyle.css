@@ -297,3 +297,9 @@ p {
     margin-right: auto;
     display: block;
 }
+
+.articleSansCol {
+    text-align:justify;
+    width: 60%;
+    margin-bottom: 20px;
+}
