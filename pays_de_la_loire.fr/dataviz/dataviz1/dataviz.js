@@ -935,17 +935,36 @@ $(document).ready(function () {
 window.onresize = function () {
     "use strict";
     setTimeout(function () {
+        
+        //Placement du picto sur la carte
         var obj = {};
         obj[regionGagnante] = img;
         $('.jqvmap_pin').remove();
         $('#francemap').vectorMap("placePins", obj, "content");
         
-        $('#demo_box').popmenu({'background': '#BDBDBD', 'focusColor': '#D33C3D', 'iconSize': (Math.floor(window.innerWidth/8))+"px", 'width': window.innerWidth-100+"px"});
+        // Dimension du menu de la première dataviz
+        var innerWidth = window.innerWidth;
+        $('#demo_box').popmenu({'background': '#BDBDBD', 'focusColor': '#D33C3D', 'iconSize': (Math.floor(innerWidth/8))+"px", 'width': innerWidth-100+"px"});
     
         var tab = document.getElementsByClassName('pictoChoix'),
             i;
         for(i = 0; i < tab.length; i += 1) {
-            tab[i].style.width = (Math.floor(window.innerWidth/9))+"px";
+            tab[i].style.width = (Math.floor(innerWidth/9))+"px";
+        }
+        
+        // Positionnement de la caret des départements
+        var carte = document.getElementById("carte2"),
+            svg = carte.getElementsByTagName("svg")[0];
+        if(innerWidth > 1000 && innerWidth <= 1500) {
+            svg.setAttribute("viewBox", "400 100 300 250");
+        } else if (innerWidth > 2000) {
+            svg.setAttribute("viewBox", "650 100 300 250");
+        } else if (innerWidth > 1500 && innerWidth <= 2000) {
+            svg.setAttribute("viewBox", "400 100 300 250");
+        }else if (innerWidth <= 800) {
+            svg.setAttribute("viewBox", "300 100 300 250");
+        } else {
+            svg.setAttribute("viewBox", "350 100 300 250");
         }
     }, 0);
 };
