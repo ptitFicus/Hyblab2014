@@ -150,7 +150,7 @@ window.onload = function () {
     
     /* Fonctions : clic sur un des anneaux */
     
-    cercle1.attr({cursor: 'pointer'}).mousemove(function (e) {
+    cercle1.attr({cursor: 'pointer'}).click(function (e) {
         rond1.attr({opacity: 1});
         rond2.attr({opacity: 0.5});
         rond3.attr({opacity: 0.5});
@@ -160,7 +160,15 @@ window.onload = function () {
         initDepartement("44", tab44);
         majField();
     });
-    cercle2.attr({cursor: 'pointer'}).mousemove(function (e) {
+    cercle1.mouseover(function (e) {
+        rond1.attr({opacity: 1});
+    });
+    cercle1.mouseout(function (e) {
+        if(departement !== "44") {
+            rond1.attr({opacity: 1});
+        }
+    });
+    cercle2.attr({cursor: 'pointer'}).click(function (e) {
         rond1.attr({opacity: 0.5});
         rond2.attr({opacity: 1});
         rond3.attr({opacity: 0.5});
@@ -170,7 +178,15 @@ window.onload = function () {
         initDepartement("53", tab53);
         majField();
     });
-    cercle3.attr({cursor: 'pointer'}).mousemove(function (e) {
+    cercle2.mouseover(function (e) {
+        rond2.attr({opacity: 1});
+    });
+    cercle2.mouseout(function (e) {
+        if(departement !== "53") {
+            rond2.attr({opacity: 0.5});
+        }
+    });
+    cercle3.attr({cursor: 'pointer'}).click(function (e) {
         rond1.attr({opacity: 0.5});
         rond2.attr({opacity: 0.5});
         rond3.attr({opacity: 1});
@@ -180,7 +196,15 @@ window.onload = function () {
         initDepartement("72", tab72);
         majField();
     });
-    cercle4.attr({cursor: 'pointer'}).mousemove(function (e) {
+    cercle3.mouseover(function (e) {
+        rond3.attr({opacity: 1});
+    });
+    cercle3.mouseout(function (e) {
+        if(departement !== "72") {
+            rond3.attr({opacity: 0.5});
+        }
+    });
+    cercle4.attr({cursor: 'pointer'}).click(function (e) {
         rond1.attr({opacity: 0.5});
         rond2.attr({opacity: 0.5});
         rond3.attr({opacity: 0.5});
@@ -190,7 +214,15 @@ window.onload = function () {
         initDepartement("49", tab49);
         majField();
     });
-    cercle5.attr({cursor: 'pointer'}).mousemove(function (e) {
+    cercle4.mouseover(function (e) {
+        rond4.attr({opacity: 1});
+    });
+    cercle4.mouseout(function (e) {
+        if(departement !== "49") {
+            rond4.attr({opacity: 0.5});
+        }
+    });
+    cercle5.attr({cursor: 'pointer'}).click(function (e) {
         rond1.attr({opacity: 0.5});
         rond2.attr({opacity: 0.5});
         rond3.attr({opacity: 0.5});
@@ -199,6 +231,14 @@ window.onload = function () {
         
         initDepartement("85", tab85);
         majField();
+    });
+    cercle5.mouseover(function (e) {
+        rond5.attr({opacity: 1});
+    });
+    cercle5.mouseout(function (e) {
+        if(departement !== "85") {
+            rond5.attr({opacity: 0.5});
+        }
     });
     
     /* Mettre le logo tout en haut à gauche */

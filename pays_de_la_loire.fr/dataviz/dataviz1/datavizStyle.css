@@ -196,7 +196,9 @@
 .colonne2 {
     display:table-cell;
     width:40%;
-    padding: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: justify;
     font-family: 'Abel', Arial;
     font-size: 11pt;
