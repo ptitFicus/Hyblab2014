@@ -192,7 +192,7 @@
 }
 
 .colonne2 {
-    display:-cell;
+    display:table-cell;
     width:40%;
     padding: 15px;
     text-align: justify;
