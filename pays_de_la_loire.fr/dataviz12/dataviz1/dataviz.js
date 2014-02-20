@@ -259,45 +259,45 @@ function obtenirSportsDominants(region) {
 function obtenirPictoSport(sportSelect) {
     'use strict';
     if (sportSelect === "Golf") {
-        return 'golf.svg';
+        return 'golf.png';
     } else if (sportSelect === "Athlétisme") {
-        return 'athletisme.svg';
+        return 'athletisme.png';
     } else if (sportSelect === "Basketball") {
-        return 'basket.svg';
+        return 'basket.png';
     } else if (sportSelect === "Sports_sous_marins") {
-        return 'plongee.svg';
+        return 'plongee.png';
     } else if (sportSelect === "Football") {
-        return 'football.svg';
+        return 'football.png';
     } else if (sportSelect === "Gymnastique") {
-        return 'gymnastique.svg';
+        return 'gymnastique.png';
     } else if (sportSelect === "Handball") {
-        return 'handball.svg';
+        return 'handball.png';
     } else if (sportSelect === "Judo_jujitsu_et_disciplines_associées") {
-        return 'judo.svg';
+        return 'judo.png';
     } else if (sportSelect === "Karaté_et_arts_martiaux_affinitaires") {
-        return 'arts_martiaux.svg';
+        return 'arts_martiaux.png';
     } else if (sportSelect === "Natation") {
-        return 'natation.svg';
+        return 'natation.png';
     } else if (sportSelect === "Pétanque_et_jeu_provençal") {
-        return 'petanque.svg';
+        return 'petanque.png';
     } else if (sportSelect === "Randonnée_pédestre") {
-        return 'rando.svg';
+        return 'rando.png';
     } else if (sportSelect === "Rugby") {
-        return 'rugby.svg';
+        return 'rugby.png';
     } else if (sportSelect === "Ski") {
-        return 'ski.svg';
+        return 'ski.png';
     } else if (sportSelect === "Tennis") {
-        return 'tennis.svg';
+        return 'tennis.png';
     } else if (sportSelect === "Tennis_de_table") {
-        return 'ping_pong.svg';
+        return 'ping_pong.png';
     } else if (sportSelect === "Tir") {
-        return 'tir.svg';
+        return 'tir.png';
     } else if (sportSelect === "Voile") {
-        return 'voile.svg';
+        return 'voile.png';
     } else if (sportSelect === "Autres_fédérations") {
-        return 'autres.svg';
+        return 'autres.png';
     } else {
-        return 'equitation.svg';
+        return 'equitation.png';
     }
 }
 
