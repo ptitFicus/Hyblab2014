@@ -43,7 +43,10 @@ function creerDiagramme() {
             renderTo: 'container',
             type: 'bar',
             backgroundColor: null, // transparent, permet de mettre une image derrière, par exemple
-            borderColor: couleurDeFond
+            borderColor: couleurDeFond,
+            style: {
+                fontFamily: 'Abel',
+            }
         },
         title: {
             text: sportSelectionne.replace(/_/g, " "),
@@ -953,7 +956,7 @@ function lisibilite_nombre(nbr)
 		var nombre = ''+nbr;
 		var retour = '';
 		var count=0;
-		for(var i=nombre.length-1 ; i>=0 ; i--)
+		for(var i=0 ; i<nombre.length ; i++)
 		{
 			if(count!=0 && count % 3 == 0)
 				retour = nombre[i]+' '+retour ;
