@@ -15,10 +15,10 @@ $(document).ready(function () {
      // DOM Ready
     $(function() {
         $('#popupmenu').bind('mouseover', function(e) {
-            document.getElementById("imgCategorie").style.opacity = 1;
+            document.getElementById("imgCategorie").style.opacity = 0.4;
         });
         $('#popupmenu').bind('mouseout', function(e) {
-            document.getElementById("imgCategorie").style.opacity = 0.4;
+            document.getElementById("imgCategorie").style.opacity = 1;
         });
     });
 })(jQuery);
