@@ -96,16 +96,13 @@
     float: left;
     width: 190px;    
 }
-#imgPicto
-{
-    margin-top: 0px;
-}
 #info #texte
 {
     float: left;
     width: 300px;
     color: #0F6377;
     font-size: 15px;
+    text-align: left; 
 }
 #centre #flecheD
 {
