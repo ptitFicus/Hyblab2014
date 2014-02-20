@@ -46,7 +46,7 @@ function creerDiagramme() {
             borderColor: couleurDeFond
         },
         title: {
-            text: sportSelectionne.replace(/_/g, " ")
+            text: sportSelectionne.replace(/_/g, " "),
         },
         xAxis: {
             categories: regionsC,
@@ -324,7 +324,7 @@ function cliqueSurRegion(region) {
         // on cache le compteur
         document.getElementById("compteur").style.display = "none";
 
-       htmlInfosRegions = "<center><div style='text-align:center; display: table; background-image: url(img/bandeauRegions.png); width: 336px;height: 46px;'><div style='margin-top: 6px; color: "+couleurDeFond+";'><b>"+region+"</b></div></div></center>";
+       htmlInfosRegions = "<center><div style='text-align:center; display: table; background-image: url(img/bandeauRegions.png); width: 336px;height: 46px;'><div id='nomRegion'>"+region+"</div></div></center>";
 
         if (modeGlobal) {
             htmlInfosRegions += "<center><img src='img/legendes/nbLicences10000.png' width=150></center>";
@@ -379,8 +379,8 @@ function cliqueSurRegion(region) {
             nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];
             nb10000 = donneesGeneralesC[sportSelectionne][regionsDeBaseC.indexOf(region)];
             
-            htmlInfosRegions+=  "<div class='sportRegions'><br>"+nb10000+" licenciés pour 10 000 habitants<p>"
-                                                            +nbBrut+" licenciés au total</div>";
+            htmlInfosRegions+=  "<div class='sportRegions'><br>"+lisibilite_nombre(nb10000)+" licenciés pour 10 000 habitants<p>"
+                                                            +lisibilite_nombre(nbBrut)+" licenciés au total</div>";
         }
 			
 		document.getElementById("container").innerHTML = htmlInfosRegions;
@@ -388,13 +388,12 @@ function cliqueSurRegion(region) {
 	} 
     
     
-    // erreur IE !!!
     else { // si on reclique sur la même région
 
         // on ré-affiche le compteur
         document.getElementById("compteur").style.display = "inline";
         
-        chart.destroy();        // erreur IE
+        chart.destroy();
 		creerDiagramme();
 		dataDiagramme = [];
 		for (i = 0; i < regionsC.length; i += 1) {
@@ -947,3 +946,21 @@ window.onresize = function () {
         }
     }, 0);
 };
+
+
+function lisibilite_nombre(nbr)
+{
+		var nombre = ''+nbr;
+		var retour = '';
+		var count=0;
+		for(var i=nombre.length-1 ; i>=0 ; i--)
+		{
+			if(count!=0 && count % 3 == 0)
+				retour = nombre[i]+' '+retour ;
+			else
+				retour = nombre[i]+retour ;
+			count++;
+		}
+		//alert('nb : '+nbr+' => '+retour);
+		return retour;
+}
