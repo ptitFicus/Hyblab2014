@@ -23,16 +23,17 @@
 #nomDepartement
 {
     /* Placement du bloc */
-    margin-top: 25px;
+    margin-top: 20pt;
     margin-left: auto;
     margin-right: auto;
     /* Mise en forme du texte */
     font-family: 'Abel', Arial;
     text-transform: uppercase;
-    font-size: 26px;
+    font-size: 28pt;
     color: #0F6377;
     text-align: center;
     line-height: 40px;
+    letter-spacing: 2px;
 }
 #canvas_jo {
     margin-top: 25px;
@@ -89,7 +90,7 @@
     margin-right: 10px;
     width: 280px;
     color: #0F6377;
-    font-size: 15px;
+    font-size: 12pt;
 }
 #centre #flecheD
 {
