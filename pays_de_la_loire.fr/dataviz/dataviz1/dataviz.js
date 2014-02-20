@@ -63,7 +63,7 @@ function creerDiagramme() {
                     } else if (this.value === "Champagne-Ardenne") {
                         nomRegion = "Champ. Ardenne";
                     }
-                    return '&nbsp;&nbsp;&nbsp;' + nomRegion;
+                    return '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + nomRegion;
                 },
                 style: {
                     color: "#EAE9E5"
@@ -372,7 +372,7 @@ function cliqueSurRegion(region) {
                 i++;
             }
             
-            htmlInfosRegions += "<div class='sportRegionsTotal'>"+nbBrut+" licenciés au total dans la région<br></div>";
+           // htmlInfosRegions += "<div class='sportRegionsTotal'>"+nbBrut+" licenciés au total dans la région<br></div>";
         } 
         
         
