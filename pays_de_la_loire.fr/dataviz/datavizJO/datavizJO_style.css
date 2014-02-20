@@ -21,25 +21,6 @@
     border-width:1px;
 }
 
-.titre
-{
-    /* Placement du bloc */
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px;
-    
-    /* Mise en forme du texte */
-    width: 700px;
-    background-color: #0F6377;
-    font-family: 'Abel', Arial;
-    text-transform: uppercase;
-    font-size: 26px;
-    color: #EAE9E5;
-    text-align: center;
-    line-height: 40px;
-}
-
 #nomDepartement
 {
     /* Placement du bloc */
