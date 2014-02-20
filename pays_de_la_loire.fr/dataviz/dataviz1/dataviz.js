@@ -487,10 +487,10 @@ function afficherTousSports() {
     document.getElementById('cadreLegende3').style.backgroundColor = l3;
     document.getElementById('cadreLegende4').style.backgroundColor = l4;
 
-    document.getElementById('legende1').innerHTML = ratiosTotauxSpotsRegions.l1;
-    document.getElementById('legende2').innerHTML = ratiosTotauxSpotsRegions.l2;
-    document.getElementById('legende3').innerHTML = ratiosTotauxSpotsRegions.l3;
-    document.getElementById('legende4').innerHTML = ratiosTotauxSpotsRegions.l4;
+    document.getElementById('legende1').innerHTML = "+ "+ratiosTotauxSpotsRegions.l1;
+    document.getElementById('legende2').innerHTML = "+ "+ratiosTotauxSpotsRegions.l2;
+    document.getElementById('legende3').innerHTML = "+ "+ratiosTotauxSpotsRegions.l3;
+    document.getElementById('legende4').innerHTML = "+ "+ratiosTotauxSpotsRegions.l4;
     
 	paletteDiagramme = palette;        // pour le diagramme    
     $('#francemap').vectorMap("setColors", palette);
@@ -724,10 +724,10 @@ function afficherSport(sportSelect) {
         document.getElementById('cadreLegende3').style.backgroundColor = l3;
         document.getElementById('cadreLegende4').style.backgroundColor = l4;
 
-        document.getElementById('legende1').innerHTML = ratios.l1;
-        document.getElementById('legende2').innerHTML = ratios.l2;
-        document.getElementById('legende3').innerHTML = ratios.l3;
-        document.getElementById('legende4').innerHTML = ratios.l4;
+        document.getElementById('legende1').innerHTML = "+ "+ratios.l1;
+        document.getElementById('legende2').innerHTML = "+ "+ratios.l2;
+        document.getElementById('legende3').innerHTML = "+ "+ratios.l3;
+        document.getElementById('legende4').innerHTML = "+ "+ratios.l4;
         
         paletteDiagramme = palette;
         $('#francemap').vectorMap("setColors", palette);

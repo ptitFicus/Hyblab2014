@@ -82,6 +82,9 @@ function receptionnerCliqueDepartement(departement, sport) {
                 threshold: null
             }
         },
+        credits: {
+            enabled: false,
+        },
         series: [{
             type: 'line',
             //name: 'Nombre de licenciés pour 10 000 habitants',
