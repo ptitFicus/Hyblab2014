@@ -280,6 +280,44 @@
     margin-right: auto;
     display: block;
 }
+#couronne
+{
+    padding: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#titrePrincipal
+{
+    font-family: 'Abel', Arial;
+    font-size: 22pt;
+    color: #0F6377;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+#sousTitre
+{
+    font-family: 'Abel', Arial;
+    font-size: 15pt;
+    color: #0F6377;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+#texteIntro {
+    width: 50%;
+    margin-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    font-family: 'Abel', Arial;
+    color: #000000;
+    font-size: 12pt;
+    line-height: 16px;
+}
+
 
 p {
     /*text-align:justify;*/
@@ -334,15 +372,6 @@ p {
     line-height: 17pt;
 }
 
-#texteIntro {
-    width: 50%;
-    margin-top:10px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: justify;
-    font-family: 'Abel', Arial;
-    color: #0F6377;
-}
 
 
 #odometer {
