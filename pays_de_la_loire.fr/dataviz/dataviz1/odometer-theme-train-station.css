@@ -1,6 +1,6 @@
 @import url("//fonts.googleapis.com/css?family=Economica");
 .odometer.odometer-auto-theme, .odometer.odometer-theme-train-station {
-  margin-top: 50px;
+  /*margin-top: 50px;*/
   display: -moz-inline-box;
   -moz-box-orient: vertical;
   display: inline-block;
