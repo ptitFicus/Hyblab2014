@@ -44,7 +44,10 @@ function receptionnerCliqueDepartement(departement, sport) {
     $('#courbeDpt').highcharts({
         chart: {
             type: 'areaspline',
-            backgroundColor: 'transparent'
+            backgroundColor: 'transparent',
+            style: {
+                fontFamily: 'Abel',
+            }
         },
         exporting: { enabled: false },
         title: {

@@ -43,7 +43,10 @@ function creerDiagramme() {
             renderTo: 'container',
             type: 'bar',
             backgroundColor: null, // transparent, permet de mettre une image derrière, par exemple
-            borderColor: couleurDeFond
+            borderColor: couleurDeFond,
+            style: {
+                fontFamily: 'Abel',
+            }
         },
         title: {
             text: sportSelectionne.replace(/_/g, " "),
