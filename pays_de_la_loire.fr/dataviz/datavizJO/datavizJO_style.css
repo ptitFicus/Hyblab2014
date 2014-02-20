@@ -20,6 +20,7 @@
     border-style:solid;
     border-width:1px;
 }
+
 .titre
 {
     /* Placement du bloc */
@@ -38,6 +39,7 @@
     text-align: center;
     line-height: 40px;
 }
+
 #nomDepartement
 {
     /* Placement du bloc */

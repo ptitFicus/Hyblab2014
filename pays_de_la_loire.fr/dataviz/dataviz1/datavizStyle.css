@@ -1,3 +1,43 @@
+.titre
+{
+    /* Placement du bloc */
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    
+    /* Mise en forme du texte */
+    width: 516px;
+    background-color: #0F6377;
+    line-height: 38px;
+    color: #EAE9E5;
+    
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    font-size: 16pt;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.titreLong
+{
+    /* Placement du bloc */
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    
+    /* Mise en forme du texte */
+    width: 516px;
+    background-color: #0F6377;
+    line-height: 38px;
+    color: #EAE9E5;
+    
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    font-size: 15pt;
+    text-align: center;
+    letter-spacing: 1px;
+}
 .preloaded-images {
    position: absolute;
    overflow: hidden;
@@ -146,11 +186,13 @@
 }
 
 .titreArticle {
+    margin-bottom: 10px;
     color: #D33C3D;
-    /*font-weight:bold;    */
-    text-align:center;
-    font-size: 125%;
-    margin-bottom: 15px;
+    text-align: center;
+    font-size: 12pt;
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #compteur {
@@ -194,6 +236,7 @@
 .boutonAnnee {
     margin-right: 20px;
     cursor: pointer;
+    width: 9.0141304%;
 }
 
 #imageHeader {
@@ -214,11 +257,16 @@ p {
     width:80%;
     padding-bottom:10px;
     font-family: 'Abel', Arial;
+    font-size: 12pt;
+    letter-spacing: 1px;
+    line-height: 17pt;
 }
 
 .colonne {
     text-align: justify;
     font-family: 'Abel', Arial;
+    font-size: 12pt;
+    line-height: 17pt;
 }
 
 .contenuArticle {
