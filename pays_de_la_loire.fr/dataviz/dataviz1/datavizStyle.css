@@ -130,6 +130,10 @@
     margin:100px;
 }
 
+#defAffinitaires {
+    cursor: pointer;   
+}
+
 .colonne {
   display:table-cell;
   width:40%;
