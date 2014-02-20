@@ -368,9 +368,7 @@ function cliqueSurRegion(region) {
                     nbBrut += parseInt(donneesGeneralesBrutes[prop][regionsDeBaseC.indexOf(region)]);
                 }
                 i++;
-            }
-            
-           // htmlInfosRegions += "<div class='sportRegionsTotal'>"+nbBrut+" licenciés au total dans la région<br></div>";
+            }            
         } 
         
         
@@ -381,10 +379,9 @@ function cliqueSurRegion(region) {
             nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];
             nb10000 = donneesGeneralesC[sportSelectionne][regionsDeBaseC.indexOf(region)];
             
-            htmlInfosRegions+=  "<div style='padding-top:30px;'>"+
-                                    "<div class='sportRegions' style='margin-left:15px; margin-right:200px; margin-top:25px;'>"+nb10000+" licenciés pour 10 000 habitants<br></div>"+
-                                    "<div class='sportRegions' style='margin-left:250px; margin-top:30px;'>"+nbBrut+" licenciés au total<br></div>"+
-                                "</div>";
+            htmlInfosRegions+=  "<div class='sportRegions'>"+nb10000+" licenciés pour 10 000 habitants<p>"
+                                                            +nbBrut+" licenciés au total<br></div>"
+                                ;
         }
 			
 		document.getElementById("container").innerHTML = htmlInfosRegions;

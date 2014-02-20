@@ -140,9 +140,9 @@
     color: #FFF;
     background: #D33C3D;
     text-align: center;
-    height:100%;
-    margin:0;
-    padding:0;
+    /*height:100%;*/
+    /*padding:200px;*/
+    width: 100px;
 }
 
 .sportRegionsTotal {
@@ -233,8 +233,7 @@
 .credits {
     text-align: center;
     font-size: 75%;
-    bottom:0;
-    left:0;
+    font-family: 'Abel', Arial;
 }
 
 .boutonAnnee {
@@ -297,6 +296,9 @@ p {
     text-align:justify;
     width: 60%;
     margin-bottom: 20px;
+    font-family: 'Abel', Arial;
+    font-size: 12pt;
+    line-height: 17pt;
 }
 
 #texteIntro {
