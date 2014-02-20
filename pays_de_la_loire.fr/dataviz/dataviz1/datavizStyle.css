@@ -188,7 +188,23 @@
     line-height: 17pt;
     
 }
+
+.colonne2 {
+    display:table-cell;
+    width:40%;
+    padding: 15px;
+    text-align: justify;
+    font-family: 'Abel', Arial;
+    font-size: 12pt;
+    line-height: 14pt;
+    
+}
+
 .colonne + .colonne {
+  border-left:1px solid #D33C3D;
+}
+
+.colonne2 + .colonne2 {
   border-left:1px solid #D33C3D;
 }
 
@@ -200,6 +216,16 @@
     font-family: 'Abel', Arial;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+.titreArticle2 {
+    margin-bottom: 10px;
+    color: #D33C3D;
+    text-align: center;
+    font-size: 11pt;
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #compteur {
