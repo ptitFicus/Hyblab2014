@@ -183,7 +183,9 @@
 .colonne {
     display:table-cell;
     width:40%;
-    padding: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: justify;
     font-family: 'Abel', Arial;
     font-size: 12pt;
@@ -313,6 +315,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: justify;
+    text-justify: newspaper;
     font-family: 'Abel', Arial;
     color: #000000;
     font-size: 12pt;
