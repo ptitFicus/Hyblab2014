@@ -362,11 +362,9 @@ function cliqueSurRegion(region) {
                                 "</tr>";
             htmlInfosRegions += "</table></div>";
             
-            /*nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];*/
             i=0, nbBrut=0;
             for (prop in donneesGeneralesBrutes) {
                 if (i>0) {
-                    //alert(prop);
                     nbBrut += parseInt(donneesGeneralesBrutes[prop][regionsDeBaseC.indexOf(region)]);
                 }
                 i++;
@@ -377,7 +375,7 @@ function cliqueSurRegion(region) {
         
         
         
-        
+            
         else {
             htmlInfosRegions += "<p><center><img src='img/popmenu/"  + obtenirPictoSport(sportSelectionne) +"' width=150></center>";
             nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];
@@ -393,12 +391,14 @@ function cliqueSurRegion(region) {
 		diagramme = false;
 	} 
     
+    
+    // erreur IE !!!
     else { // si on reclique sur la même région
 
         // on ré-affiche le compteur
         document.getElementById("compteur").style.display = "inline";
         
-        chart.destroy();
+        chart.destroy();        // erreur IE
 		creerDiagramme();
 		dataDiagramme = [];
 		for (i = 0; i < regionsC.length; i += 1) {

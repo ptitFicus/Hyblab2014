@@ -169,9 +169,9 @@
     color: #0F6377;
     text-align: center;
     /*margin:auto;*/
-    margin-right: 45px;
+    /*margin-right: 45px;*/
     font-family: 'Abel', Arial;
-    margin:100px;
+    /*margin:100px;*/
 }
 
 #defAffinitaires {
@@ -239,6 +239,7 @@
 .boutonAnnee {
     margin-right: 20px;
     cursor: pointer;
+    width: 9.0141304%;
 }
 
 #imageHeader {
