@@ -98,6 +98,7 @@
     width: 50%;
     float: left;
     font-size: 80%;
+    font-family: 'Abel', Arial;
 }
 
 .video {
@@ -239,6 +240,7 @@
     width:50%;
     color: #D33C3D;
     font-weight:bold;    
+    font-family: 'Abel', Arial
 }
 
 #nomDepartementTexte {
@@ -257,6 +259,7 @@
     text-align:center;
     color: #D33C3D;
     font-weight:bold;
+    font-family: 'Abel', Arial
 }
 
 .credits {
