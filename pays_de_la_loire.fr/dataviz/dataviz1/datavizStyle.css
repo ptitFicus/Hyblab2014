@@ -261,8 +261,9 @@
 
 .credits {
     text-align: center;
-    font-size: 75%;
+    font-size: 80%;
     font-family: 'Abel', Arial;
+    margin-top: 30px;
 }
 
 .boutonAnnee {
