@@ -46,7 +46,7 @@ function creerDiagramme() {
             borderColor: couleurDeFond
         },
         title: {
-            text: sportSelectionne.replace(/_/g, " ")
+            text: sportSelectionne.replace(/_/g, " "),
         },
         xAxis: {
             categories: regionsC,

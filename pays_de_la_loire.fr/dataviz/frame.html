@@ -5,6 +5,8 @@
         <meta name="viewport" content="initial-scale=1,width=device-width"></meta> 
         <title>Hyblab</title>
         
+        
+    
         <!-- libraires diverses et fichiers js -->
         <link rel="stylesheet" href="dataviz1/jqvmap.css" type="text/css" media="screen"/>
         <link rel="stylesheet" href="dataviz1/datavizStyle.css" type="text/css" media="screen"/>
@@ -18,7 +20,7 @@
         <script src="dataviz1/degrade.js"></script>
 		<script src="dataviz1/exporting.js"></script>
         <script src="dataviz2/carte_region.js"></script>        
-        <script src="popupbox/popup_sources.js"></script>
+        <script src="infobulle/infobulle.js"></script>
         <link href='datavizJO/datavizJO_style.css' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="datavizJO/dataviz_jo.js"></script>
         <script type="text/javascript" src="lib/raphael-min.js"></script>
@@ -217,8 +219,11 @@
                         <div class="colonne">
                             <div class="titreArticle">
                                 Les sports affinitaires                             
-                                <center><img id="defAffinitaires" src="img/legendes/flechesBas.png" alt="" /></center>
-                                <div id="element_to_pop_up">En Pays de la Loire, 103 661 licenciés sont inscrits au sein de fédérations dites « affinitaires ». Ces fédérations visent à prioriser la pratique omnisports, leur but principal consistant à la recentrer autour de valeurs humaines et tournées vers le loisir. Dans la région, l’UFOLEP (Union française des œuvres laïques et d’éducation physique) compte 382 clubs qui proposent une pratique multi-activités à 21 408 licenciés (environ 20,7% des licenciés de fédérations affinitaires).</div>                                                                     </div>
+                                <center><img id="defAffinitaires" src="img/legendes/flechesBas.png" alt=""
+                                        onmouseover="montre('En Pays de la Loire, 103 661 licenciés sont inscrits au sein de fédérations dites « affinitaires ». Ces fédérations visent à prioriser la pratique omnisports, leur but principal consistant à la recentrer autour de valeurs humaines et tournées vers le loisir. Dans la région, l’UFOLEP (Union française des œuvres laïques et d’éducation physique) compte 382 clubs qui proposent une pratique multi-activités à 21 408 licenciés (environ 20,7% des licenciés de fédérations affinitaires.)');"
+                                        onmouseout="cache();"></center>
+                                </div>
+                            <div id="curseur" class="infobulle"></div>
                             Les nombreux conflits idéologiques ayant opposé patronages laïques et catholiques ont eux aussi influencé la diffusion du sport dans la région. Dans leurs affrontements, les deux instances ont toujours eu en commun la volonté affirmée de structurer le temps libre des écoliers, en leur donnant notamment accès à la pratique sportive. De cette manière, les sports tels que la gymnastique et basket-ball se sont rapidement popularisés. L’influence du patronage catholique est encore présente aujourd’hui, puisque L’Hermine, club phare de basket nantais, et le FC Nantes, en sont issus.
                             <p>
                                 <img src="img/medaille.png" width="100"> 
@@ -328,7 +333,7 @@
             <!-- Huitième page : données insolites -->    
             <section class="page8">
                 <div class="titreLong">Le saviez vous ?</div>
-                    <img id="imageInsolite" src="img/donneesInsolites.png">
+                    <img id="imageInsolite" src="img/lesaviezvous.svg">
             </section>
 
             
@@ -343,12 +348,12 @@
                     </div>
                     <iframe class="video" src="//www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="credits">
+                <div class="credits">                                    
                     <br>Réalisation (<a href="http://www.polytech-nantes.fr">Polytech Nantes</a>): Thomas Pradié, Benjamin Cavy, Manuela Guerin 
                     <br>Design (<a href="http://www.agrnantes.fr">AGR L'école de l’image</a>): Alexandre Forget, BaptisteDenéchère
                     <br>Editorial (<a href="http://www.sciencescom.org">SciencesCom</a>): Laura Véron, Suzie Le Vagueresse, Tiphaine Honnet
                     <br>Sources : <a href="http://http://www.insee.fr/fr/themes/document.asp?reg_id=3&ref_id=14148%C2">INSEE</a>, <a href="http://paysdelaloire.franceolympique.com/accueil.php">CROS Pays de la Loire</a>, <a href="http://ores.paysdelaloire.fr/771-licencies-en-sport.htm">ORES Pays de la Loire</a>
-                    <br>Ce travail a été réalisé dans le cadre du HybLab 2014 - Ouest MediaLab
+                    <br>Ce travail a été réalisé dans le cadre du HybLab 2014 - Ouest MediaLab                    
                 </div>
             </section>
         

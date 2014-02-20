@@ -240,7 +240,7 @@
     width:50%;
     color: #D33C3D;
     font-weight:bold;    
-    font-family: 'Abel', Arial
+    font-family: 'Abel', Arial;
 }
 
 #nomDepartementTexte {
@@ -347,4 +347,16 @@ p {
 
 #odometer {
     margin-top: 50px;
+}
+
+
+.infobulle{
+    position: absolute;   
+    visibility : hidden;
+    border: 1px solid Black;
+    padding: 10px;
+    font-family: 'Abel', Arial;
+    font-size: 14px;
+    line-height: 15pt;
+    background-color: #EAE9E5;
 }
