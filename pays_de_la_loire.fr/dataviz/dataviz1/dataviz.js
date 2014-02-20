@@ -536,7 +536,7 @@ function trierDonnees() {
 function majCompteur(value) {
     'use strict';
     setTimeout(function () {
-        odometer.innerHTML = value;
+        odometer.innerHTML = value;        
     }, 1);
 }
 
@@ -569,7 +569,7 @@ function afficherSport(sportSelect) {
         dataDiagramme;
 
     sportSelect = sportSelect.toString();
-	document.getElementById("texteCompteur").innerHTML = "licenciés en France (" + sportSelect.replace(/_/g, " ") + ")";
+	//document.getElementById("texteCompteur").innerHTML = "licenciés en France (" + sportSelect.replace(/_/g, " ") + ")";
     
     // on ré-affiche le compteur si besoin
     document.getElementById("compteur").style.display = "inline";
