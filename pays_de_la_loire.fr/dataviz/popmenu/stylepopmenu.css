@@ -1,0 +1,27 @@
+#popupenu{
+    max-width: 50px;
+    width: 100%;
+    color: #000000;
+    margin-right: auto;
+    margin-left: auto;
+    /*margin-left:435px;*/
+}
+#demo_box{
+    width: 50px;
+    position: absolute; 
+    z-index: 2;
+    color: #000000;
+}
+
+.pictoChoix {
+    /*width: 125px;
+    height: 125px;*/
+}
+
+.pictoChoix:hover {
+    opacity: 0.5;
+}
+
+.pop_ctrl img {
+    width: 50px;
+}

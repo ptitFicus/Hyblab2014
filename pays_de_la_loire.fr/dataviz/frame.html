@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1,width=device-width"></meta> 
+        <title>Hyblab</title>
+        
+        <!-- libraires diverses et fichiers js -->
+        <link rel="stylesheet" href="dataviz1/jqvmap.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="dataviz1/datavizStyle.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="dataviz1/odometer-theme-train-station.css" />
+        <script src="lib/jquery-2.1.0.min.js"></script>
+		<script src="lib/highstock.js"></script>
+        <script src="lib/csvUtil.js"></script> 
+        <script src="dataviz1/odometer.min.js"></script>
+        <script src="dataviz1/jquery.vmap.js"></script>
+        <script src="dataviz1/jquery.vmap.france.js"></script>
+        <script src="dataviz1/degrade.js"></script>
+		<script src="dataviz1/exporting.js"></script>
+        <script src="dataviz2/carte_region.js"></script>        
+        <script src="popupbox/popup_sources.js"></script>
+        <link href='datavizJO/datavizJO_style.css' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="datavizJO/dataviz_jo.js"></script>
+        <script type="text/javascript" src="lib/raphael-min.js"></script>
+    
+        <!-- onepage scroll -->
+        <script type="text/javascript" src="onepage/jquery.onepage-scroll.js"></script>
+        <script type="text/javascript" src="onepage/onePageInit.js"></script>
+	    <link href='onepage/onepage-scroll.css' rel='stylesheet' type='text/css'>
+
+        <!-- popup menu -->
+        <script src="popmenu/jquery.popmenu.js"></script>
+        <script src="popmenu/popMenuInit.js"></script>
+        <link rel="stylesheet" href="popmenu/font-awesome.min.css"/>
+        <link rel="stylesheet" href="popmenu/stylepopmenu.css"/>
+    </head>
+
+
+    <body bgcolor="#EAE9E5"> 
+        <!-- image trophée -->
+        <div class="preloaded-images">
+            <img id="imageCoupeCachee" src="img/coupe.svg" width="1" height="1" alt="Image 01" />
+        </div>
+
+                
+        <div class="main">                    
+            <!-- Première page -->    
+            <section class="page1">
+                <img id="imageHeader" src="img/Bandeau-Hyblab.jpg">
+                <center><div style="text-align:center; width:500px; color:#0F6377">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,  dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim . M[...]</div></center>                
+            </section>
+            
+            
+            
+            
+            
+            <!-- Deuxième page : dataviz carte de France -->    
+            <section class="page2">    
+                <div id="titre">NOMBRE DE LICENCIÉS PAR RÉGIONS EN 2012</div>                                
+                <!-- popupmenu -->
+                <div id="popupmenu" style="margin-left:400px;">
+                    <div id="demo_box">
+                        <div class="pop_ctrl">
+                            <img id="imgCategorie" src="img/categories.png">
+                        </div>
+                        <ul id="demo_ul">
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tous les sports')" class="pictoChoix" src="img/popmenu/tous.svg" alt="Tous les sports">
+                            </li>
+                            <li class="demo_li">
+                            <img class="pictoChoix" onclick="afficherSport('Athlétisme')" src="img/popmenu/athletisme.svg" alt="Athlétisme">
+                            </li>
+                            <li class="demo_li">
+                                <img onclick="afficherSport('Karaté_et_arts_martiaux_affinitaires')" class="pictoChoix" src="img/popmenu/arts_martiaux.svg" alt="Karaté">
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Basketball')" class="pictoChoix" src="img/popmenu/basket.svg" alt="Basketball">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Équitation')" class="pictoChoix" src="img/popmenu/equitation.svg" alt="Équitation">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Sports sous marins')" class="pictoChoix" src="img/popmenu/plongee.svg" alt="Sports sous marins">                       
+                            </li>               
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Football')" class="pictoChoix" src="img/popmenu/football.svg" alt="Football">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Golf')" class="pictoChoix" src="img/popmenu/golf.svg" alt="Golf">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Gymnastique')" class="pictoChoix" src="img/popmenu/gymnastique.svg" alt="Gymnastique">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Handball')" class="pictoChoix" src="img/popmenu/handball.svg" alt="Handball">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Judo jujitsu et disciplines associées')" class="pictoChoix" src="img/popmenu/judo.svg" alt="Judo">
+                            </li>
+                            
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Natation')" class="pictoChoix" src="img/popmenu/natation.svg" alt="Natation">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Pétanque_et_jeu_provençal')" class="pictoChoix" src="img/popmenu/petanque.svg" alt="Pétanque">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Randonnée_pédestre')" class="pictoChoix" src="img/popmenu/rando.svg" alt="Randonnée pédestre">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Rugby')" class="pictoChoix" src="img/popmenu/rugby.svg" alt="Rugby">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Ski')" class="pictoChoix" src="img/popmenu/ski.svg" alt="Ski">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tennis')" class="pictoChoix" src="img/popmenu/tennis.svg" alt="Tennis">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tennis de table')" class="pictoChoix" src="img/popmenu/ping_pong.svg" alt="Tennis de table">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tir')" class="pictoChoix" src="img/popmenu/tir.svg" alt="Tir">
+                            </li> 
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Voile')" class="pictoChoix" src="img/popmenu/voile.svg" alt="Tennis">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Autres_fédérations')" class="pictoChoix" src="img/popmenu/autres.svg" alt="Autres fédérations">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- dataviz (carte et diagramme) -->
+                <div style="padding-top:50px;padding-right:50px;"> 
+                    <div id="francemap"></div>
+                    <div id="container" style="min-width: 310px;"></div>                    
+                </div>
+                <div id="compteur">
+                    <div id="odometer" class="odometer">0</div>
+                    <div id="texteCompteur">licenciés en France (Tous les sports)</div>
+                </div>
+                <div id="legende">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="img/la_coupe.png" class="coupeCarte" />
+                                </td>
+                                <td>
+                                    Nombre maximum de licenciés pour 10 000 habitants dans la catégorie
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    
+                    <table style="margin-left:50px;">
+                        <caption><b>Licenciés pour 10 000 habitants :</b><p></caption>
+                        <tbody>
+                            <tr>
+                                <td align="center"><img class="cadreLegende1" id="cadreLegende1" src="img/legendes/legende_rond.svg"/></td>
+                                <td align="left"><span id="legende1"></span></td>
+                                <td><span style="margin-right:60px;"></span></td>
+                                <td align="center"><img class="cadreLegende2" id="cadreLegende2" src="img/legendes/legende_rond.svg"/></td>
+                                <td align="left"><span id="legende2"></span></td>
+                            </tr>
+                            
+                            <tr>
+                                <td align="center"><img class="cadreLegende3" id="cadreLegende3" src="img/legendes/legende_rond.svg"/></td>
+                                <td align="left"><span id="legende3"></span></td>
+                                <td><span style="margin-right:60px;"></span></td>
+                                <td align="center"><img class="cadreLegende4" id="cadreLegende4" src="img/legendes/legende_rond.svg"/></td>
+                                <td align="left"><span id="legende4"></span></td>
+                            </tr>                   
+                        </tbody>
+                    </table>                    
+                </div>       
+            </section>
+            
+            
+            
+            
+            <!-- Troisième page : dataviz podiums -->    
+            <section class="page3">    
+                <div id="titre">LES TROIS RÉGIONS LES PLUS SPORTIVES DE 2009 À 2012</div>                
+                <div align='center'>
+                        <img class="boutonAnnee" id="img2009" onclick="changerAnneePodium(2009, [2009, 2012]);" src="img/podiums/nc2009.png">
+                        <img class="boutonAnnee" id="img2010" onclick="changerAnneePodium(2010, [2009, 2012]);" src="img/podiums/nc2010.png">
+                        <img class="boutonAnnee" id="img2011" onclick="changerAnneePodium(2011, [2009, 2012]);" src="img/podiums/nc2011.png">
+                        <img class="boutonAnnee" id="img2012" onclick="changerAnneePodium(2012, [2009, 2012]);" src="img/podiums/c2012.png">
+                    
+                    <div style="margin-top:40px;"><img id="imagePodium" src="img/podiums/2012.svg" alt="2009"></div>
+                </div>
+            </section>
+            
+            
+            <!-- Quatrième page : interview PDL -->    
+            <section class="page4">
+                <p>
+                    <div id="titre">INTERVIEW</div>    
+                    <div class="chapeau">
+                        Les Pays de la Loire ont toujours occupé une place de meneur dans le panorama de la pratique sportive française. Gildas Loirand, sociologue, enseignant - chercheur et maître de conférences à l' UFR STAPS, revient sur trois des raisons qui font de notre région une des plus dynamiques de France.
+                    </div>
+                    <div class="contenuArticle">
+                        <div class="colonne">
+                            <div class="titreArticle">
+                                LE VOLONTARISME POLITIQUE
+                            </div>
+                                Le volontarisme politique en Pays de la Loire est historique et a toujours joué un grand rôle dans le développement du sport. Plus marqué encore en Loire Atlantique, c’ est un des premiers départements de France, dès 1974, à développer un service d’animation sportive départemental. On affecte des techniciens fonctionnaires dans les cantons afin de proposer une pratique alternative à celle proposée par les clubs traditionnels. Les animateurs sportifs départementaux contribuent ainsi largement au développement des pratiques telles que le tennis de table.
+
+                            <div class="titreArticle">
+                                LA FUSION DES CLUBS
+                            </div>
+                                La fusion de certains clubs au fil des années en Pays de la Loire a permis un accroissement certain du niveau d' excellence sportive. Elle a permis de concentrer des activités, des équipes, et de mettre en commun des ressources économiques et matérielles. Parmi les plus populaires, figure le club féminin Rezé-Nantes Basket qui évolue en 1ère division (Pro A).
+                        </div>         
+                        <div class="colonne">
+                            <div class="titreArticle">
+                                LES SPORTS AFFINITAIRES                                
+                                <center><img id="defAffinitaires" src="img/legendes/flechesBas.png" alt="" /></center>
+                                <div id="element_to_pop_up">En Pays de la Loire, 103 661 licenciés sont inscrits au sein de fédérations dites « affinitaires ». Ces fédérations visent à prioriser la pratique omnisports, leur but principal consistant à la recentrer autour de valeurs humaines et tournées vers le loisir. Dans la région, l’UFOLEP (Union française des œuvres laïques et d’éducation physique) compte 382 clubs qui proposent une pratique multi-activités à 21 408 licenciés (environ 20,7% des licenciés de fédérations affinitaires).</div>                                                                     </div>
+                            Les nombreux conflits idéologiques ayant opposé patronages laïques et catholiques ont eux aussi influencé la diffusion du sport dans la région. Dans leurs affrontements, les deux instances ont toujours eu en commun la volonté affirmée de structurer le temps libre des écoliers, en leur donnant notamment accès à la pratique sportive. De cette manière, les sports tels que la gymnastique et basket-ball se sont rapidement popularisés. L’influence du patronage catholique est encore présente aujourd’hui, puisque L’Hermine, club phare de basket nantais, et le FC Nantes, en sont issus.
+                            <img src="img/medaille.png" width="100"> 
+                        </div>
+                    </div>
+                </p>
+            </section>
+            
+                        
+            
+            
+            
+            <!-- Cinquième page : dataviz région PDL -->    
+            <section class="page5">
+                <div id="titre">L'ÉVOLUTION DU NOMBRE DE LICENCIÉS DE VOTRE RÉGION</div>
+                <div id="nomDepartementCadre"><span id="nomDepartementTexte">Loire Atlantique</span></div>
+                <select id="choixSportDpt" onchange="handleDptSportChange(this.value);">
+                    <option value="tous">Tous les sports</option>
+                    <option value="Athletisme">Athlétisme</option>
+                    <option value="Basket-Ball">Basketball</option>
+                    <option value="Equitation">Équitation</option>
+                    <option value="Football">Football</option>
+                    <option value="Golf">Golf</option>
+                    <option value="Gymnastique">Gymnastique</option>
+                    <option value="Handball">Handball</option>
+                    <option value="Judo-jujitsu">Judo/jujitsu</option>
+                    <option value="Karate_et_arts_martiaux">Karaté et arts martiaux</option>
+                    <option value="Natation">Natation</option>
+                    <option value="Petanque_et_jeu_provencal">Pétanque et jeu provençal</option>
+                    <option value="Randonnee_pedestre">Randonnée pédestre</option>
+                    <option value="Rugby">Rugby</option>
+                    <option value="Ski">Ski</option>
+                    <option value="Sports_sous_marins">Sports sous marins</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Tennis_de_table">Tennis de table</option>
+                    <option value="Tir">Tir</option>
+                    <option value="Voile">Voile</option>
+                    <option value="Autres_federations">Autres fédérations</option>
+                </select>
+                <div id="courbeDpt"></div>
+                <div id="carte2"></div>
+                <div id="totalDpt">
+                    <div>
+                        TOTAL (2012)<br>
+                        <div id="odometerDpt" class="odometer">0</div>
+                    </div>
+                </div>
+                
+                
+            </section>
+            
+            
+            <!-- Sixième page : interview basket en PDL -->    
+            <section class="page6">
+                <div id="titre">INTERVIEW</div>                                
+                <div class="colonne">
+                    <div class="titreArticle">LE BASKET EN PDL</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,  dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.<p></div>
+                <div class="colonne">
+                    <div class="titreArticle">BLABLABLABLA !</div>
+                    Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.<p>Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</div>
+            </section>
+
+            
+            
+            
+            
+            <!-- Septième page : dataviz jo 2012 en PDL -->    
+            <section class="page7">
+                <div id="titre">LA RÉGION AUX J.O DE LONDRES 2012</div>
+                <div id="nomDepartement"></div>
+                <div id="canvas_jo"></div>
+            
+                <div id="Global">
+                    <div id="flamme1"><img src='datavizJO/images/flamme2.svg'/></div>
+                    <div id="centre">
+                        <button id="flecheG" type="button" style="background:none; border:none;" onclick="clickBG();">
+                            <img src="datavizJO/images/flechegauche.svg" width="20" alt=""/> 
+                        </button>
+                        <div id="info">
+                            <div id="picto"></div>
+                            <div id="texte">
+                                <p><span class="variable">Nom : </span><span id="nom" class="valeur"></span></p>
+                                <p><span class="variable">Discipline : </span><span id="discipline" class="valeur"></span></p>
+                                <p><span class="variable">Club : </span><span id="club" class="valeur"></span></p>
+                                <p><span class="variable">Résultats : </span><span id="resultat" class="valeur"></span></p>
+                            </div>
+                        </div>
+                        <button id="flecheD" type="button" style="background:none; border:none;" onclick="clickBD();">
+                            <img src="datavizJO/images/flechedroite.svg" width="20" alt=""/> 
+                        </button>
+                    </div>
+                    <div id="flamme2"><img src='datavizJO/images/flamme2.svg'/></div>
+                </div>
+            </section>
+            
+
+            <!-- Huitième page : données insolites -->    
+            <section class="page8">
+                <div id="titre">LE SAVIEZ-VOUS ? LES DONNÉES INSOLITES DE VOTRE RÉGION</div>
+                    <img id="imageInsolite" src="img/donneesInsolites.png">
+            </section>
+
+            
+            
+            <!-- Neuvième page : vidéo et crédits -->
+            <section class="page9">
+                <div id="titre">VIDÉO KINBALL</div>
+                <div align="center" style="padding-top:50px; padding-bottom:100px;">
+                    <iframe class="video" src="//www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="credits">
+                    Ce site a été réalisé par Thomas Pradié, Benjamin Cavy, Manuela Guerin,Textes: Véron Laura, Suzie Croizier, Design site: Forget Alexandre, Denéchère Baptiste 
+                    <p>| <a href="www.agrnantes.fr">AGR école de l’image</a> | <a href="www.polytech-nantes.fr">Polytech Nantes</a> | <a href="www.sciencescom.org">Sciences Com Nantes</a> |
+                </div>
+            </section>
+        
+        
+        <script src="datavizPodiums/datavizPodiums.js"></script>        
+        <script src="dataviz2/dataviz2.js"></script>
+        <script src="dataviz1/dataviz.js"></script>
+    </body>
+</html>
