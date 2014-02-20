@@ -379,9 +379,8 @@ function cliqueSurRegion(region) {
             nbBrut = donneesGeneralesBrutes[sportSelectionne][regionsDeBaseC.indexOf(region)];
             nb10000 = donneesGeneralesC[sportSelectionne][regionsDeBaseC.indexOf(region)];
             
-            htmlInfosRegions+=  "<div class='sportRegions'>"+nb10000+" licenciés pour 10 000 habitants<p>"
-                                                            +nbBrut+" licenciés au total<br></div>"
-                                ;
+            htmlInfosRegions+=  "<div class='sportRegions'><br>"+nb10000+" licenciés pour 10 000 habitants<p>"
+                                                            +nbBrut+" licenciés au total</div>";
         }
 			
 		document.getElementById("container").innerHTML = htmlInfosRegions;
