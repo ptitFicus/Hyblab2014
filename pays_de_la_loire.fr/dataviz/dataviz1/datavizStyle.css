@@ -68,7 +68,7 @@
     }
 }*/
 
-/*.cadreLegende {
+/*.cadre {
     border: 1px solid black;
 }*/
 
@@ -95,10 +95,10 @@
 
 #legende {
     color: #0F6377;  
-    width: 50%;
     float: left;
     font-size: 80%;
     font-family: 'Abel', Arial;
+    width: 50%;
 }
 
 .video {
@@ -192,12 +192,12 @@
 }
 
 .colonne2 {
-    display:table-cell;
+    display:-cell;
     width:40%;
     padding: 15px;
     text-align: justify;
     font-family: 'Abel', Arial;
-    font-size: 12pt;
+    font-size: 11pt;
     line-height: 14pt;
     
 }

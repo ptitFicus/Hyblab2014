@@ -150,7 +150,7 @@ window.onload = function () {
     
     /* Fonctions : clic sur un des anneaux */
     
-    cercle1.attr({cursor: 'pointer'}).mouseup(function (e) {
+    cercle1.attr({cursor: 'pointer'}).mousemove(function (e) {
         rond1.attr({opacity: 1});
         rond2.attr({opacity: 0.5});
         rond3.attr({opacity: 0.5});
@@ -160,7 +160,7 @@ window.onload = function () {
         initDepartement("44", tab44);
         majField();
     });
-    cercle2.attr({cursor: 'pointer'}).mouseup(function (e) {
+    cercle2.attr({cursor: 'pointer'}).mousemove(function (e) {
         rond1.attr({opacity: 0.5});
         rond2.attr({opacity: 1});
         rond3.attr({opacity: 0.5});
@@ -170,7 +170,7 @@ window.onload = function () {
         initDepartement("53", tab53);
         majField();
     });
-    cercle3.attr({cursor: 'pointer'}).mouseup(function (e) {
+    cercle3.attr({cursor: 'pointer'}).mousemove(function (e) {
         rond1.attr({opacity: 0.5});
         rond2.attr({opacity: 0.5});
         rond3.attr({opacity: 1});
@@ -180,7 +180,7 @@ window.onload = function () {
         initDepartement("72", tab72);
         majField();
     });
-    cercle4.attr({cursor: 'pointer'}).mouseup(function (e) {
+    cercle4.attr({cursor: 'pointer'}).mousemove(function (e) {
         rond1.attr({opacity: 0.5});
         rond2.attr({opacity: 0.5});
         rond3.attr({opacity: 0.5});
@@ -190,7 +190,7 @@ window.onload = function () {
         initDepartement("49", tab49);
         majField();
     });
-    cercle5.attr({cursor: 'pointer'}).mouseup(function (e) {
+    cercle5.attr({cursor: 'pointer'}).mousemove(function (e) {
         rond1.attr({opacity: 0.5});
         rond2.attr({opacity: 0.5});
         rond3.attr({opacity: 0.5});
