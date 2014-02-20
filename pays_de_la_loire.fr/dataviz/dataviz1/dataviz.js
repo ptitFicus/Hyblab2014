@@ -956,7 +956,7 @@ function lisibilite_nombre(nbr)
 		var nombre = ''+nbr;
 		var retour = '';
 		var count=0;
-		for(var i=0 ; i<nombre.length ; i++)
+		for(var i=nombre.length-1 ; i>=0 ; i--)
 		{
 			if(count!=0 && count % 3 == 0)
 				retour = nombre[i]+' '+retour ;
