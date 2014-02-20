@@ -176,10 +176,14 @@
 }
 
 .colonne {
-  display:table-cell;
-  width:40%;
-  padding:25px;
-  text-align: center;
+    display:table-cell;
+    width:40%;
+    padding: 15px;
+    text-align: justify;
+    font-family: 'Abel', Arial;
+    font-size: 12pt;
+    line-height: 17pt;
+    
 }
 .colonne + .colonne {
   border-left:1px solid #D33C3D;
@@ -259,13 +263,6 @@ p {
     font-family: 'Abel', Arial;
     font-size: 12pt;
     letter-spacing: 1px;
-    line-height: 17pt;
-}
-
-.colonne {
-    text-align: justify;
-    font-family: 'Abel', Arial;
-    font-size: 12pt;
     line-height: 17pt;
 }
 
