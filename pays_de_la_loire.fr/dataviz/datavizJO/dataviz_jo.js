@@ -165,7 +165,7 @@ window.onload = function () {
     });
     cercle1.mouseout(function (e) {
         if(departement !== "44") {
-            rond1.attr({opacity: 1});
+            rond1.attr({opacity: 0.5});
         }
     });
     cercle2.attr({cursor: 'pointer'}).click(function (e) {
