@@ -147,6 +147,7 @@
     /*height:100%;*/
     /*padding:200px;*/
     width: 100px;
+    font-family: 'Abel', Arial;
 }
 
 .sportRegionsTotal {
@@ -359,4 +360,11 @@ p {
     font-size: 14px;
     line-height: 15pt;
     background-color: #EAE9E5;
+}
+
+#nomRegion {
+    margin-top: 6px; 
+    color: #EAE9E5;
+    font-family: 'Abel', Arial;
+    font-weight: bold;        
 }
