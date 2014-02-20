@@ -292,6 +292,13 @@ p {
     display: block;
 }
 
+
+.articleSansCol {
+    text-align:justify;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
 #texteIntro {
     width: 50%;
     margin-top:10px;
