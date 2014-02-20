@@ -48,6 +48,13 @@
             <section class="page1">
                 <img id="imageHeader" src="img/Bandeau-Hyblab.jpg">
                 <center><div style="text-align:center; width:500px; color:#0F6377">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,  dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim . M[...]</div></center>                
+                <center><button id="my-button" type="button" style="background:#EAE9E5; border:none;" >
+                    <img src="img/legendes/flechesBas.png" alt="" /> 
+                </button></center>
+                <div id="element_to_pop_up">
+                    <div class="colonne">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,  dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.<p></div>
+                    <div class="colonne">Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.<p>Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</div>
+                </div>
             </section>
             
             
@@ -147,7 +154,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="img/la_coupe.svg" class="coupeCarte" />
+                                    <img src="img/la_coupe.png" class="coupeCarte" />
                                 </td>
                                 <td>
                                     Nombre maximum de licenciés pour 10 000 habitants dans la catégorie
@@ -217,12 +224,9 @@
                     <div class="colonne">
                         <div class="titreArticle">
                             LES SPORTS AFFINITAIRES
-                            <img class="boutonAnnee" src="img/legendes/flechesBas.png" id="defAffinitaires" alt="" /> 
                         </div>
-                        <div id="element_to_pop_up">En Pays de la Loire, 103 661 licenciés sont inscrits au sein de fédérations dites « affinitaires ». Ces fédérations visent à prioriser la pratique omnisports, leur but principal consistant à la recentrer autour de valeurs humaines et tournées vers le loisir. Dans la région, l’UFOLEP (Union française des œuvres laïques et d’éducation physique) compte 382 clubs qui proposent une pratique multi-activités à 21 408 licenciés (environ 20,7% des licenciés de fédérations affinitaires).</div>
-
                         Les nombreux conflits idéologiques ayant opposé patronages laïques et catholiques ont eux aussi influencé la diffusion du sport dans la région. Dans leurs affrontements, les deux instances ont toujours eu en commun la volonté affirmée de structurer le temps libre des écoliers, en leur donnant notamment accès à la pratique sportive. De cette manière, les sports tels que la gymnastique et basket-ball se sont rapidement popularisés. L’influence du patronage catholique est encore présente aujourd’hui, puisque L’Hermine, club phare de basket nantais, et le FC Nantes, en sont issus.
-                         <img src="img/medaille.png" width="100"> 
+                        <img src="img/medaille.png" width="100"> 
                     </div>
                 </p>
             </section>
@@ -293,13 +297,13 @@
                 <div id="canvas_jo"></div>
             
                 <div id="Global">
-                    <div id="flamme1"><img class="flammes" src='datavizJO/images/flamme2.svg' width="100"/></div>
+                    <div id="flamme1"><img src='datavizJO/images/flamme2.svg'/></div>
                     <div id="centre">
-                        <button id="flecheG" type="button" onclick="clickBG();">
+                        <button id="flecheG" type="button" style="background:none; border:none;" onclick="clickBG();">
                             <img src="datavizJO/images/flechegauche.svg" width="20" alt=""/> 
                         </button>
                         <div id="info">
-                            <div id="zonePicto"></div>
+                            <div id="picto"></div>
                             <div id="texte">
                                 <p><span class="variable">Nom : </span><span id="nom" class="valeur"></span></p>
                                 <p><span class="variable">Discipline : </span><span id="discipline" class="valeur"></span></p>
@@ -307,11 +311,11 @@
                                 <p><span class="variable">Résultats : </span><span id="resultat" class="valeur"></span></p>
                             </div>
                         </div>
-                        <button id="flecheD" type="button" onclick="clickBD();">
+                        <button id="flecheD" type="button" style="background:none; border:none;" onclick="clickBD();">
                             <img src="datavizJO/images/flechedroite.svg" width="20" alt=""/> 
                         </button>
                     </div>
-                    <div id="flamme2"><img class="flammes" src='datavizJO/images/flamme2.svg' width="100"/></div>
+                    <div id="flamme2"><img src='datavizJO/images/flamme2.svg'/></div>
                 </div>
             </section>
             
