@@ -198,12 +198,22 @@
     }
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (max-width: 879px) {
+    .colonne + .colonne {
+        padding-right: 40px;
+    }
+}
+
+@media screen and (min-width: 800px) {
     .titreArticleMain {
         margin-top: 25px;
         margin-bottom: 25px;
     }
+    .titreArticle2 {
+        margin-bottom: 10px;
+    }
 }
+
 .colonne {
     display:table-cell;
     width:40%;
@@ -247,7 +257,7 @@
 }
 
 .titreArticle2 {
-    margin-bottom: 10px;
+    
     color: #D33C3D;
     text-align: center;
     font-size: 11pt;
