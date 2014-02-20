@@ -41,7 +41,13 @@ function initDepartement(dep, tabDep) {
     i = 0;
     currentTab = tabDep;
     departement = dep;
-    
+    if (currentTab.length === 1) {
+        document.getElementById('flecheD').style.display = "none";
+        document.getElementById('flecheG').style.display = "none";
+    } else {
+        document.getElementById('flecheD').style.display = "block";
+        document.getElementById('flecheG').style.display = "block";
+    }
     switch (dep) {
     case "44":
         document.getElementById("nomDepartement").innerHTML = "Loire-Atlantique";
