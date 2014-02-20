@@ -113,7 +113,7 @@ window.onload = function () {
     
     /* LOGO JO */
     paper = new Raphael(document.getElementById('canvas_jo'), 920, 400);
-    
+    document.getElementById('canvas_jo').getElementsByTagName('svg')[0].setAttribute("id", "svgJO");
     initDepartement("44", tab44);
     
     var rond1 = paper.path("M302.311,138.928c-38.583,0-69.862,31.278-69.862,69.861c0,38.583,31.278,69.862,69.862,69.862s69.862-31.278,69.862-69.862C372.173,170.206,340.895,138.928,302.311,138.928z M302.311,265.693c-31.427,0-56.904-25.477-56.904-56.904c0-31.427,25.477-56.904,56.904-56.904c31.427,0,56.904,25.477,56.904,56.904C359.215,240.216,333.739,265.693,302.311,265.693z M293.727,213.489h-8.546v-3.858l8.546-10.158h4.089v10.377h2.119v3.64h-2.119v3.156h-4.089V213.489z M293.727,209.849v-5.314l-4.516,5.314H293.727z M313.234,213.489h-8.546v-3.858l8.546-10.158h4.089v10.377h2.119v3.64h-2.119v3.156h-4.089V213.489z M313.234,209.849v-5.314l-4.516,5.314H313.234z");
@@ -221,4 +221,16 @@ window.onload = function () {
     cercle4.translate(233.67, 0);
     cercle5.translate(233.67, 0);
 };
+
+
+// pour le responsive
+/*window.onresize = function () {
+    "use strict";
+    setTimeout(function () {
+        var obj = {};
+        obj[regionGagnante] = img;
+        $('.jqvmap_pin').remove();
+        $('#francemap').vectorMap("placePins", obj, "content");
+    }, 0);
+};*/
 

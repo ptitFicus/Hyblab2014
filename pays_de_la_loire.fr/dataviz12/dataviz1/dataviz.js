@@ -805,6 +805,14 @@ $(document).ready(function () {
         ratios = {},
         palette,
         moduleC = moduleCSV();
+
+    /*var viewportWidth = window.innerWidth,
+        viewportHeight = window.innerHeight,
+        mapDiv = document.getElementById("francemap"),
+        mapHeight = viewportHeight / 2 - 30,
+        mapWidth = viewportWidth / 2 - 30;
+    mapDiv.style.width = (mapWidth) + "px";
+    mapDiv.style.height = (mapHeight) + "px";*/
     
     $('#francemap').vectorMap({
         map: 'france_fr',
@@ -820,6 +828,9 @@ $(document).ready(function () {
 			cliqueSurRegion(code);
 		}
     });
+    
+    
+    
     moduleD = moduleDegrade();
     
     
@@ -930,5 +941,13 @@ window.onresize = function () {
         obj[regionGagnante] = img;
         $('.jqvmap_pin').remove();
         $('#francemap').vectorMap("placePins", obj, "content");
+        
+        $('#demo_box').popmenu({'background': '#BDBDBD', 'focusColor': '#D33C3D', 'iconSize': (Math.floor(window.innerWidth/8))+"px", 'width': window.innerWidth-100+"px"});
+    
+        var tab = document.getElementsByClassName('pictoChoix'),
+            i;
+        for(i = 0; i < tab.length; i += 1) {
+            tab[i].style.width = (Math.floor(window.innerWidth/9))+"px";
+        }
     }, 0);
 };

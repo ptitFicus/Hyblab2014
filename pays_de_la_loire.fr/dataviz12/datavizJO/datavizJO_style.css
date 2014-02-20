@@ -54,8 +54,11 @@
 }
 #canvas_jo {
     margin-top: 25px;
-    width: 920px;
+    /*width: 100%;*/
+    max-width: 920px;
     height: 210px;
+    margin-left: auto;
+    margin-right: auto;
 }
 #Global
 {
@@ -133,3 +136,9 @@
 {
     margin-top: 50px;
 }
+
+/*#svgJO {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}*/

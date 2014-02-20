@@ -15,7 +15,7 @@
 #container {
     float:right;
     width:50%;
-     height: 350px;
+    height: 350px;
 }
 
 /*@media screen and (max-width:699px){
@@ -132,7 +132,7 @@
 
 .colonne {
   display:table-cell;
-  width:400px;
+  width:40%;
   padding:25px;
   text-align: center;
 }
@@ -214,7 +214,21 @@ p {
     text-align: justify;
 }
 
+.contenuArticle {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 850px;
+}
+
 .colonne img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#imageInsolite {
+    width:100%;
     margin-left: auto;
     margin-right: auto;
     display: block;
