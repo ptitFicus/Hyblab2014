@@ -893,10 +893,9 @@
 
     positionPins: function(){
       var map = this;
-        var topDiff = 10;
+        var topDiff = 5;
         var horDiff = -5;
-        
-        //alert(map.diff);
+    
       var pins = this.container.find('.jqvmap_pin');
       jQuery.each(pins, function(index, pinObj){
         pinObj = jQuery(pinObj);

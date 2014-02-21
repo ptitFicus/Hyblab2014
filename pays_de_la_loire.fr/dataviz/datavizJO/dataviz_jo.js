@@ -280,16 +280,3 @@ window.onload = function () {
     rond5.translate(-200, -138.33608);
 
 };
-
-
-// pour le responsive
-/*window.onresize = function () {
-    "use strict";
-    setTimeout(function () {
-        var obj = {};
-        obj[regionGagnante] = img;
-        $('.jqvmap_pin').remove();
-        $('#francemap').vectorMap("placePins", obj, "content");
-    }, 0);
-};*/
-
