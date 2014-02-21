@@ -35,7 +35,7 @@ function receptionnerCliqueDepartement(departement, sport) {
     document.getElementById('nomDepartementTexte').innerHTML = departement;
     donnees = obtenirHistorique(departement, sport);
     
-    for (i = 0; i<4 ; i += 1) {
+    for (i = 0; i < 4; i += 1) {
         if (donnees[i] < min) {
             min = donnees[i];
         }
@@ -46,7 +46,7 @@ function receptionnerCliqueDepartement(departement, sport) {
             type: 'areaspline',
             backgroundColor: 'transparent',
             style: {
-                fontFamily: 'Abel',
+                fontFamily: 'Abel'
             }
         },
         exporting: { enabled: false },
@@ -62,7 +62,7 @@ function receptionnerCliqueDepartement(departement, sport) {
             categories: ['2009', '2010', '2011', '2012']
         }],
         yAxis: [{ // Primary yAxis
-            min: min - min/10,
+            min: min - min / 10,
             minRange: 0.1,
             title: {
                 //text: 'Nombre de licenciés pour 10 000 habitants'
@@ -86,7 +86,7 @@ function receptionnerCliqueDepartement(departement, sport) {
             }
         },
         credits: {
-            enabled: false,
+            enabled: false
         },
         series: [{
             type: 'line',
@@ -115,7 +115,7 @@ function handleDptSportChange(sport) {
 function lireFichiersDpt(callback) {
     'use strict';
     donneesDpt = {};
-    sportsPDL = new Array();
+    sportsPDL = [];
     
     var moduleC = moduleCSV(),
         annee = 2009,
@@ -130,17 +130,18 @@ function lireFichiersDpt(callback) {
             }
             
             for (prop in csvObject) {
-                if (annee == 2012 && prop.toString() !== "firstLine" && prop.toString() != "Federations_multisports_affinitaires" ) { 
-                    sportsPDL.push(prop); 
-                }
-                
-                if (csvObject.hasOwnProperty(prop) && prop.toString() !== "firstLine") {
-                    for (i = 0; i < csvObject[prop].length; i += 1) {
-                        if (donneesDpt[annee][csvObject.firstLine[i]].tous === undefined) {
-                            donneesDpt[annee][csvObject.firstLine[i]].tous = 0;
-                        }                        
-                        donneesDpt[annee][csvObject.firstLine[i]][prop] = parseInt(csvObject[prop][i], 10);
-                        donneesDpt[annee][csvObject.firstLine[i]].tous += parseInt(csvObject[prop][i], 10);
+                if (csvObject.hasOwnProperty(prop)) {
+                    if (annee === 2012 && prop.toString() !== "firstLine" && prop.toString() !== "Federations_multisports_affinitaires") {                                      sportsPDL.push(prop);
+                        }
+
+                    if (csvObject.hasOwnProperty(prop) && prop.toString() !== "firstLine") {
+                        for (i = 0; i < csvObject[prop].length; i += 1) {
+                            if (donneesDpt[annee][csvObject.firstLine[i]].tous === undefined) {
+                                donneesDpt[annee][csvObject.firstLine[i]].tous = 0;
+                            }
+                            donneesDpt[annee][csvObject.firstLine[i]][prop] = parseInt(csvObject[prop][i], 10);
+                            donneesDpt[annee][csvObject.firstLine[i]].tous += parseInt(csvObject[prop][i], 10);
+                        }
                     }
                 }
             }
@@ -185,42 +186,19 @@ $(document).ready(function () {
 			receptionnerCliqueDepartement(code, selectedSportDtp);
 		}
     });
-    var innerWidth = window.innerWidth;
-    var carte = document.getElementById("carte2"),
+    // Positionnement de la carte des départements
+    var innerWidth = window.innerWidth,
+        carte = document.getElementById("carte2"),
         svg = carte.getElementsByTagName("svg")[0];
-            // Positionnement de la caret des départements
-        var carte = document.getElementById("carte2"),
-            svg = carte.getElementsByTagName("svg")[0];
-        if(innerWidth > 1000 && innerWidth <= 1250) {
-            svg.setAttribute("viewBox", "400 100 300 250");
-        } else if (innerWidth > 2000) {
-            svg.setAttribute("viewBox", "650 100 300 250");
-        } else if (innerWidth > 1250 && innerWidth <= 2000) {
-            svg.setAttribute("viewBox", "500 100 300 250");
-        }else if (innerWidth <= 800) {
-            svg.setAttribute("viewBox", "300 100 300 250");
-        } else {
-            svg.setAttribute("viewBox", "350 100 300 250");
-        }
-});
-
-
-
-
-
-/*function sportDominant(departement) {
-    'use strict';
-    var i,
-        max,
-        sportMax;
-    
-    max = 0;
-    for (i = 0; i<sportsPDL.length ; i++) {
-        if ( donneesDpt[2012][departement][sportsPDL[i]] > max )  {
-            max = donneesDpt[2012][departement][sportsPDL[i]];
-            sportMax = sportsPDL[i];
-        }
+    if (innerWidth > 1000 && innerWidth <= 1250) {
+        svg.setAttribute("viewBox", "400 100 300 250");
+    } else if (innerWidth > 2000) {
+        svg.setAttribute("viewBox", "650 100 300 250");
+    } else if (innerWidth > 1250 && innerWidth <= 2000) {
+        svg.setAttribute("viewBox", "500 100 300 250");
+    } else if (innerWidth <= 800) {
+        svg.setAttribute("viewBox", "300 100 300 250");
+    } else {
+        svg.setAttribute("viewBox", "350 100 300 250");
     }
-    
-   return sportMax;
-}*/
+});
