@@ -849,7 +849,7 @@ $(document).ready(function () {
         
         donnees = csvObject;
 
-        setTimeout(afficherSport('Tous les sports'), 500);
+        afficherSport('Tous les sports');
         
 		// DIAGRAMME ----------------------------------
 		donneesGeneralesC = csvObject;
