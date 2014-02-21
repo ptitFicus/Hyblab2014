@@ -22,7 +22,7 @@ function move(e) {
  
 function montre(text) {
     'use strict';
-    if (i == false) {
+    if (!i) {
         document.getElementById("curseur").style.visibility = "visible"; // Si il est cacher (la verif n'est qu'une securitÃ©) on le rend visible.
         document.getElementById("curseur").innerHTML = text; // on copie notre texte dans l'Ã©lÃ©ment html
         i = true;
