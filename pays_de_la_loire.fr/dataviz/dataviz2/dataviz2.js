@@ -185,10 +185,23 @@ $(document).ready(function () {
 			receptionnerCliqueDepartement(code, selectedSportDtp);
 		}
     });
-    
+    var innerWidth = window.innerWidth;
     var carte = document.getElementById("carte2"),
         svg = carte.getElementsByTagName("svg")[0];
-    svg.setAttribute("viewBox", "350 100 300 250");
+            // Positionnement de la caret des départements
+        var carte = document.getElementById("carte2"),
+            svg = carte.getElementsByTagName("svg")[0];
+        if(innerWidth > 1000 && innerWidth <= 1250) {
+            svg.setAttribute("viewBox", "400 100 300 250");
+        } else if (innerWidth > 2000) {
+            svg.setAttribute("viewBox", "650 100 300 250");
+        } else if (innerWidth > 1250 && innerWidth <= 2000) {
+            svg.setAttribute("viewBox", "500 100 300 250");
+        }else if (innerWidth <= 800) {
+            svg.setAttribute("viewBox", "300 100 300 250");
+        } else {
+            svg.setAttribute("viewBox", "350 100 300 250");
+        }
 });
 
 
