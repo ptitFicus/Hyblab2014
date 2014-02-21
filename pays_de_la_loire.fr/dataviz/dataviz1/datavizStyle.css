@@ -422,7 +422,7 @@ p {
 
 .infobulle{
     position: absolute;   
-    visibility : hidden;
+    visibility: hidden;
     border: 1px solid Black;
     padding: 10px;
     font-family: 'Abel', Arial;
