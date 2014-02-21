@@ -203,7 +203,7 @@ function obtenirSportsDominants(region) {
     
     
     for (i in donnees) {
-        if (donnees.hasOwnProperty(i) && i.toString() !== "Fédérations_multisports_affinitaires" && i.toString() !== "firstLine") {
+        if (donnees.hasOwnProperty(i) && i.toString() !== "Fédérations_multisports_affinitaires" && i.toString() !== "Autres_fédérations" && i.toString() !== "firstLine") {
             valeurSport = parseInt(donnees[i][indexRegion], 10);
             if (listeChiffresSport.length < 5) {
                 listeChiffresSport.push(valeurSport);
