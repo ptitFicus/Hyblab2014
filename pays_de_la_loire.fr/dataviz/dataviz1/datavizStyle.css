@@ -299,13 +299,6 @@
     font-family: 'Abel', Arial
 }
 
-.credits {
-    text-align: center;
-    font-size: 80%;
-    font-family: 'Abel', Arial;
-    margin-top: 10px;
-}
-
 .imgCC {
     margin-top: 10px;
 }
@@ -436,4 +429,14 @@ p {
     color: #EAE9E5;
     font-family: 'Abel', Arial;
     font-weight: bold;        
+}
+
+.bandeauCredits {
+    background-color: #FFF;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: center;
+    font-size: 80%;
+    font-family: 'Abel', Arial;
+    margin-top: 10px;
 }
