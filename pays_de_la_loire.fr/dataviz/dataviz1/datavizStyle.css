@@ -118,6 +118,10 @@
     width: 50%;
 }
 
+.tableLegende {
+    margin: 0 auto;
+}
+
 .video {
     width: 560px;
     height: 315px;
