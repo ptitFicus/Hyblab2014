@@ -380,6 +380,7 @@ p {
     margin-right: auto;
     width:80%;
     font-family: 'Abel', Arial;
+    max-width: 850px;
 }
 
 .contenuArticle {
@@ -417,6 +418,7 @@ p {
     font-family: 'Abel', Arial;
     font-size: 12pt;
     line-height: 17pt;
+    max-width: 850px;
 }
 
 
