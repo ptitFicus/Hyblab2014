@@ -7,7 +7,7 @@
     /*margin-left:435px;*/
 }
 #demo_box{
-    width: 50px;
+    width: 90%;
     position: absolute; 
     z-index: 2;
     color: #000000;
@@ -24,4 +24,14 @@
 
 .pop_ctrl img {
     width: 70px;
+}
+
+.pop_ctrl {
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#demo_ul {
+    left: 5%;
 }
