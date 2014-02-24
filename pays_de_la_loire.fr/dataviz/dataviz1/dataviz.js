@@ -433,7 +433,9 @@ function afficherTousSports() {
         l1,
         l2,
         l3,
-        l4;
+        l4,
+        min = 10001,
+        legende;
     
     for (i = 0; i < regions.length; i += 1) {
         ratiosTotalSport[i] = 0;
@@ -455,13 +457,18 @@ function afficherTousSports() {
             max = ratiosTotalSport[i];
             regionGagnante = regions[i];
         }
+        if (ratiosTotalSport[i] < min) {
+            min = ratiosTotalSport[i];
+        }
     }
     
+    legende = obtenirLegendes(min, max, 100);
+    
     // RATIOS A CALCULER DYNAMIQUEMENT SI LE TEMPS LE PERMET !!!
-    ratiosTotauxSpotsRegions.l1 = 2800;
-    ratiosTotauxSpotsRegions.l2 = 2500;
-    ratiosTotauxSpotsRegions.l3 = 2200;
-    ratiosTotauxSpotsRegions.l4 = 1900;
+    ratiosTotauxSpotsRegions.l1 = legende[3];
+    ratiosTotauxSpotsRegions.l2 = legende[2];
+    ratiosTotauxSpotsRegions.l3 = legende[1];
+    ratiosTotauxSpotsRegions.l4 = legende[0];
     palette = moduleD.obtenirPalette(couleurMax, couleurMin, ratiosTotauxSpotsRegions);
     
     l1 = palette.l1;
@@ -533,6 +540,45 @@ function majCompteur(value) {
 
 
 
+function arrondirALaGranulariteLaPlusProche(nombre, granularite) {
+    'use strict';
+    var modulo = nombre % granularite;
+    if (modulo < 3) {
+        return nombre - modulo;
+    } else {
+        return nombre + granularite - modulo;
+    }
+}
+
+
+
+
+function obtenirLegendes(min, max, granularite) {
+    'use strict';
+    var newMin = arrondirALaGranulariteLaPlusProche(min, granularite),
+        newMax = arrondirALaGranulariteLaPlusProche(max, granularite),
+        ret,
+        diff = newMax - newMin;
+    if ((diff - granularite) % 3 === 0) {
+        if ((newMin + granularite) - min > max - (newMax - granularite)) {
+            newMax = newMax - granularite;
+        } else {
+            newMin = newMin + granularite;
+        }
+    } else if ((diff + granularite) % 3 === 0) {
+        if (min - (newMin - granularite) > (newMax + granularite) - max) {
+            newMax = newMax + granularite;
+        } else {
+            newMin = newMin - granularite;
+        }
+    }
+    diff = newMax - newMin;
+    ret = [newMin, newMin + (diff / 3), newMax - (diff / 3), newMax];
+    return ret;
+}
+
+
+
 
 
 
@@ -551,13 +597,15 @@ function afficherSport(sportSelect) {
         ratios = {},
         palette,
         max = 0,
+        min = 10001,
         gagnant,
         obj = {},
         l1,
         l2,
         l3,
         l4,
-        dataDiagramme;
+        dataDiagramme,
+        legende;
 
     sportSelect = sportSelect.toString();
 	//document.getElementById("texteCompteur").innerHTML = "licenciés en France (" + sportSelect.replace(/_/g, " ") + ")";
@@ -594,110 +642,18 @@ function afficherSport(sportSelect) {
                 max = ratios[regions[i]];
                 regionGagnante = regions[i];
             }
+            if (ratios[regions[i]] < min) {
+                min = ratios[regions[i]];
+            }
         }
         
-        // RATIOS A CALCULER DYNAMIQUEMENT SI LE TEMPS LE PERMET
-        if (sportSelect === "Golf") {
-            ratios.l1 = 90;
-            ratios.l2 = 70;
-            ratios.l3 = 50;
-            ratios.l4 = 30;
-        } else if (sportSelect === "Athlétisme") {
-            ratios.l1 = 55;
-            ratios.l2 = 45;
-            ratios.l3 = 35;
-            ratios.l4 = 25;
-        } else if (sportSelect === "Basketball") {
-            ratios.l1 = 150;
-            ratios.l2 = 90;
-            ratios.l3 = 60;
-            ratios.l4 = 30;
-        } else if (sportSelect === "Sports_sous_marins") {
-            ratios.l1 = 35;
-            ratios.l2 = 30;
-            ratios.l3 = 25;
-            ratios.l4 = 20;
-        } else if (sportSelect === "Football") {
-            ratios.l1 = 425;
-            ratios.l2 = 345;
-            ratios.l3 = 265;
-            ratios.l4 = 185;
-        } else if (sportSelect === "Gymnastique") {
-            ratios.l1 = 95;
-            ratios.l2 = 70;
-            ratios.l3 = 45;
-            ratios.l4 = 20;
-        } else if (sportSelect === "Handball") {
-            ratios.l1 = 110;
-            ratios.l2 = 85;
-            ratios.l3 = 60;
-            ratios.l4 = 35;
-        } else if (sportSelect === "Judo_jujitsu_et_disciplines_associées") {
-            ratios.l1 = 105;
-            ratios.l2 = 95;
-            ratios.l3 = 85;
-            ratios.l4 = 75;
-        } else if (sportSelect === "Karaté_et_arts_martiaux_affinitaires") {
-            ratios.l1 = 45;
-            ratios.l2 = 39;
-            ratios.l3 = 32;
-            ratios.l4 = 25;
-        } else if (sportSelect === "Natation") {
-            ratios.l1 = 55;
-            ratios.l2 = 45;
-            ratios.l3 = 35;
-            ratios.l4 = 25;
-        } else if (sportSelect === "Pétanque_et_jeu_provençal") {
-            ratios.l1 = 120;
-            ratios.l2 = 85;
-            ratios.l3 = 50;
-            ratios.l4 = 15;
-        } else if (sportSelect === "Randonnée_pédestre") {
-            ratios.l1 = 50;
-            ratios.l2 = 35;
-            ratios.l3 = 20;
-            ratios.l4 = 5;
-        } else if (sportSelect === "Rugby") {
-            ratios.l1 = 165;
-            ratios.l2 = 115;
-            ratios.l3 = 65;
-            ratios.l4 = 15;
-        } else if (sportSelect === "Ski") {
-            ratios.l1 = 105;
-            ratios.l2 = 70;
-            ratios.l3 = 35;
-            ratios.l4 = 0;
-        } else if (sportSelect === "Tennis") {
-            ratios.l1 = 210;
-            ratios.l2 = 180;
-            ratios.l3 = 150;
-            ratios.l4 = 120;
-        } else if (sportSelect === "Tennis_de_table") {
-            ratios.l1 = 55;
-            ratios.l2 = 35;
-            ratios.l3 = 20;
-            ratios.l4 = 15;
-        } else if (sportSelect === "Tir") {
-            ratios.l1 = 105;
-            ratios.l2 = 75;
-            ratios.l3 = 45;
-            ratios.l4 = 15;
-        } else if (sportSelect === "Voile") {
-            ratios.l1 = 100;
-            ratios.l2 = 70;
-            ratios.l3 = 40;
-            ratios.l4 = 10;
-        } else if (sportSelect === "Autres_fédérations") {
-            ratios.l1 = 370;
-            ratios.l2 = 320;
-            ratios.l3 = 270;
-            ratios.l4 = 220;
-        } else {
-            ratios.l1 = 140;
-            ratios.l2 = 125;
-            ratios.l3 = 110;
-            ratios.l4 = 95;
-        }
+        // Calcul des valeurs qui seront affichée dans la légende
+        //obtenirLegendes(min, max);
+        legende = obtenirLegendes(min, max, 5);
+        ratios.l1 = legende[3];
+        ratios.l2 = legende[2];
+        ratios.l3 = legende[1];
+        ratios.l4 = legende[0];
         
         palette = moduleD.obtenirPalette(couleurMax, couleurMin, ratios);
         
