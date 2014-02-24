@@ -1,10 +1,14 @@
-.imageSecondeLigneG {
+/*.imageSecondeLigneG {
     width: 100%;
     text-align: left;
-}
+}*/
 
 .imagePartenaires {
-    width: 13%;
+    width: 100%;
+}
+
+#tableauLogos {
+    width:100%;
 }
 
 .titre
@@ -452,4 +456,10 @@ p {
 
 .logos {
     margin-top: 70px;
+}
+
+#texteTableauPartenaires {
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
 }
