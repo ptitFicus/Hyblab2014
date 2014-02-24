@@ -796,14 +796,6 @@ $(document).ready(function () {
         ratios = {},
         palette,
         moduleC = moduleCSV();
-
-    /*var viewportWidth = window.innerWidth,
-        viewportHeight = window.innerHeight,
-        mapDiv = document.getElementById("francemap"),
-        mapHeight = viewportHeight / 2 - 30,
-        mapWidth = viewportWidth / 2 - 30;
-    mapDiv.style.width = (mapWidth) + "px";
-    mapDiv.style.height = (mapHeight) + "px";*/
     
     $('#francemap').vectorMap({
         map: 'france_fr',
