@@ -433,10 +433,14 @@ p {
 
 .bandeauCredits {
     background-color: #FFF;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
     text-align: center;
     font-size: 80%;
     font-family: 'Abel', Arial;
-    margin-top: 10px;
+    margin-top: 100px;
+}
+
+.logos {
+    margin-top: 70px;
 }
