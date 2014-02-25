@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1,width=device-width"></meta> 
+        <title>Hyblab</title>
+        
+        
+    
+        <!-- libraires diverses et fichiers js -->
+        <link rel="stylesheet" href="dataviz1/jqvmap.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="dataviz1/datavizStyle.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="dataviz1/odometer-theme-train-station.css" />
+        <script src="lib/jquery-2.1.0.min.js"></script>
+		<script src="lib/highstock.js"></script>
+        <script src="lib/csvUtil.js"></script> 
+        <script src="dataviz1/odometer.min.js"></script>
+        <script src="dataviz1/jquery.vmap.js"></script>
+        <script src="dataviz1/jquery.vmap.france.js"></script>
+        <script src="dataviz1/degrade.js"></script>
+		<script src="dataviz1/exporting.js"></script>
+        <script src="dataviz2/carte_region.js"></script>        
+        <script src="infobulle/infobulle.js"></script>
+        <link href='datavizJO/datavizJO_style.css' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="datavizJO/dataviz_jo.js"></script>
+        <script type="text/javascript" src="lib/raphael-min.js"></script>
+    
+        <!-- onepage scroll -->
+        <script type="text/javascript" src="onepage/jquery.onepage-scroll.js"></script>
+        <script type="text/javascript" src="onepage/onePageInit.js"></script>
+	    <link href='onepage/onepage-scroll.css' rel='stylesheet' type='text/css'>
+
+        <!-- popup menu -->
+        <script src="popmenu/jquery.popmenu.js"></script>
+        <script src="popmenu/popMenuInit.js"></script>
+        <link rel="stylesheet" href="popmenu/font-awesome.min.css"/>
+        <link rel="stylesheet" href="popmenu/stylepopmenu.css"/>
+    </head>
+
+
+    <body bgcolor="#EAE9E5"> 
+        <!-- image trophée -->
+        <div class="preloaded-images">
+            <img id="imageCoupeCachee" src="img/coupe.svg" width="1" height="1" alt="Image 01" />
+        </div>
+
+                
+        <div class="main">                    
+            <!-- Première page -->    
+            <section class="page1">
+                <img id="imageHeader" src="img/Bandeau-Hyblab.jpg">
+                <img id="couronne" src="img/couronne-titre.svg">
+                <div id="titrePrincipal">Sports en France</div>
+                <div id="sousTitre">Les pays de la Loire relèvent le défi</div>
+                <div id="texteIntro">Depuis 2012, nous sommes les champions ! Avec près de 1 licencié pour 3 habitants, les Pays de la Loire méritent le titre de région la plus sportive de France. Nous avons voulu comprendre ce qui expliquait cette place sur la plus haute marche du podium. La réponse dans notre infographie interactive. Et parce que nous sommes fair-play, vous pourrez aussi comparer ces résultats avec ceux des autres régions.</div>                   </section>
+            
+            
+            
+            
+            
+            <!-- Deuxième page : dataviz carte de France -->    
+            <section class="page2">    
+                <div class="titre">Classement par sport et par région en 2012</div>                                
+                <!-- popupmenu -->
+                <div id="popupmenu">
+                    <div id="demo_box">
+                        <div class="pop_ctrl">
+                            <img id="imgCategorie" src="img/categories.svg">
+                        </div>
+                        <ul id="demo_ul">
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tous les sports')" class="pictoChoix" src="img/popmenu/tous.png" alt="Tous les sports">
+                            </li>
+                            <li class="demo_li">
+                                <img onclick="afficherSport('Karaté_et_arts_martiaux_affinitaires')" class="pictoChoix" src="img/popmenu/arts_martiaux.png" alt="Karaté">
+                            <li class="demo_li">
+                            <img class="pictoChoix" onclick="afficherSport('Athlétisme')" src="img/popmenu/athletisme.png" alt="Athlétisme">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Basketball')" class="pictoChoix" src="img/popmenu/basket.png" alt="Basketball">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Équitation')" class="pictoChoix" src="img/popmenu/equitation.png" alt="Équitation">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Football')" class="pictoChoix" src="img/popmenu/football.png" alt="Football">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Golf')" class="pictoChoix" src="img/popmenu/golf.png" alt="Golf">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Gymnastique')" class="pictoChoix" src="img/popmenu/gymnastique.png" alt="Gymnastique">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Handball')" class="pictoChoix" src="img/popmenu/handball.png" alt="Handball">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Judo jujitsu et disciplines associées')" class="pictoChoix" src="img/popmenu/judo.png" alt="Judo">
+                            </li>                            
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Natation')" class="pictoChoix" src="img/popmenu/natation.png" alt="Natation">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Pétanque_et_jeu_provençal')" class="pictoChoix" src="img/popmenu/petanque.png" alt="Pétanque">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Randonnée_pédestre')" class="pictoChoix" src="img/popmenu/rando.png" alt="Randonnée pédestre">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Rugby')" class="pictoChoix" src="img/popmenu/rugby.png" alt="Rugby">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Ski')" class="pictoChoix" src="img/popmenu/ski.png" alt="Ski">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Sports sous marins')" class="pictoChoix" src="img/popmenu/plongee.png" alt="Sports sous marins">                       
+                            </li>               
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tennis')" class="pictoChoix" src="img/popmenu/tennis.png" alt="Tennis">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tennis de table')" class="pictoChoix" src="img/popmenu/ping_pong.png" alt="Tennis de table">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Tir')" class="pictoChoix" src="img/popmenu/tir.png" alt="Tir">
+                            </li> 
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Voile')" class="pictoChoix" src="img/popmenu/voile.png" alt="Tennis">
+                            </li>
+                            <li class="demo_li">
+                            <img onclick="afficherSport('Autres_fédérations')" class="pictoChoix" src="img/popmenu/autres.png" alt="Autres fédérations">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- dataviz (carte et diagramme) -->
+                <div style="padding-top:50px;padding-right:50px;"> 
+                    <div id="francemap"></div>
+                    <div id="container" style="min-width: 310px;"></div>                    
+                </div>
+                <div id="compteur">
+                    <div id="odometer" class="odometer">0</div><br>
+                     <img src="img/legendes/cadre_licencies.svg"> 
+                </div>
+                <div id="legende">
+                    <table class="tableLegende">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="img/la_coupe.png" class="coupeCarte" />
+                                </td>
+                                <td>
+                                    Plus grand nombre de licenciés pour <br>10 000 habitants dans la catégorie
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    
+                    <table class="tableLegende">
+                        <caption ><b>Licenciés pour 10 000 habitants :</b></caption>
+                        <tbody>
+                            <tr>
+                                <td align="center"><img class="cadreLegende1" id="cadreLegende1" src="img/legendes/legende_rond.png"/></td>
+                                <td align="left"><span id="legende1"></span></td>
+                                <td><span style="margin-right:60px;"></span></td>
+                                <td align="center"><img class="cadreLegende2" id="cadreLegende2" src="img/legendes/legende_rond.png"/></td>
+                                <td align="left"><span id="legende2"></span></td>
+                            </tr>
+                            
+                            <tr>
+                                <td align="center"><img class="cadreLegende3" id="cadreLegende3" src="img/legendes/legende_rond.png"/></td>
+                                <td align="left"><span id="legende3"></span></td>
+                                <td><span style="margin-right:60px;"></span></td>
+                                <td align="center"><img class="cadreLegende4" id="cadreLegende4" src="img/legendes/legende_rond.png"/></td>
+                                <td align="left"><span id="legende4"></span></td>
+                            </tr>                   
+                        </tbody>
+                    </table>                    
+                </div>       
+            </section>
+            
+            
+            
+            
+            <!-- Troisième page : dataviz podiums -->    
+            <section class="page3">    
+                <div class="titreLong">LES TROIS RÉGIONS LES PLUS SPORTIVES DE 2009 À 2012</div>                
+                <div align='center'>
+                        <img class="boutonAnnee" id="img2009" onclick="changerAnneePodium(2009, [2009, 2012]);" src="img/podiums/nc2009.png">
+                        <img class="boutonAnnee" id="img2010" onclick="changerAnneePodium(2010, [2009, 2012]);" src="img/podiums/nc2010.png">
+                        <img class="boutonAnnee" id="img2011" onclick="changerAnneePodium(2011, [2009, 2012]);" src="img/podiums/nc2011.png">
+                        <img class="boutonAnnee" id="img2012" onclick="changerAnneePodium(2012, [2009, 2012]);" src="img/podiums/c2012.png">
+                    
+                    <div style="margin-top:40px;"><img id="imagePodium" src="img/podiums/2012.svg" alt="2009"></div>
+                </div>
+            </section>
+            
+            
+            <!-- Quatrième page : interview PDL -->    
+            <section class="page4">
+                    <div class="titreArticleMain">PAYS DE LA LOIRE EN TÊTE : L'AVIS D'UN EXPERT</div>    
+                    <div class="chapeau">
+                        Les Pays de la Loire ont toujours occupé une place de meneur dans le panorama de la pratique sportive française. Gildas Loirand, sociologue, enseignant - chercheur et maître de conférences à l' UFR STAPS, revient sur trois des raisons qui font de notre région une des plus dynamiques de France.
+                    </div>
+                    <div class="contenuArticle">
+                        <div class="colonne">
+                            <div class="titreArticle">
+                                Le volontarisme politique
+                            </div>
+                                Le volontarisme politique en Pays de la Loire est historique et a toujours joué un grand rôle dans le développement du sport. Plus marqué encore en Loire-Atlantique, c’ est un des premiers départements de France, dès 1974, à développer un service d’animation sportif départemental. On affecte des techniciens fonctionnaires dans les cantons afin de proposer une pratique alternative à celle proposée par les clubs traditionnels. Les animateurs sportifs départementaux contribuent ainsi largement au développement des pratiques telles que le tennis de table.
+                            <p>
+                            <div class="titreArticle">
+                                La fusion des clubs
+                            </div>
+                                La fusion de certains clubs au fil des années en Pays de la Loire a contribué à un accroissement certain du niveau d' excellence sportive. Elle a permis de concentrer des activités, des équipes, et de mettre en commun des ressources économiques et matérielles. Parmi les plus populaires, figure le club féminin Rezé-Nantes Basket qui évolue en 1ère division (Pro A).
+                        </div>         
+                        <div class="colonne">
+                            <div class="titreArticle">
+                                Les sports affinitaires                             
+                                <center><img id="defAffinitaires" src="img/legendes/flechesBas.png" alt=""
+                                        onmouseover="montre('En Pays de la Loire, 103 661 licenciés sont inscrits au sein de fédérations dites « affinitaires ». Ces fédérations visent à prioriser la pratique omnisports, leur but principal consistant à la recentrer autour de valeurs humaines et tournées vers le loisir. Dans la région, l’UFOLEP (Union française des œuvres laïques et d’éducation physique) compte 382 clubs qui proposent une pratique multi-activités à 21 408 licenciés (environ 20,7% des licenciés de fédérations affinitaires.)');"
+                                        onmouseout="cache();"></center>
+                                </div>
+                            <div id="curseur" class="infobulle"></div>
+                            Les nombreux conflits idéologiques ayant opposé patronages laïques et catholiques ont eux aussi influencé la diffusion du sport dans la région. Dans leurs affrontements, les deux instances ont toujours eu en commun la volonté affirmée de structurer le temps libre des écoliers, en leur donnant notamment accès à la pratique sportive. De cette manière, les sports tels que la gymnastique et le basket-ball se sont rapidement popularisés. L’influence du patronage catholique est encore présente aujourd’hui, puisque L’Hermine, club phare du basket nantais, et le FC Nantes en sont issus.
+                            <p>
+                                <img src="img/medaille.png" width="100"> 
+                        </div>
+                    </div>
+            </section>
+            
+                        
+            
+            
+            
+            <!-- Cinquième page : dataviz région PDL -->    
+            <section class="page5">
+                <div class="titreLong">L'évolution du nombre de licenciés dans votre département</div>
+                <div id="nomDepartementCadre"><span id="nomDepartementTexte">Loire Atlantique</span></div>
+                <select id="choixSportDpt" onchange="handleDptSportChange(this.value);">
+                    <option value="tous">Tous les sports</option>
+                    <option value="Karate_et_arts_martiaux">Arts martiaux</option>
+                    <option value="Athletisme">Athlétisme</option>
+                    <option value="Basket-Ball">Basketball</option>
+                    <option value="Equitation">Équitation</option>
+                    <option value="Football">Football</option>
+                    <option value="Golf">Golf</option>
+                    <option value="Gymnastique">Gymnastique</option>
+                    <option value="Handball">Handball</option>
+                    <option value="Judo-jujitsu">Judo/jujitsu</option>
+                    <option value="Natation">Natation</option>
+                    <option value="Petanque_et_jeu_provencal">Pétanque et jeu provençal</option>
+                    <option value="Randonnee_pedestre">Randonnée pédestre</option>
+                    <option value="Rugby">Rugby</option>
+                    <option value="Ski">Ski</option>
+                    <option value="Sports_sous_marins">Sports sous marins</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Tennis_de_table">Tennis de table</option>
+                    <option value="Tir">Tir</option>
+                    <option value="Voile">Voile</option>
+                    <option value="Autres_federations">Autres fédérations</option>
+                </select>
+                <div id="courbeDpt"></div>
+                <div id="carte2"></div>
+                <div id="totalDpt">
+                    <div>
+                        TOTAL (2012)<br>
+                        <div id="odometerDpt" class="odometer">0</div>
+                    </div>
+                </div>
+                
+                
+            </section>
+            
+            
+            <!-- Sixième page : interview basket en PDL -->    
+            <section class="page6">
+                    <div class="titreArticleMain">LES PAYS DE LA LOIRE DANS LE HAUT DU PANIER</div>    
+                    <div class="chapeau">
+                    Après 25 années d’expérience dans l’arbitrage de haut niveau, Pierre-Yves Bichon est aujourd’hui vice-président du club de basket l’Hermine de Nantes. Il nous donne son avis sur l’engouement que suscite le basket en Pays de la Loire.
+                    </div>
+                    <div class="contenuArticle">
+                        <div class="colonne2">
+                            <div class="titreArticle2">
+                                La région Pays de la Loire est la région française qui compte le plus grand nombre de licenciés en basket-ball. Un mot à dire sur ce constat ?
+
+                            </div>
+                            Nous avons une pyramide des clubs de basket très bien étagée en Pays de la Loire, de la masse à l'élite, et elle est historique. Les clubs de Cholet et du Mans en première division sont de vraies locomotives. Avec les équipes de Nantes, Angers et Challans, respectivement en deuxième, troisième et quatrième division, l’ancrage de cette élite du basket dans la région est très ancien. Elle draine un grand nombre de joueurs et de sympathisants du basket. Quant au basket féminin, il est excellemment représenté également, notre région étant celle qui enregistre le plus de pratiquantes.
+                            <p>
+                            <div class="titreArticle2">
+                                Que pensez vous de l’engagement des collectivités en faveur du basket-ball dans les Pays de la Loire ?
+                            </div>
+                            Depuis toujours, les collectivités et notamment la Région, ont su appuyer la démarche des clubs professionnels, ayant bien compris leur rôle de chef de file auprès de la masse. Quand les collectivités supportent et soutiennent nos démarches, nos partenaires privés le ressentent et cette caution publique les amènent à considérer les projets des clubs comme sérieux et méritant qu'ils s'y investissent. C'est un véritable cercle vertueux.
+                        </div>         
+                        <div class="colonne2">
+                            <div class="titreArticle2">
+                                Portrait
+                            </div>
+                            Pierre-Yves Bichon a exercé durant 25 ans la fonction d’arbitre de Pro A (arbitrant les finales lors de ses 15 dernières années). Evoluant aussi à l’international pendant 13 ans, il a terminé sa carrière en beauté, en arbitrant en 2010 à Bercy la finale entre Cholet et Le Mans, deux équipes de sa région. La fonction de vice-président qu’il occupe depuis trois ans a été l’occasion d’effectuer une reconversion dans le sport de haut niveau, et de mettre à profit, à l'échelon nantais, toutes ses expériences en France et à l’international.
+                            <p><div><center><img src="img/background_highchart/Basket-Ball.png" width="225"></center></div>
+                        </div>
+                    </div>
+        </section>
+
+            
+            
+            
+            
+            <!-- Septième page : dataviz jo 2012 en PDL -->    
+            <section class="page7">
+                <div class="titre">LA RÉGION AUX J.O DE LONDRES 2012</div>
+                <div id="nomDepartement"></div>
+                <div id="canvas_jo"></div>
+                <div id="Global">
+                    <div id="flamme1" class="flammes"><img src='datavizJO/images/flamme2.svg' width="100"/></div>
+                    <div id="flamme2" class="flammes"><img src='datavizJO/images/flamme2.svg' width="100"/></div>
+                    <div id="centre">
+                        <img id="flecheG" src="datavizJO/images/flechegauche.svg" width="20" alt=""/ onclick="clickBG();">
+                        <div id="info">
+                            <div id="picto"></div>
+                            <div id="texte">
+                                <p><span class="variable">Nom : </span><span id="nom" class="valeur"></span></p>
+                                <p><span class="variable">Discipline : </span><span id="discipline" class="valeur"></span></p>
+                                <p><span class="variable">Club : </span><span id="club" class="valeur"></span></p>
+                                <p><span class="variable">Résultats : </span><span id="resultat" class="valeur"></span></p>
+                            </div>
+                        </div>
+                        <img id="flecheD" src="datavizJO/images/flechedroite.svg" width="20" alt="" onclick="clickBD();"/> 
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Huitième page : données insolites -->    
+            <section class="page8">
+                <div class="titreLong">Le saviez vous ?</div>
+                    <img id="imageInsolite" src="img/lesaviezvous.svg">
+            </section>
+
+            
+            
+            <!-- Neuvième page : vidéo -->
+            <section class="page9">
+                <div class="titre">Le Kinball : un sport totalement à l'Ouest</div>
+                <div align="center">
+                    <div class="articleSansCol">
+                        Un ballon de 1,22 mètres de diamètre, 3 équipes sur un même terrain et des glissades spectaculaires.
+                        Ce sport insolite s’appelle le kinball. 400 licenciés en France dont une grande majorité dans l’Ouest. Reportage sur le Nantes Atlantique Kinball Club.
+                    </div>
+                    <iframe class="video" src="http://www.youtube.com/embed/kajtJ9Bkv8E" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </section>
+        
+        
+        
+            <!-- Dixième page : crédits -->
+            <section class="page10">
+                <div class="titre">Crédits</div>
+                <div class="bandeauCredits">
+                <br>Réalisation (<a href="http://www.polytech-nantes.fr">Polytech Nantes</a>) : Thomas Pradié, Benjamin Cavy, Manuela Guerin 
+                <br>Design (<a href="http://www.agrnantes.fr">AGR L'école de l’image</a>) : Alexandre Forget, Baptiste Denéchère
+                <br>Editorial (<a href="http://www.sciencescom.org">SciencesCom</a>) : Laura Véron, Suzie Le Vagueresse, Tiphaine Honnet
+                <br>Avec la participation et l'aide de Nicolas Dumez (<a href="http://www.paysdelaloire.fr/">région Pays de la Loire</a>)
+                <p>Sources : <a href="http://www.insee.fr/">INSEE</a>, <a href="http://paysdelaloire.franceolympique.com/accueil.php">CROS Pays de la Loire</a>, <a href="http://ores.paysdelaloire.fr/771-licencies-en-sport.htm">ORES Pays de la Loire</a> </p>
+                <div class="logos">
+                    <table id="tableauLogos">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="http://www.paysdelaloire.fr/"><img class="imagePartenaires" src="logos/pdl.jpg" ></a>
+                                </td>
+                                <td>
+                                    <a href="http://www.ouestmedialab.fr/"><img class="imagePartenaires" src="logos/ouestmedialab.jpg" ></a>
+                                </td>
+                                <td>
+                                    <a href="http://www.agrnantes.fr/"><img class="imagePartenaires" src="logos/agr.jpg" ></a>
+                                </td>
+                                <td>
+                                    <a href="http://web.polytech.univ-nantes.fr/"><img class="imagePartenaires" src="logos/polytech.jpg" ></a>
+                                </td>
+                                <td>
+                                    <a href="http://www.sciencescom.org/"><img class="imagePartenaires" src="logos/sciencescom.jpg"></a>
+                                </td>
+                                <td>
+                                    <a href="http://www.orange.fr/"><img class="imagePartenaires" src="logos/orange.jpg" ></a>
+                                </td>
+                                <td>
+                                    <a href="http://www.univ-nantes.fr/"><img class="imagePartenaires" src="logos/univ.jpg" ></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.fr"><img class="imagePartenaires" alt="Licence Creative Commons" style="border-width:0" class="imgCC"  src="logos/cc.jpg"/>
+                                </td>
+                                <td>
+                                    <a href="http://opensource.org/"><img class="imagePartenaires" src="logos/opensourceinitiative.jpg"></a>
+                                </td>
+                                <td>
+                                    <a href="http://www.etalab.gouv.fr/"><img class="imagePartenaires" src="logos/openlicence.jpg"></a>
+                                </td>
+                                <td colspan="3" id="texteTableauPartenaires" >
+                                    Un projet issu des ateliers du
+                                </td>
+                                <td>
+                                    <a href="http://www.hyblab.fr/"><img class="imagePartenaires" src="logos/hyblab.jpg"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        
+        
+        <script src="datavizPodiums/datavizPodiums.js"></script>        
+        <script src="dataviz2/dataviz2.js"></script>
+        <script src="dataviz1/dataviz.js"></script>
+    </body>
+</html>

@@ -1,0 +1,160 @@
+@font-face 
+{
+    font-family: 'Abel';
+    src: url('../fonts/Abel-Regular.ttf') format('truetype');
+}
+@font-face 
+{
+    font-family: 'DinPro-Bold';
+    src: url('../fonts/DINPro-Bold.otf') format('truetype');
+}
+@font-face 
+{
+    font-family: 'DinPro-Medium';
+    src: url('../fonts/DINPro-Medium.otf') format('truetype');
+}
+#Diapo
+{
+    width: 920px;
+    height: 650px;
+    border-style:solid;
+    border-width:1px;
+}
+
+#nomDepartement
+{
+    /* Placement du bloc */
+    margin-top: 20pt;
+    margin-left: auto;
+    margin-right: auto;
+    /* Mise en forme du texte */
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    font-size: 28pt;
+    color: #0F6377;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 2px;
+}
+#canvas_jo {
+    margin-top: 25px;
+    width: 80%;
+    /*max-width: 920px;*/
+    height: 210px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#svgJO {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+#Global
+{
+    margin-top: 25px;
+    width: 100%;
+    height: 260px;
+}
+#Global #flamme1
+{
+    float: left;
+    margin-right: 10px;
+    height: 260px;
+    text-align: right;
+}
+#Global #centre
+{
+    position:relative;
+    overflow: hidden;
+    height: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+#centre #flecheG
+{
+    float: left;
+    width:20px;
+    margin-top: 72px;
+    position: relative;
+    z-index: 5;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+#centre #info {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#info #picto
+{
+    float: left;
+    width: 30%;  
+    margin-left: 10px;
+}
+#info #texte
+{
+    float: left;
+    margin-right: 10px;
+    width: 55%;
+    color: #0F6377;
+    font-size: 12pt;
+}
+#centre #flecheD
+{
+    float: left;
+    width:20px;
+    margin-top: 72px;
+    position: relative;
+    z-index: 5;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+#Global #flamme2
+{
+    float: right;
+    margin-left: 10px;
+    height: 260px;
+    text-align: left;
+}
+.variable
+{
+    font-family: 'DinPro-Bold', Arial;
+    text-transform: uppercase;
+}
+.valeur
+{
+    font-family: 'DinPro-Medium', Arial;
+}
+.flammes
+{
+    margin-top: 50px;
+}
+
+.cercleJO;hover {
+    opacity: 1;
+}
+
+
+@media screen and (min-width: 920px) {
+    #flamme1, #flamme2 {
+        width: 20%;
+    }
+    #centre {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 919px) {
+    #flamme1, #flamme2 {
+        width: 100px;
+    }
+     #centre {
+        width: 65%;
+    }
+}

@@ -1,0 +1,471 @@
+/*.imageSecondeLigneG {
+    width: 100%;
+    text-align: left;
+}*/
+
+.imagePartenaires {
+    width: 100%;
+}
+
+#tableauLogos {
+    width:100%;
+}
+
+.titre
+{
+    /* Placement du bloc */
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    
+    /* Mise en forme du texte */
+    width: 620px;
+    background-color: #0F6377;
+    line-height: 38px;
+    color: #EAE9E5;
+    
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    font-size: 15pt;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.titreArticleMain {
+    /* Placement du bloc */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Mise en forme du texte */
+    width: 620px;
+    background-color: #0F6377;
+    line-height: 38px;
+    color: #EAE9E5;
+    
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    font-size: 15pt;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.titreLong
+{
+    /* Placement du bloc */
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    
+    /* Mise en forme du texte */
+    width: 620px;
+    background-color: #0F6377;
+    line-height: 38px;
+    color: #EAE9E5;
+    
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    font-size: 15pt;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.preloaded-images {
+   position: absolute;
+   overflow: hidden;
+   left: -9999px; 
+   top: -9999px;
+   height: 1px;
+   width: 1px;
+}
+
+#francemap {
+    float:left;
+    width:50%;
+    height: 350px;
+}
+#container {
+    float:right;
+    width:50%;
+    height: 350px;
+}
+
+.coupeCarte {
+    width: 30px;
+}
+
+.cadreLegende1 {
+    width: 40px;    
+}
+
+.cadreLegende2 {
+    width: 35px;    
+}
+
+.cadreLegende3 {
+    width: 25px;    
+}
+
+.cadreLegende4 {
+    width: 20px;    
+}
+
+
+#legende {
+    color: #0F6377;  
+    float: left;
+    font-size: 80%;
+    font-family: 'Abel', Arial;
+    width: 50%;
+}
+
+.tableLegende {
+    margin: 0 auto;
+}
+
+.video {
+    width: 560px;
+    height: 315px;
+}
+
+#carte2 {
+    width:50%;
+    height: 400px;
+    float:right;
+}
+
+#courbeDpt {
+    width: 50%;
+    float: left;
+    height: 500px;
+}
+
+#courbeDpt {
+    background: url(../img/background_highchart/vide.png) no-repeat center;
+}
+
+.celluleSport {    
+    font-weight: bold;
+    color: #D33C3D;
+    text-align: center;
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+.celluleSport h1, .celluleSport h2, .celluleSport h3, .celluleSport h4, .celluleSport h5 
+{
+    border: 1px solid #D33C3D;
+}
+
+.sportRegions {
+    border: 1px solid #D33C3D;
+    color: #FFF;
+    background: #D33C3D;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
+    /*height:100%;*/
+    /*padding:200px;*/
+    width: 100px;
+    font-family: 'Abel', Arial;
+}
+
+.sportRegionsTotal {
+    border: 1px solid #D33C3D;
+    color: #FFF;
+    background: #D33C3D;
+    text-align: center;
+    margin-left:100px; margin-right:75px; margin-top:10px;
+}
+
+#compteur {
+    /*border: 1px solid #D33C3D; */
+    text-align: center;
+    font-family: 'Abel', Arial;
+}
+
+#texteCompteur {
+    color: #D33C3D;
+    font-weight: bold;     
+}
+
+#element_to_pop_up { 
+    display:none; 
+    color: #0F6377;
+    text-align: center;
+    font-family: 'Abel', Arial;
+}
+
+#defAffinitaires {
+    cursor: pointer;   
+}
+
+@media screen and (min-width: 880px) {
+    .colonne {
+        font-size: 12pt;
+        line-height: 17pt;
+    }
+    
+    .chapeau {
+        padding-bottom:10px;
+        font-size: 12pt;
+        letter-spacing: 1px;
+        line-height: 17pt;
+    }
+}
+
+@media screen and (max-width: 879px) {
+    .colonne + .colonne {
+        padding-right: 40px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .titreArticleMain {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    .titreArticle2 {
+        margin-bottom: 10px;
+    }
+}
+
+.colonne {
+    display:table-cell;
+    width:40%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: justify;
+    font-family: 'Abel', Arial;
+    
+}
+
+.colonne2 {
+    display:table-cell;
+    width:40%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: justify;
+    font-family: 'Abel', Arial;
+    font-size: 11pt;
+    line-height: 14pt;
+    
+}
+
+.colonne + .colonne {
+  border-left:1px solid #D33C3D;
+}
+
+.colonne2 + .colonne2 {
+  border-left:1px solid #D33C3D;
+}
+
+.titreArticle {
+    margin-bottom: 10px;
+    color: #D33C3D;
+    text-align: center;
+    font-size: 12pt;
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.titreArticle2 {
+    
+    color: #D33C3D;
+    text-align: center;
+    font-size: 11pt;
+    font-family: 'Abel', Arial;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#compteur {
+    width: 50%;
+    float: right;
+}
+
+#nomDepartementCadre {
+    padding: 10px;
+    text-align:center;
+    width:50%;
+    color: #D33C3D;
+    font-weight:bold;    
+    font-family: 'Abel', Arial;
+}
+
+#nomDepartementTexte {
+    border: 2px solid #D33C3D;
+    padding: 5px;
+}
+
+#choixSportDpt {
+    background-color: #D33C3D;
+    color: #ffffff;
+}
+
+#totalDpt {
+    float: right;
+    width: 50%;
+    text-align:center;
+    color: #D33C3D;
+    font-weight:bold;
+    font-family: 'Abel', Arial
+}
+
+.imgCC {
+    margin-top: 10px;
+}
+
+.boutonAnnee {
+    margin-right: 20px;
+    cursor: pointer;
+    width: 9.0141304%;
+}
+
+#imageHeader {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100%;
+    max-height: 290px;
+    max-width: 920px;
+}
+#couronne
+{
+    padding: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#titrePrincipal
+{
+    font-family: 'Abel', Arial;
+    font-size: 22pt;
+    color: #0F6377;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+#sousTitre
+{
+    font-family: 'Abel', Arial;
+    font-size: 15pt;
+    color: #0F6377;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+#texteIntro {
+    width: 50%;
+    margin-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    font-family: 'Abel', Arial;
+    color: #000000;
+    font-size: 12pt;
+    line-height: 16px;
+}
+
+
+p {
+    /*text-align:justify;*/
+    text-align:center;
+}
+
+.chapeau {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width:80%;
+    font-family: 'Abel', Arial;
+    max-width: 850px;
+}
+
+.contenuArticle {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 850px;
+}
+
+.colonne img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#my-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+#imageInsolite {
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-height: 550px;
+}
+
+
+.articleSansCol {
+    text-align:justify;
+    width: 60%;
+    margin-bottom: 20px;
+    font-family: 'Abel', Arial;
+    font-size: 12pt;
+    line-height: 17pt;
+    max-width: 850px;
+}
+
+
+
+#odometer {
+    margin-top: 50px;
+}
+
+
+.infobulle{
+    position: absolute;   
+    visibility: hidden;
+    border: 1px solid Black;
+    padding: 10px;
+    font-family: 'Abel', Arial;
+    font-size: 14px;
+    line-height: 15pt;
+    background-color: #EAE9E5;
+}
+
+#nomRegion {
+    margin-top: 6px; 
+    color: #EAE9E5;
+    font-family: 'Abel', Arial;
+    font-weight: bold;        
+}
+
+.bandeauCredits {
+    background-color: #FFF;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+    font-size: 80%;
+    font-family: 'Abel', Arial;
+    margin-top: 100px;
+}
+
+.logos {
+    margin-top: 70px;
+}
+
+#texteTableauPartenaires {
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+}
