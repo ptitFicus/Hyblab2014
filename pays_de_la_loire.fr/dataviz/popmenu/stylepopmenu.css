@@ -2,9 +2,6 @@
     max-width: 50px;
     width: 100%;
     color: #000000;
-    /*margin-right: auto;
-    margin-left: auto;*/
-    /*margin-left:435px;*/
 }
 #demo_box{
     width: 90%;
@@ -13,17 +10,12 @@
     color: #000000;
 }
 
-.pictoChoix {
-    /*width: 125px;
-    height: 125px;*/
-}
-
-.pictoChoix:hover {
-    opacity: 0.5;
-}
-
 .pop_ctrl img {
     width: 70px;
+}
+
+#imgCategorie:hover {
+    opacity: 0.5;
 }
 
 .pop_ctrl {

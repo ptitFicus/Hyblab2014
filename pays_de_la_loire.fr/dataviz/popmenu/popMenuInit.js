@@ -9,11 +9,4 @@ $(document).ready(function () {
     for (i = 0; i < tab.length; i += 1) {
         tab[i].style.width = (Math.floor(window.innerWidth / 9)) + "px";
     }
-    
-    $('#popupmenu').bind('mouseover', function (e) {
-        document.getElementById("imgCategorie").style.opacity = 0.4;
-    });
-    $('#popupmenu').bind('mouseout', function (e) {
-        document.getElementById("imgCategorie").style.opacity = 1;
-    });
 });
