@@ -425,10 +425,12 @@ p {
     max-width: 850px;
 }
 
-
+.odometer {
+    font-size:30px;
+}
 
 #odometer {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 
