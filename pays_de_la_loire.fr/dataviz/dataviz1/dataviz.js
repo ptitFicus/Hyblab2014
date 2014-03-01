@@ -52,7 +52,6 @@ function creerDiagramme() {
             text: sportSelectionne.replace(/_/g, " ")
         },
         subtitle: {
-            text: 'Cliquez sur une région pour afficher les chiffres associés',
             style: {
                 fontSize:'15px'
             },
@@ -613,7 +612,7 @@ function afficherSport(sportSelect) {
         l4,
         dataDiagramme,
         legende;
-
+    chart.setTitle(null, {text: 'Cliquez sur une région pour afficher les chiffres associés'});
     sportSelect = sportSelect.toString();
 	//document.getElementById("texteCompteur").innerHTML = "licenciés en France (" + sportSelect.replace(/_/g, " ") + ")";
     
